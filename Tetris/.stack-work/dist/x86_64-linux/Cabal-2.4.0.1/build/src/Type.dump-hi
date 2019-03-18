@@ -1,13 +1,13 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-18 16:43:31.174138187 UTC
+2019-03-18 21:42:18.729624277 UTC
 
 interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:Type 8063
-  interface hash: 94bd289c80c2071c1e59389bb502844f
-  ABI hash: c320e7988faa217d4e94e40e941a7c9c
-  export-list hash: 2f5215e8e1bd0cd2fbead5934ab8e6f8
+  interface hash: 9d3e627d85680a64d7e536db0d1941c2
+  ABI hash: 8d1eef560cda4fd88a79e92507d26c67
+  export-list hash: f665aa94ed217f79f139e966fb35927e
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
-  flag hash: d59a86fc39dabe8754ebbfb830e37f1e
+  flag hash: b176a7fae7e4488ae62dd9b3f12b8417
   opt_hash: 6faf2de08de32d19db9870899d88e59a
   hpc_hash: 93b885adfe0da089cdf634904fd59f71
   plugin_hash: ad164012d6b1e14942349d58b1132007
@@ -16,10 +16,17 @@ interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:Type 8063
   where
 exports:
   Type.createField
+  Type.createIndices
   Type.createLine
+  Type.getCell
+  Type.lowerCell
+  Type.typeCell
+  Type.typeCellFromField
   Type.Cell{Type.Cell cellColor cellType numCell numLine}
   Type.Field
+  Type.Indices
   Type.Line
+  Type.NumberFigure
 module dependencies:
 package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.14
                       ObjectName-1.1.0.1 OpenGL-3.0.2.2 OpenGLRaw-3.3.2.0
@@ -53,6 +60,8 @@ family instance modules: base-4.12.0.0:Control.Applicative
                          template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
                          text-1.2.3.1:Data.Text
 import  -/  base-4.12.0.0:GHC.Base cc906f98291a1b830546e99a96674547
+import  -/  base-4.12.0.0:GHC.List 734a72beb76d276fb4a0ba2689a5711f
+import  -/  base-4.12.0.0:GHC.Num 847723f2584d989dac1eada133ac3fb8
 import  -/  base-4.12.0.0:GHC.Show 4e438f26d903388cc6c2c5d64ed01b98
 import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
 import  -/  ghc-prim-0.5.3:GHC.Classes e0d9c979f6368701f34fa421754d2cce
@@ -261,6 +270,17 @@ a41564a8c8d2e7c36353b2895aa760c0
 b074d30ccfbff068540a2a5b9d366edf
   $wgo :: GHC.Prim.Int# -> (# Type.Line, [Type.Line] #)
   {- Arity: 1, HasNoCafRefs, Strictness: <L,U>, Inline: [2] -}
+d2daf2dbcdf9064edefd362f4de5dd7e
+  $wlowerCell ::
+    GHC.Prim.Int# -> GHC.Prim.Int# -> Type.Field -> Type.Cell
+  {- Arity: 3, Strictness: <S,U><S,U><S,1*U>, Inline: [2],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (ww1 :: GHC.Prim.Int#)
+                   (w :: Type.Field) ->
+                 GHC.List.$w!!
+                   @ Type.Cell
+                   (GHC.List.$w!! @ Type.Line w (GHC.Prim.+# ww 1#))
+                   ww1) -}
 32908d2cab836d3b5050ddbb5afa10f7
   data Cell
     = Cell {numLine :: GHC.Types.Int,
@@ -269,8 +289,12 @@ b074d30ccfbff068540a2a5b9d366edf
             cellColor :: Graphics.Gloss.Internals.Data.Color.Color}
 6be124ee151753aa2bde2641251bd2e1
   type Field = [Type.Line]
+89dbf0a0d30950bc33b2cc9b15fe016f
+  type Indices = [(GHC.Types.Int, GHC.Types.Int)]
 fcd8ccd715b32cf954bf3293edcfd3ac
   type Line = [Type.Cell]
+e5b5dfd8f647ef306266b29dc0534566
+  type NumberFigure = GHC.Types.Int
 32908d2cab836d3b5050ddbb5afa10f7
   cellColor :: Type.Cell -> Graphics.Gloss.Internals.Data.Color.Color
   RecSel Left Type.Cell
@@ -291,6 +315,13 @@ fcd8ccd715b32cf954bf3293edcfd3ac
   createField :: Type.Field
   {- Unfolding: (case Type.$wgo 1# of ww { (#,#) ww1 ww2 ->
                  GHC.Types.: @ Type.Line ww1 ww2 }) -}
+b16b980bece64e2c3ba172fd826750b8
+  createIndices :: Type.Indices
+  {- Unfolding: (Type.createIndices_go 1#) -}
+0abb938356308783238e8ee31c03aaa6
+  createIndices_go ::
+    GHC.Prim.Int# -> [(GHC.Types.Int, GHC.Types.Int)]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U> -}
 64c15ef072c43676973a437a340e326e
   createLine :: GHC.Types.Int -> Type.Line
   {- Arity: 1, HasNoCafRefs, Strictness: <L,U>,
@@ -311,6 +342,31 @@ fcd8ccd715b32cf954bf3293edcfd3ac
                           10# -> GHC.Types.[] @ Type.Cell })
                  } in
                  go 1#) -}
+fc2deeea3067358ea975e9fcf6d7fcf9
+  getCell ::
+    Type.Field -> GHC.Types.Int -> GHC.Types.Int -> Type.Cell
+  {- Arity: 3, Strictness: <S,1*U><S(S),1*U(U)><S(S),1*U(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (field :: Type.Field)
+                   (x :: GHC.Types.Int)
+                   (y :: GHC.Types.Int) ->
+                 case y of ww { GHC.Types.I# ww1 ->
+                 case x of ww2 { GHC.Types.I# ww3 ->
+                 GHC.List.$w!!
+                   @ Type.Cell
+                   (GHC.List.$w!! @ Type.Line field ww3)
+                   ww1 } }) -}
+f37708f9688eef7f147c4617091a9db3
+  lowerCell :: Type.Cell -> Type.Field -> Type.Cell
+  {- Arity: 2,
+     Strictness: <S(S(S)S(S)LL),1*U(1*U(U),1*U(U),A,A)><S,1*U>,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Type.Cell) (w1 :: Type.Field) ->
+                 case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
+                 case ww1 of ww5 { GHC.Types.I# ww6 ->
+                 case ww2 of ww7 { GHC.Types.I# ww8 ->
+                 Type.$wlowerCell ww6 ww8 w1 } } }) -}
 32908d2cab836d3b5050ddbb5afa10f7
   numCell :: Type.Cell -> GHC.Types.Int
   RecSel Left Type.Cell
@@ -327,6 +383,28 @@ fcd8ccd715b32cf954bf3293edcfd3ac
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.Cell) ->
                  case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds1 }) -}
+8a9ffc3e094d2ac3397ef5b9d28b7bf5
+  typeCell :: Type.Cell -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLSL),1*U(A,A,1*U(U),A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Type.Cell) ->
+                 case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds3 }) -}
+008b0cd91e40128ac9b1e18138c3c4fb
+  typeCellFromField ::
+    Type.Field -> GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int
+  {- Arity: 3, Strictness: <S,1*U><S(S),1*U(U)><S(S),1*U(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (field :: Type.Field)
+                   (x :: GHC.Types.Int)
+                   (y :: GHC.Types.Int) ->
+                 case y of ww { GHC.Types.I# ww1 ->
+                 case x of ww2 { GHC.Types.I# ww3 ->
+                 case GHC.List.$w!!
+                        @ Type.Cell
+                        (GHC.List.$w!! @ Type.Line field ww3)
+                        ww1 of wild { Type.Cell ds ds1 ds2 ds3 ->
+                 ds2 } } }) -}
 instance GHC.Show.Show [Type.Cell] = Type.$fShowCell
 trusted: none
 require own pkg trusted: False

@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-18 16:57:20.354361207 UTC
+2019-03-18 21:43:32.205481675 UTC
 
 interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:Draw 8063
-  interface hash: 30cd06cd5d6dd8f2f88e995626ca8245
-  ABI hash: 5250bf09d62c8cf3ae8f6bbad7853153
-  export-list hash: 289f43cc1b67c26e866dabb150e1c16f
+  interface hash: ad8f323b419ccf331ef1ac9d143cb70c
+  ABI hash: 42c5d39368a456c9a1887a3b3f82ec09
+  export-list hash: e0e0e2ffa71b4d073bd61247ca1dc2cf
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: b176a7fae7e4488ae62dd9b3f12b8417
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -15,11 +15,11 @@ interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:Draw 8063
   used TH splices: False
   where
 exports:
-  Draw.background
   Draw.drawCell
   Draw.drawField
   Draw.drawLine
   Draw.objects
+  Draw.pictureField
   Draw.window
 module dependencies: Type
 package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.14
@@ -65,8 +65,8 @@ import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Picture dfdd7bdaa58e50073d0e7acd8
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Display 3ad49ba84c686525512d90d55b04a0ef
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Picture 82e16028b6e02fb465dc928e7e9197a2
-import  -/  Type c320e7988faa217d4e94e40e941a7c9c
-  exports: 2f5215e8e1bd0cd2fbead5934ab8e6f8
+import  -/  Type 8d1eef560cda4fd88a79e92507d26c67
+  exports: f665aa94ed217f79f139e966fb35927e
   Cell 946f43438e47d85d6d9f9a65a586848b
   Cell 32908d2cab836d3b5050ddbb5afa10f7
   Field 6be124ee151753aa2bde2641251bd2e1
@@ -90,41 +90,122 @@ b28fc80ac82ca653a48d9d62d3f00263
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
      Unfolding: ("project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"#) -}
-4fc985c2018519253e4567071def8cd7
-  $wdrawCell ::
-    GHC.Types.Int
-    -> GHC.Types.Int
-    -> Graphics.Gloss.Internals.Data.Color.Color
+e0b295ea34bbaf29bd024a1586a88074
+  drawCell ::
+    Type.Cell
+    -> GHC.Types.Bool -> Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Arity: 2, Strictness: <S,1*U(1*U(U),1*U(U),A,U)><S,1*U>m12,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Type.Cell) (w1 :: GHC.Types.Bool) ->
+                 case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
+                 case w1 of wild {
+                   GHC.Types.False
+                   -> Graphics.Gloss.Internals.Data.Picture.Translate
+                        (case ww2 of wild1 { GHC.Types.I# i ->
+                         GHC.Types.F#
+                           (GHC.Prim.timesFloat#
+                              50.0#
+                              (GHC.Prim.minusFloat# (GHC.Prim.int2Float# i) 6.0#)) })
+                        (case ww1 of wild1 { GHC.Types.I# i ->
+                         GHC.Types.F#
+                           (GHC.Prim.timesFloat#
+                              50.0#
+                              (GHC.Prim.minusFloat# (GHC.Prim.int2Float# i) 7.0#)) })
+                        (Graphics.Gloss.Internals.Data.Picture.Color ww4 Draw.drawCell4)
+                   GHC.Types.True
+                   -> Graphics.Gloss.Internals.Data.Picture.Translate
+                        (case ww2 of wild1 { GHC.Types.I# i ->
+                         GHC.Types.F#
+                           (GHC.Prim.timesFloat#
+                              50.0#
+                              (GHC.Prim.minusFloat# (GHC.Prim.int2Float# i) 6.0#)) })
+                        (case ww1 of wild1 { GHC.Types.I# i ->
+                         GHC.Types.F#
+                           (GHC.Prim.timesFloat#
+                              50.0#
+                              (GHC.Prim.minusFloat# (GHC.Prim.int2Float# i) 7.0#)) })
+                        Draw.drawCell1 } }) -}
+20ec27997fb42d57ac266e214b912c0c
+  drawCell1 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m11,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
+                   Graphics.Gloss.Data.Color.black
+                   Draw.drawCell2) -}
+d44a5e5860d63ded39a0a46ff3c6c14f
+  drawCell2 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Unfolding: (case Graphics.Gloss.Data.Picture.$wrectanglePath
+                        Draw.drawCell3
+                        Draw.drawCell3 of ww { (#,#) ww1 ww2 ->
+                 Graphics.Gloss.Internals.Data.Picture.Line
+                   (GHC.Base.++_$s++
+                      @ (GHC.Types.Float, GHC.Types.Float)
+                      (GHC.Types.:
+                         @ (GHC.Types.Float, GHC.Types.Float)
+                         ww1
+                         (GHC.Types.[] @ (GHC.Types.Float, GHC.Types.Float)))
+                      ww1
+                      ww2) }) -}
+ecf41e7ef50c8f594bf2f75592ee350a
+  drawCell3 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 50.0#) -}
+f3748ade4224edfc811f6aff743e9632
+  drawCell4 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m2,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Polygon
+                   Draw.drawCell5) -}
+c4bed4ad50fa32c60fea908bfd381cc0
+  drawCell5 :: Graphics.Gloss.Internals.Data.Picture.Path
+  {- Unfolding: (case Graphics.Gloss.Data.Picture.$wrectanglePath
+                        Draw.drawCell3
+                        Draw.drawCell3 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Picture.Point
+                   ww1
+                   ww2 }) -}
+44e6d8469b9453107db1c9cd3e909aa8
+  drawField :: Type.Field -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Draw.drawField1
+                  `cast`
+                (<Type.Field>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+e3351007847c4147690e4fd23dce9c0f
+  drawField1 ::
+    Type.Field
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 4, Strictness: <L,U(U)><L,U(U)><L,U(U,U,U,U)><S,U>,
-     Inline: [2],
-     Unfolding: (\ (ww :: GHC.Types.Int)
-                   (ww1 :: GHC.Types.Int)
-                   (ww2 :: Graphics.Gloss.Internals.Data.Color.Color)
-                   (w :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+  {- Arity: 2, Strictness: <L,U><S,U>,
+     Unfolding: (\ (f :: Type.Field)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case Graphics.Gloss.Internals.Interface.Display.displayWithBackend1
+                        @ Graphics.Gloss.Internals.Interface.Backend.GLUT.GLUTState
+                        Graphics.Gloss.Internals.Interface.Backend.GLUT.$fBackendGLUTState
+                        Graphics.Gloss.Internals.Interface.Backend.GLUT.glutStateInit
+                        Draw.window
+                        Graphics.Gloss.Data.Color.blue
+                        (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                         (# s1,
+                            Graphics.Gloss.Internals.Data.Picture.Pictures
+                              (Draw.pictureField f GHC.Types.False) #))
+                          `cast`
+                        (Sym (GHC.Types.N:IO[0]
+                                  <Graphics.Gloss.Internals.Data.Picture.Picture>_R))
+                        Graphics.Gloss.Interface.Pure.Display.display2
+                          `cast`
+                        (<Graphics.Gloss.Data.Controller.Controller>_R
+                         ->_R Sym (GHC.Types.N:IO[0] <()>_R))
+                        s of ds1 { (#,#) ipv ipv1 ->
                  Graphics.Gloss.Internals.Interface.Display.displayWithBackend1
                    @ Graphics.Gloss.Internals.Interface.Backend.GLUT.GLUTState
                    Graphics.Gloss.Internals.Interface.Backend.GLUT.$fBackendGLUTState
                    Graphics.Gloss.Internals.Interface.Backend.GLUT.glutStateInit
                    Draw.window
-                   ww2
-                   (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                    (# s,
-                       Graphics.Gloss.Internals.Data.Picture.Polygon
-                         (case Graphics.Gloss.Data.Picture.$wrectanglePath
-                                 (case ww of wild { GHC.Types.I# i ->
-                                  GHC.Types.F#
-                                    (GHC.Prim.timesFloat# 5.0e-2# (GHC.Prim.int2Float# i)) })
-                                 (case ww1 of wild { GHC.Types.I# i ->
-                                  GHC.Types.F#
-                                    (GHC.Prim.timesFloat#
-                                       5.0e-2#
-                                       (GHC.Prim.int2Float# i)) }) of ww3 { (#,#) ww4 ww5 ->
-                          GHC.Types.:
-                            @ Graphics.Gloss.Internals.Data.Picture.Point
-                            ww4
-                            ww5 }) #))
+                   Graphics.Gloss.Data.Color.blue
+                   (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                    (# s1,
+                       Graphics.Gloss.Internals.Data.Picture.Pictures
+                         (Draw.pictureField f GHC.Types.True) #))
                      `cast`
                    (Sym (GHC.Types.N:IO[0]
                              <Graphics.Gloss.Internals.Data.Picture.Picture>_R))
@@ -132,96 +213,73 @@ b28fc80ac82ca653a48d9d62d3f00263
                      `cast`
                    (<Graphics.Gloss.Data.Controller.Controller>_R
                     ->_R Sym (GHC.Types.N:IO[0] <()>_R))
-                   w) -}
-e35c29f6ee24269bbf62858f7d3b9d79
-  background :: Graphics.Gloss.Internals.Data.Color.Color
-  {- Strictness: m,
-     Unfolding: InlineRule (0, True, True)
-                Graphics.Gloss.Data.Color.white -}
-66000fc6dea2003c8c0a737f879d52af
-  drawCell :: Type.Cell -> GHC.Types.IO ()
-  {- Arity: 2, Strictness: <S,1*U(U(U),U(U),A,U(U,U,U,U))><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                Draw.drawCell1
-                  `cast`
-                (<Type.Cell>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-f881b6b89fd8c273e3bb6a746acb0238
-  drawCell1 ::
-    Type.Cell
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <S,1*U(U(U),U(U),A,U(U,U,U,U))><S,U>,
-     Inline: [2],
-     Unfolding: InlineRule (2, True, False)
-                (\ (w :: Type.Cell) (w1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
-                 Draw.$wdrawCell ww1 ww2 ww4 w1 }) -}
-ca4a3cec8943ca59ee1675f4ab7ce4c0
-  drawField :: Type.Field -> GHC.Types.IO ()
-  {- Arity: 2, Strictness: <S,1*U><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                Draw.drawField1
-                  `cast`
-                (<[Type.Line]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-d62bb922a50fc24581ce7c97f9696b3d
-  drawField1 ::
-    [Type.Line]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <S,1*U><S,U> -}
-27b8d4892544b0d1950ae433bf37d2d1
-  drawLine :: Type.Line -> GHC.Types.IO ()
-  {- Arity: 2, Strictness: <S,1*U><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                Draw.drawLine1
-                  `cast`
-                (<[Type.Cell]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-526711912bce84323bf1dcedbad29705
-  drawLine1 ::
-    [Type.Cell]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <S,1*U><S,U> -}
-31a9cf7fd90b58d52128ebe740689d4e
+                   ipv }) -}
+321b5af2f22716c9fbd4bbf1b8d32f21
+  drawLine ::
+    Type.Line
+    -> GHC.Types.Bool
+    -> [Graphics.Gloss.Internals.Data.Picture.Picture]
+  {- Arity: 2, Strictness: <S,1*U><L,U> -}
+7ddcef537683a53d604468558c45bc06
   objects ::
     GHC.Types.Float
-    -> GHC.Types.Float -> Graphics.Gloss.Internals.Data.Picture.Picture
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(U)><L,1*U(U)>m2,
+    -> GHC.Types.Float
+    -> Graphics.Gloss.Internals.Data.Color.Color
+    -> GHC.Types.Bool
+    -> Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Arity: 4, Strictness: <L,1*U(U)><L,1*U(U)><L,U><S,1*U>m12,
      Inline: [2],
-     Unfolding: InlineRule (2, True, False)
-                (\ (w :: GHC.Types.Float) (w1 :: GHC.Types.Float) ->
-                 Graphics.Gloss.Internals.Data.Picture.Polygon
-                   (case Graphics.Gloss.Data.Picture.$wrectanglePath
-                           (case w of wild1 { GHC.Types.F# y ->
-                            GHC.Types.F# (GHC.Prim.timesFloat# 5.0e-2# y) })
-                           (case w1 of wild1 { GHC.Types.F# y ->
-                            GHC.Types.F#
-                              (GHC.Prim.timesFloat# 5.0e-2# y) }) of ww { (#,#) ww1 ww2 ->
-                    GHC.Types.:
-                      @ Graphics.Gloss.Internals.Data.Picture.Point
-                      ww1
-                      ww2 })) -}
-45c56f0289c03be0f838d8199c06c428
+     Unfolding: InlineRule (4, True, False)
+                (\ (w :: GHC.Types.Float)
+                   (w1 :: GHC.Types.Float)
+                   (w2 :: Graphics.Gloss.Internals.Data.Color.Color)
+                   (w3 :: GHC.Types.Bool) ->
+                 case w3 of wild {
+                   GHC.Types.False
+                   -> Graphics.Gloss.Internals.Data.Picture.Translate
+                        (case w1 of wild1 { GHC.Types.F# x ->
+                         GHC.Types.F#
+                           (GHC.Prim.timesFloat# 50.0# (GHC.Prim.minusFloat# x 6.0#)) })
+                        (case w of wild1 { GHC.Types.F# x ->
+                         GHC.Types.F#
+                           (GHC.Prim.timesFloat# 50.0# (GHC.Prim.minusFloat# x 7.0#)) })
+                        (Graphics.Gloss.Internals.Data.Picture.Color w2 Draw.drawCell4)
+                   GHC.Types.True
+                   -> Graphics.Gloss.Internals.Data.Picture.Translate
+                        (case w1 of wild1 { GHC.Types.F# x ->
+                         GHC.Types.F#
+                           (GHC.Prim.timesFloat# 50.0# (GHC.Prim.minusFloat# x 6.0#)) })
+                        (case w of wild1 { GHC.Types.F# x ->
+                         GHC.Types.F#
+                           (GHC.Prim.timesFloat# 50.0# (GHC.Prim.minusFloat# x 7.0#)) })
+                        Draw.drawCell1 }) -}
+fbefe7ad857fae1004163b9993dd40fe
+  pictureField ::
+    Type.Field
+    -> GHC.Types.Bool
+    -> [Graphics.Gloss.Internals.Data.Picture.Picture]
+  {- Arity: 2, Strictness: <S,1*U><L,U> -}
+17c039d3120bc46b4512aa0dc8feb588
   window :: Graphics.Gloss.Data.Display.Display
   {- Strictness: m1,
      Unfolding: (Graphics.Gloss.Data.Display.InWindow
                    Draw.window5
                    Draw.window3
                    Draw.window1) -}
-23a780d61d560d70524592da38c01c6c
+919f5d3fc943d3c0b1e46fe2e733d90b
   window1 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Draw.window2, Draw.window2)) -}
-55f8d7c61fdbcd225da7a320cd6fdd7f
+8e373d0e36dcca34e48e87d7b1a544ef
   window2 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10#) -}
-cf72a99e559bb0c0c16b6f336c5b94f1
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+ee157e0f4291a5cc78643704de1abc83
   window3 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Draw.window4, Draw.window4)) -}
-f42b43fa3879253b55630b5aa32b71e7
+fafc56dea96e94693c8df2c26b783977
   window4 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 200#) -}
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1000#) -}
 ff75ce5c8677a6f6c57ed3eb202286bf
   window5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# Draw.window6) -}
