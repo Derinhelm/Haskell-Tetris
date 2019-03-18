@@ -1,0 +1,150 @@
+
+==================== FINAL INTERFACE ====================
+2019-03-18 16:55:37.166002837 UTC
+
+interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:MyProj 8063
+  interface hash: ec8681c6225dd340aa0254cf7aaf20d7
+  ABI hash: 89e242a99a3ec6e818c200d93851b256
+  export-list hash: 60240946e2bad54b51a6c4076a2db129
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: d59a86fc39dabe8754ebbfb830e37f1e
+  opt_hash: 6faf2de08de32d19db9870899d88e59a
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  MyProj.checkEnd
+  MyProj.deleteLines
+  MyProj.gameLoop
+  MyProj.shiftFigure
+  MyProj.tetris
+module dependencies: Draw Type
+package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.14
+                      ObjectName-1.1.0.1 OpenGL-3.0.2.2 OpenGLRaw-3.3.2.0
+                      StateVar-1.1.1.1 array-0.5.3.0 base-4.12.0.0 binary-0.8.6.0
+                      bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 deepseq-1.4.4.0
+                      fixed-0.2.1.1 ghc-boot-th-8.6.3 ghc-prim-0.5.3 gloss-1.13.0.1
+                      gloss-rendering-1.13.0.2 half-0.3 integer-gmp-1.0.2.0
+                      pretty-1.1.3.6 stm-2.5.0.0 template-haskell-2.14.0.0 text-1.2.3.1
+orphans: stm-2.5.0.0:Control.Monad.STM text-1.2.3.1:Data.Text
+         binary-0.8.6.0:Data.Binary.Generic text-1.2.3.1:Data.Text.Show
+         bytestring-0.10.8.2:Data.ByteString.Builder base-4.12.0.0:GHC.Float
+         base-4.12.0.0:GHC.Base
+family instance modules: base-4.12.0.0:Control.Applicative
+                         base-4.12.0.0:Data.Complex base-4.12.0.0:Data.Functor.Compose
+                         base-4.12.0.0:Data.Functor.Const
+                         base-4.12.0.0:Data.Functor.Identity
+                         base-4.12.0.0:Data.Functor.Product base-4.12.0.0:Data.Functor.Sum
+                         base-4.12.0.0:Data.Monoid base-4.12.0.0:Data.Semigroup
+                         base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:Data.Version
+                         base-4.12.0.0:Data.Void base-4.12.0.0:GHC.Exts
+                         base-4.12.0.0:GHC.Generics base-4.12.0.0:GHC.IO.Exception
+                         containers-0.6.0.1:Data.IntMap.Internal
+                         containers-0.6.0.1:Data.IntSet.Internal
+                         containers-0.6.0.1:Data.Map.Internal
+                         containers-0.6.0.1:Data.Sequence.Internal
+                         containers-0.6.0.1:Data.Set.Internal containers-0.6.0.1:Data.Tree
+                         ghc-boot-th-8.6.3:GHC.ForeignSrcLang.Type
+                         ghc-boot-th-8.6.3:GHC.LanguageExtensions.Type half-0.3:Numeric.Half
+                         pretty-1.1.3.6:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.6:Text.PrettyPrint.HughesPJ
+                         template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.3.1:Data.Text
+import  -/  base-4.12.0.0:GHC.Base cc906f98291a1b830546e99a96674547
+import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
+import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
+import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.ViewPort 7e5645b5bb81ad2d5978de10c91ae477
+import  -/  Draw ade1d0c4fcfc791996429c5da4bd386f
+  exports: 289f43cc1b67c26e866dabb150e1c16f
+  drawField ca4a3cec8943ca59ee1675f4ab7ce4c0
+import  -/  Type c320e7988faa217d4e94e40e941a7c9c
+  exports: 2f5215e8e1bd0cd2fbead5934ab8e6f8
+  Field 6be124ee151753aa2bde2641251bd2e1
+  createField 8c332f6b2268f4a37c641ae3c4fa0d6d
+f94f0bec7044d7d81330eb3b8f4661fd
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   MyProj.$trModule3
+                   MyProj.$trModule1) -}
+5492c79612a440659cd51581ed0598d4
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS MyProj.$trModule2) -}
+f2c3d4697308f5e864dbcb1cba224dbe
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("MyProj"#) -}
+b24f127a86df220fd31378711955550f
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS MyProj.$trModule4) -}
+94947f9096acbfa16986f7c2152a7bc6
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"#) -}
+8a5e490a5726460d841041ce761e35de
+  checkEnd :: Type.Field -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (ds :: Type.Field) -> GHC.Types.True) -}
+702cdb09b53ea79cd625ec77decfb787
+  deleteLines ::
+    Type.Field -> GHC.Types.Int -> (Type.Field, GHC.Types.Int)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>m,
+     Unfolding: InlineRule (0, True, True)
+                (GHC.Tuple.(,) @ Type.Field @ GHC.Types.Int) -}
+956743c8d94522804283ef6896fadfad
+  gameLoop ::
+    Type.Field -> GHC.Types.Int -> GHC.Types.IO GHC.Types.Int
+  {- Arity: 3, Strictness: <S,1*U><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                MyProj.gameLoop1
+                  `cast`
+                (<Type.Field>_R
+                 ->_R <GHC.Types.Int>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <GHC.Types.Int>_R)) -}
+6399dac2bc29a4c3267be8da64cb5c56
+  gameLoop1 ::
+    Type.Field
+    -> GHC.Types.Int
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Types.Int #)
+  {- Arity: 3, Strictness: <S,1*U><L,U><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (oldField :: Type.Field)
+                   (oldResult :: GHC.Types.Int)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case Draw.drawField1 oldField eta of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv, oldResult #) }) -}
+cf5740ab9c78af5b1458b96f43112107
+  shiftFigure :: Type.Field -> Type.Field
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True) (\ (x :: Type.Field) -> x) -}
+d4b992e12f37f633a4d67b4eaebb616a
+  tetris :: GHC.Types.IO GHC.Types.Int
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                MyProj.tetris1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <GHC.Types.Int>_R)) -}
+14d4ba97a3d1afd3ee8fee07825094e7
+  tetris1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Types.Int #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case Draw.drawField1
+                        Type.createField
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv, GHC.Types.I# 0# #) }) -}
+trusted: none
+require own pkg trusted: False
+module header:
+  Nothing
+declaration docs:
+arg docs:
+

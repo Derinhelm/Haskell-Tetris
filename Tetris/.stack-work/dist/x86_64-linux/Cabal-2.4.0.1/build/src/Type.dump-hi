@@ -1,0 +1,337 @@
+
+==================== FINAL INTERFACE ====================
+2019-03-18 16:43:31.174138187 UTC
+
+interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:Type 8063
+  interface hash: 94bd289c80c2071c1e59389bb502844f
+  ABI hash: c320e7988faa217d4e94e40e941a7c9c
+  export-list hash: 2f5215e8e1bd0cd2fbead5934ab8e6f8
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: d59a86fc39dabe8754ebbfb830e37f1e
+  opt_hash: 6faf2de08de32d19db9870899d88e59a
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Type.createField
+  Type.createLine
+  Type.Cell{Type.Cell cellColor cellType numCell numLine}
+  Type.Field
+  Type.Line
+module dependencies:
+package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.14
+                      ObjectName-1.1.0.1 OpenGL-3.0.2.2 OpenGLRaw-3.3.2.0
+                      StateVar-1.1.1.1 array-0.5.3.0 base-4.12.0.0 binary-0.8.6.0
+                      bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 deepseq-1.4.4.0
+                      fixed-0.2.1.1 ghc-boot-th-8.6.3 ghc-prim-0.5.3 gloss-1.13.0.1
+                      gloss-rendering-1.13.0.2 half-0.3 integer-gmp-1.0.2.0
+                      pretty-1.1.3.6 stm-2.5.0.0 template-haskell-2.14.0.0 text-1.2.3.1
+orphans: stm-2.5.0.0:Control.Monad.STM text-1.2.3.1:Data.Text
+         binary-0.8.6.0:Data.Binary.Generic text-1.2.3.1:Data.Text.Show
+         bytestring-0.10.8.2:Data.ByteString.Builder base-4.12.0.0:GHC.Float
+         base-4.12.0.0:GHC.Base
+family instance modules: base-4.12.0.0:Control.Applicative
+                         base-4.12.0.0:Data.Complex base-4.12.0.0:Data.Functor.Compose
+                         base-4.12.0.0:Data.Functor.Const
+                         base-4.12.0.0:Data.Functor.Identity
+                         base-4.12.0.0:Data.Functor.Product base-4.12.0.0:Data.Functor.Sum
+                         base-4.12.0.0:Data.Monoid base-4.12.0.0:Data.Semigroup
+                         base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:Data.Version
+                         base-4.12.0.0:Data.Void base-4.12.0.0:GHC.Exts
+                         base-4.12.0.0:GHC.Generics base-4.12.0.0:GHC.IO.Exception
+                         containers-0.6.0.1:Data.IntMap.Internal
+                         containers-0.6.0.1:Data.IntSet.Internal
+                         containers-0.6.0.1:Data.Map.Internal
+                         containers-0.6.0.1:Data.Sequence.Internal
+                         containers-0.6.0.1:Data.Set.Internal containers-0.6.0.1:Data.Tree
+                         ghc-boot-th-8.6.3:GHC.ForeignSrcLang.Type
+                         ghc-boot-th-8.6.3:GHC.LanguageExtensions.Type half-0.3:Numeric.Half
+                         pretty-1.1.3.6:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.6:Text.PrettyPrint.HughesPJ
+                         template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.3.1:Data.Text
+import  -/  base-4.12.0.0:GHC.Base cc906f98291a1b830546e99a96674547
+import  -/  base-4.12.0.0:GHC.Show 4e438f26d903388cc6c2c5d64ed01b98
+import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
+import  -/  ghc-prim-0.5.3:GHC.Classes e0d9c979f6368701f34fa421754d2cce
+import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
+import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
+32908d2cab836d3b5050ddbb5afa10f7
+  $fShowCell :: GHC.Show.Show Type.Cell
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ Type.Cell
+                  Type.$fShowCell_$cshowsPrec
+                  Type.$fShowCell_$cshow
+                  Type.$fShowCell_$cshowList -}
+32908d2cab836d3b5050ddbb5afa10f7
+  $fShowCell1 :: Type.Cell -> GHC.Show.ShowS
+  {- Arity: 1, Strictness: <S,1*U(U(U),U(U),U(U),1*U(U,U,U,U))>,
+     Unfolding: (\ (w :: Type.Cell) ->
+                 case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
+                 Type.$w$cshowsPrec 0# ww1 ww2 ww3 ww4 }) -}
+0412e8f56f4237e723d02b84666fe06b
+  $fShowCell2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("}"#) -}
+f6a6ece483e319210aba4a1fe3a7b542
+  $fShowCell3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("cellColor = "#) -}
+ca870cd05e27d18fc978f69a87881849
+  $fShowCell4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("cellType = "#) -}
+0cba35bf865dae4998bccb973f6cb5ba
+  $fShowCell5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("numCell = "#) -}
+abec8b0839bef47a33174155a9bf90bb
+  $fShowCell6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("numLine = "#) -}
+8053b920565c8dab539f8acdeec61d58
+  $fShowCell7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Cell {"#) -}
+e725a15d7e6ac834cc063f9a9e8a4caa
+  $fShowCell8 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+32908d2cab836d3b5050ddbb5afa10f7
+  $fShowCell_$cshow :: Type.Cell -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(U(U),U(U),U(U),1*U(U,U,U,U))>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Type.Cell) ->
+                 Type.$fShowCell_$cshowsPrec
+                   Type.$fShowCell8
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+32908d2cab836d3b5050ddbb5afa10f7
+  $fShowCell_$cshowList :: [Type.Cell] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ls :: [Type.Cell]) (s :: GHC.Base.String) ->
+                 GHC.Show.showList__ @ Type.Cell Type.$fShowCell1 ls s) -}
+32908d2cab836d3b5050ddbb5afa10f7
+  $fShowCell_$cshowsPrec ::
+    GHC.Types.Int -> Type.Cell -> GHC.Show.ShowS
+  {- Arity: 2,
+     Strictness: <S(S),1*U(U)><S,1*U(U(U),U(U),U(U),1*U(U,U,U,U))>,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.Types.Int) (w1 :: Type.Cell) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Type.Cell ww3 ww4 ww5 ww6 ->
+                 Type.$w$cshowsPrec ww1 ww3 ww4 ww5 ww6 } }) -}
+5010663382851e6c96e028951f17172a
+  $tc'Cell :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   878399430842056316##
+                   1144054147196384615##
+                   Type.$trModule
+                   Type.$tc'Cell2
+                   0#
+                   Type.$tc'Cell1) -}
+ec811ecb075858128f19531b50865a9b
+  $tc'Cell1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+c6014151772676c36aa356bde218dd1f
+  $tc'Cell2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tc'Cell3) -}
+2bb1697d9906da76d03ee5f806308a2c
+  $tc'Cell3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Cell"#) -}
+7436455ae793fbd2ecb8d5bcda290a52
+  $tcCell :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   10036266669139193037##
+                   12370765857719254611##
+                   Type.$trModule
+                   Type.$tcCell1
+                   0#
+                   GHC.Types.krep$*) -}
+df9d3edfc773aa0c3a5d15b29519357f
+  $tcCell1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tcCell2) -}
+b633cf9443369986b283c2bd6e184531
+  $tcCell2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Cell"#) -}
+5fb771ded63626bfedf9acfbb1d5c61b
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Type.$trModule3 Type.$trModule1) -}
+d7a5f1b455a080cb1cbc4bc20b523593
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$trModule2) -}
+6ea5969e554c8eba53a495cf4a17e34d
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Type"#) -}
+67e338fae0df9b0b0b1fa962ac851d8d
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$trModule4) -}
+a41564a8c8d2e7c36353b2895aa760c0
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"#) -}
+9140ab831fda3912b083354e6787cd61
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int
+    -> GHC.Types.Int
+    -> GHC.Types.Int
+    -> Graphics.Gloss.Internals.Data.Color.Color
+    -> GHC.Show.ShowS
+  {- Arity: 5,
+     Strictness: <S,U><L,U(U)><L,U(U)><L,U(U)><L,1*U(U,U,U,U)>,
+     Inline: [2],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (ww1 :: GHC.Types.Int)
+                   (ww2 :: GHC.Types.Int)
+                   (ww3 :: GHC.Types.Int)
+                   (ww4 :: Graphics.Gloss.Internals.Data.Color.Color) ->
+                 let {
+                   f :: GHC.Base.String -> GHC.Base.String
+                   = case ww4 of ww5 { Graphics.Gloss.Internals.Data.Color.RGBA ww6 ww7 ww8 ww9 ->
+                     Graphics.Gloss.Internals.Data.Color.$w$cshowsPrec
+                       0#
+                       ww6
+                       ww7
+                       ww8
+                       ww9 }
+                 } in
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,U> -}
+                   = \ (x :: GHC.Base.String) ->
+                     GHC.CString.unpackAppendCString#
+                       Type.$fShowCell7
+                       (GHC.CString.unpackAppendCString#
+                          Type.$fShowCell6
+                          (case ww1 of ww5 { GHC.Types.I# ww6 ->
+                           case GHC.Show.$wshowSignedInt
+                                  0#
+                                  ww6
+                                  (GHC.Base.++
+                                     @ GHC.Types.Char
+                                     GHC.Show.showCommaSpace1
+                                     (GHC.CString.unpackAppendCString#
+                                        Type.$fShowCell5
+                                        (case ww2 of ww7 { GHC.Types.I# ww8 ->
+                                         case GHC.Show.$wshowSignedInt
+                                                0#
+                                                ww8
+                                                (GHC.Base.++
+                                                   @ GHC.Types.Char
+                                                   GHC.Show.showCommaSpace1
+                                                   (GHC.CString.unpackAppendCString#
+                                                      Type.$fShowCell4
+                                                      (case ww3 of ww9 { GHC.Types.I# ww10 ->
+                                                       case GHC.Show.$wshowSignedInt
+                                                              0#
+                                                              ww10
+                                                              (GHC.Base.++
+                                                                 @ GHC.Types.Char
+                                                                 GHC.Show.showCommaSpace1
+                                                                 (GHC.CString.unpackAppendCString#
+                                                                    Type.$fShowCell3
+                                                                    (f (GHC.CString.unpackAppendCString#
+                                                                          Type.$fShowCell2
+                                                                          x)))) of ww11 { (#,#) ww12 ww13 ->
+                                                       GHC.Types.:
+                                                         @ GHC.Types.Char
+                                                         ww12
+                                                         ww13 } }))) of ww9 { (#,#) ww10 ww11 ->
+                                         GHC.Types.:
+                                           @ GHC.Types.Char
+                                           ww10
+                                           ww11 } }))) of ww7 { (#,#) ww8 ww9 ->
+                           GHC.Types.: @ GHC.Types.Char ww8 ww9 } }))
+                 } in
+                 case GHC.Prim.>=# ww 11# of lwild {
+                   DEFAULT -> p
+                   1#
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.$fShow(,)4
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 x)) }) -}
+b074d30ccfbff068540a2a5b9d366edf
+  $wgo :: GHC.Prim.Int# -> (# Type.Line, [Type.Line] #)
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>, Inline: [2] -}
+32908d2cab836d3b5050ddbb5afa10f7
+  data Cell
+    = Cell {numLine :: GHC.Types.Int,
+            numCell :: GHC.Types.Int,
+            cellType :: GHC.Types.Int,
+            cellColor :: Graphics.Gloss.Internals.Data.Color.Color}
+6be124ee151753aa2bde2641251bd2e1
+  type Field = [Type.Line]
+fcd8ccd715b32cf954bf3293edcfd3ac
+  type Line = [Type.Cell]
+32908d2cab836d3b5050ddbb5afa10f7
+  cellColor :: Type.Cell -> Graphics.Gloss.Internals.Data.Color.Color
+  RecSel Left Type.Cell
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLLS),1*U(A,A,A,1*U(U,U,U,U))>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Type.Cell) ->
+                 case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds4 }) -}
+32908d2cab836d3b5050ddbb5afa10f7
+  cellType :: Type.Cell -> GHC.Types.Int
+  RecSel Left Type.Cell
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLSL),1*U(A,A,1*U(U),A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Type.Cell) ->
+                 case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds3 }) -}
+8c332f6b2268f4a37c641ae3c4fa0d6d
+  createField :: Type.Field
+  {- Unfolding: (case Type.$wgo 1# of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.: @ Type.Line ww1 ww2 }) -}
+64c15ef072c43676973a437a340e326e
+  createLine :: GHC.Types.Int -> Type.Line
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>,
+     Unfolding: (\ (x :: GHC.Types.Int) ->
+                 letrec {
+                   go :: GHC.Prim.Int# -> [Type.Cell]
+                     {- Arity: 1, Strictness: <L,U> -}
+                   = \ (x1 :: GHC.Prim.Int#) ->
+                     GHC.Types.:
+                       @ Type.Cell
+                       (Type.Cell
+                          x
+                          (GHC.Types.I# x1)
+                          Type.$fShowCell8
+                          Graphics.Gloss.Data.Color.white)
+                       (case x1 of wild {
+                          DEFAULT -> go (GHC.Prim.+# wild 1#)
+                          10# -> GHC.Types.[] @ Type.Cell })
+                 } in
+                 go 1#) -}
+32908d2cab836d3b5050ddbb5afa10f7
+  numCell :: Type.Cell -> GHC.Types.Int
+  RecSel Left Type.Cell
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LSLL),1*U(A,1*U(U),A,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Type.Cell) ->
+                 case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds2 }) -}
+32908d2cab836d3b5050ddbb5afa10f7
+  numLine :: Type.Cell -> GHC.Types.Int
+  RecSel Left Type.Cell
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(SLLL),1*U(1*U(U),A,A,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Type.Cell) ->
+                 case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds1 }) -}
+instance GHC.Show.Show [Type.Cell] = Type.$fShowCell
+trusted: none
+require own pkg trusted: False
+module header:
+  Nothing
+declaration docs:
+arg docs:
+

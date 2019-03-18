@@ -1,0 +1,57 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 681c7a556f10e2e25ee83d33cc1becea996bfbf9d4265d702f5dbd09171d1416
+
+name:           project-template
+version:        0.0.0.0
+description:    Please see the README file.
+author:         John Doe
+copyright:      2019 John Doe
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      Draw
+      MyProj
+      Type
+  other-modules:
+      Paths_project_template
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , gloss
+  default-language: Haskell2010
+
+executable project-template-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_project_template
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , gloss
+    , project-template
+  default-language: Haskell2010
+
+test-suite project-template-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_project_template
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , gloss
+    , project-template
+  default-language: Haskell2010

@@ -1,0 +1,237 @@
+
+==================== FINAL INTERFACE ====================
+2019-03-18 16:57:20.354361207 UTC
+
+interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:Draw 8063
+  interface hash: 30cd06cd5d6dd8f2f88e995626ca8245
+  ABI hash: 5250bf09d62c8cf3ae8f6bbad7853153
+  export-list hash: 289f43cc1b67c26e866dabb150e1c16f
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: b176a7fae7e4488ae62dd9b3f12b8417
+  opt_hash: 6faf2de08de32d19db9870899d88e59a
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Draw.background
+  Draw.drawCell
+  Draw.drawField
+  Draw.drawLine
+  Draw.objects
+  Draw.window
+module dependencies: Type
+package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.14
+                      ObjectName-1.1.0.1 OpenGL-3.0.2.2 OpenGLRaw-3.3.2.0
+                      StateVar-1.1.1.1 array-0.5.3.0 base-4.12.0.0 binary-0.8.6.0
+                      bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 deepseq-1.4.4.0
+                      fixed-0.2.1.1 ghc-boot-th-8.6.3 ghc-prim-0.5.3 gloss-1.13.0.1
+                      gloss-rendering-1.13.0.2 half-0.3 integer-gmp-1.0.2.0
+                      pretty-1.1.3.6 stm-2.5.0.0 template-haskell-2.14.0.0 text-1.2.3.1
+orphans: stm-2.5.0.0:Control.Monad.STM text-1.2.3.1:Data.Text
+         binary-0.8.6.0:Data.Binary.Generic text-1.2.3.1:Data.Text.Show
+         bytestring-0.10.8.2:Data.ByteString.Builder base-4.12.0.0:GHC.Float
+         base-4.12.0.0:GHC.Base
+family instance modules: base-4.12.0.0:Control.Applicative
+                         base-4.12.0.0:Data.Complex base-4.12.0.0:Data.Functor.Compose
+                         base-4.12.0.0:Data.Functor.Const
+                         base-4.12.0.0:Data.Functor.Identity
+                         base-4.12.0.0:Data.Functor.Product base-4.12.0.0:Data.Functor.Sum
+                         base-4.12.0.0:Data.Monoid base-4.12.0.0:Data.Semigroup
+                         base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:Data.Version
+                         base-4.12.0.0:Data.Void base-4.12.0.0:GHC.Exts
+                         base-4.12.0.0:GHC.Generics base-4.12.0.0:GHC.IO.Exception
+                         containers-0.6.0.1:Data.IntMap.Internal
+                         containers-0.6.0.1:Data.IntSet.Internal
+                         containers-0.6.0.1:Data.Map.Internal
+                         containers-0.6.0.1:Data.Sequence.Internal
+                         containers-0.6.0.1:Data.Set.Internal containers-0.6.0.1:Data.Tree
+                         ghc-boot-th-8.6.3:GHC.ForeignSrcLang.Type
+                         ghc-boot-th-8.6.3:GHC.LanguageExtensions.Type half-0.3:Numeric.Half
+                         pretty-1.1.3.6:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.6:Text.PrettyPrint.HughesPJ
+                         template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.3.1:Data.Text
+import  -/  base-4.12.0.0:GHC.Base cc906f98291a1b830546e99a96674547
+import  -/  base-4.12.0.0:GHC.Num 847723f2584d989dac1eada133ac3fb8
+import  -/  base-4.12.0.0:GHC.Real f7dad82c1d43d80823865d3e6c6636e0
+import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
+import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
+import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Display 00343016c1cbf1a564f259e863c55bf4
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Picture dfdd7bdaa58e50073d0e7acd8f32d783
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Display 3ad49ba84c686525512d90d55b04a0ef
+import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
+import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Picture 82e16028b6e02fb465dc928e7e9197a2
+import  -/  Type c320e7988faa217d4e94e40e941a7c9c
+  exports: 2f5215e8e1bd0cd2fbead5934ab8e6f8
+  Cell 946f43438e47d85d6d9f9a65a586848b
+  Cell 32908d2cab836d3b5050ddbb5afa10f7
+  Field 6be124ee151753aa2bde2641251bd2e1
+  Line fcd8ccd715b32cf954bf3293edcfd3ac
+48b3c72f1ed62de998223ca0989e2553
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Draw.$trModule3 Draw.$trModule1) -}
+8a9313b1a65a418c2cfdeaaf2fdc31c8
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Draw.$trModule2) -}
+b28fc80ac82ca653a48d9d62d3f00263
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Draw"#) -}
+28fcc2d74da7268ffd0e052fc9139f33
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Draw.$trModule4) -}
+35032982bfa335f6a8142572c2047003
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"#) -}
+4fc985c2018519253e4567071def8cd7
+  $wdrawCell ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> Graphics.Gloss.Internals.Data.Color.Color
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 4, Strictness: <L,U(U)><L,U(U)><L,U(U,U,U,U)><S,U>,
+     Inline: [2],
+     Unfolding: (\ (ww :: GHC.Types.Int)
+                   (ww1 :: GHC.Types.Int)
+                   (ww2 :: Graphics.Gloss.Internals.Data.Color.Color)
+                   (w :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 Graphics.Gloss.Internals.Interface.Display.displayWithBackend1
+                   @ Graphics.Gloss.Internals.Interface.Backend.GLUT.GLUTState
+                   Graphics.Gloss.Internals.Interface.Backend.GLUT.$fBackendGLUTState
+                   Graphics.Gloss.Internals.Interface.Backend.GLUT.glutStateInit
+                   Draw.window
+                   ww2
+                   (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                    (# s,
+                       Graphics.Gloss.Internals.Data.Picture.Polygon
+                         (case Graphics.Gloss.Data.Picture.$wrectanglePath
+                                 (case ww of wild { GHC.Types.I# i ->
+                                  GHC.Types.F#
+                                    (GHC.Prim.timesFloat# 5.0e-2# (GHC.Prim.int2Float# i)) })
+                                 (case ww1 of wild { GHC.Types.I# i ->
+                                  GHC.Types.F#
+                                    (GHC.Prim.timesFloat#
+                                       5.0e-2#
+                                       (GHC.Prim.int2Float# i)) }) of ww3 { (#,#) ww4 ww5 ->
+                          GHC.Types.:
+                            @ Graphics.Gloss.Internals.Data.Picture.Point
+                            ww4
+                            ww5 }) #))
+                     `cast`
+                   (Sym (GHC.Types.N:IO[0]
+                             <Graphics.Gloss.Internals.Data.Picture.Picture>_R))
+                   Graphics.Gloss.Interface.Pure.Display.display2
+                     `cast`
+                   (<Graphics.Gloss.Data.Controller.Controller>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
+                   w) -}
+e35c29f6ee24269bbf62858f7d3b9d79
+  background :: Graphics.Gloss.Internals.Data.Color.Color
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                Graphics.Gloss.Data.Color.white -}
+66000fc6dea2003c8c0a737f879d52af
+  drawCell :: Type.Cell -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <S,1*U(U(U),U(U),A,U(U,U,U,U))><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Draw.drawCell1
+                  `cast`
+                (<Type.Cell>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+f881b6b89fd8c273e3bb6a746acb0238
+  drawCell1 ::
+    Type.Cell
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,1*U(U(U),U(U),A,U(U,U,U,U))><S,U>,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Type.Cell) (w1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
+                 Draw.$wdrawCell ww1 ww2 ww4 w1 }) -}
+ca4a3cec8943ca59ee1675f4ab7ce4c0
+  drawField :: Type.Field -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Draw.drawField1
+                  `cast`
+                (<[Type.Line]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+d62bb922a50fc24581ce7c97f9696b3d
+  drawField1 ::
+    [Type.Line]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,1*U><S,U> -}
+27b8d4892544b0d1950ae433bf37d2d1
+  drawLine :: Type.Line -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Draw.drawLine1
+                  `cast`
+                (<[Type.Cell]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+526711912bce84323bf1dcedbad29705
+  drawLine1 ::
+    [Type.Cell]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,1*U><S,U> -}
+31a9cf7fd90b58d52128ebe740689d4e
+  objects ::
+    GHC.Types.Float
+    -> GHC.Types.Float -> Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(U)><L,1*U(U)>m2,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.Types.Float) (w1 :: GHC.Types.Float) ->
+                 Graphics.Gloss.Internals.Data.Picture.Polygon
+                   (case Graphics.Gloss.Data.Picture.$wrectanglePath
+                           (case w of wild1 { GHC.Types.F# y ->
+                            GHC.Types.F# (GHC.Prim.timesFloat# 5.0e-2# y) })
+                           (case w1 of wild1 { GHC.Types.F# y ->
+                            GHC.Types.F#
+                              (GHC.Prim.timesFloat# 5.0e-2# y) }) of ww { (#,#) ww1 ww2 ->
+                    GHC.Types.:
+                      @ Graphics.Gloss.Internals.Data.Picture.Point
+                      ww1
+                      ww2 })) -}
+45c56f0289c03be0f838d8199c06c428
+  window :: Graphics.Gloss.Data.Display.Display
+  {- Strictness: m1,
+     Unfolding: (Graphics.Gloss.Data.Display.InWindow
+                   Draw.window5
+                   Draw.window3
+                   Draw.window1) -}
+23a780d61d560d70524592da38c01c6c
+  window1 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Draw.window2, Draw.window2)) -}
+55f8d7c61fdbcd225da7a320cd6fdd7f
+  window2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10#) -}
+cf72a99e559bb0c0c16b6f336c5b94f1
+  window3 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Draw.window4, Draw.window4)) -}
+f42b43fa3879253b55630b5aa32b71e7
+  window4 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 200#) -}
+ff75ce5c8677a6f6c57ed3eb202286bf
+  window5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Draw.window6) -}
+348cd4b1333676df93f17e67e274c8ae
+  window6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Tetris"#) -}
+trusted: none
+require own pkg trusted: False
+module header:
+  Nothing
+declaration docs:
+arg docs:
+

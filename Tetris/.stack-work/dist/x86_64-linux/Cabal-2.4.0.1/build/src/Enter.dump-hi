@@ -1,0 +1,112 @@
+
+==================== FINAL INTERFACE ====================
+2019-03-18 10:33:08.299710045 UTC
+
+interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:Enter 8063
+  interface hash: dfe787bc6e7dc0234a7783406ad9d4aa
+  ABI hash: 4c3509076e2e98379f1b9fd055961016
+  export-list hash: 8ad8500c2dff7f0e71031d9fe70dac01
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: d59a86fc39dabe8754ebbfb830e37f1e
+  opt_hash: 6faf2de08de32d19db9870899d88e59a
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Enter.autorization
+module dependencies:
+package dependencies: base-4.12.0.0* ghc-prim-0.5.3
+                      integer-gmp-1.0.2.0
+orphans: base-4.12.0.0:GHC.Float base-4.12.0.0:GHC.Base
+family instance modules: base-4.12.0.0:Control.Applicative
+                         base-4.12.0.0:Data.Functor.Const
+                         base-4.12.0.0:Data.Functor.Identity base-4.12.0.0:Data.Monoid
+                         base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:GHC.Generics
+                         base-4.12.0.0:GHC.IO.Exception
+import  -/  base-4.12.0.0:GHC.Base cc906f98291a1b830546e99a96674547
+import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
+import  -/  base-4.12.0.0:System.IO 88c2b1c4079c52d62ed362d4eb9a5302
+import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
+91de55c64f63c8d9d5fe13bc0ec08e4e
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Enter.$trModule3 Enter.$trModule1) -}
+e59243d36ef5109bebd3f98ba0a9c70b
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Enter.$trModule2) -}
+0289c03b3bcdbb9157de34cb9cc229e3
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Enter"#) -}
+b4d004347e89be64b70d660b1602e96d
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Enter.$trModule4) -}
+505c694911dde694c88404af04a7d996
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"#) -}
+73fdd77a8d22e1086209484c785ede74
+  autorization :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Enter.autorization1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+2f719430269e7d786a5b3ebcff99c574
+  autorization1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case (GHC.IO.Handle.Text.hPutStr'
+                         GHC.IO.Handle.FD.stdout
+                         Enter.autorization6
+                         GHC.Types.True)
+                        `cast`
+                      (GHC.Types.N:IO[0] <()>_R)
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.Internals.wantReadableHandle_1
+                        @ GHC.Base.String
+                        GHC.IO.Handle.Text.hGetLine4
+                        GHC.IO.Handle.FD.stdin
+                        GHC.IO.Handle.Text.hGetLine2
+                          `cast`
+                        (<GHC.IO.Handle.Types.Handle__>_R
+                         ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R))
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 System.IO.appendFile2
+                   @ ()
+                   Enter.autorization4
+                   GHC.IO.IOMode.WriteMode
+                   (\ (hdl :: GHC.IO.Handle.Types.Handle)[OneShot] ->
+                    GHC.IO.Handle.Text.hPutStr'
+                      hdl
+                      (GHC.Base.++ @ GHC.Types.Char ipv3 Enter.autorization2)
+                      GHC.Types.False)
+                   ipv2 } }) -}
+a4e024d54618494a1dd2d448defc64ba
+  autorization2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Enter.autorization3) -}
+844c8b8a588d1e7e519339dfe99e9ddd
+  autorization3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("> "#) -}
+a73b3166b639501f5ae93504c0f16f49
+  autorization4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Enter.autorization5) -}
+dc9157b94d2864a0e14845ba0c4762a1
+  autorization5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("file.out"#) -}
+768f6af3d41694ac23fd5e57d4b11170
+  autorization6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Enter.autorization7) -}
+a185e2d5f91522070ebec4c94a0e45e2
+  autorization7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Enter your name: "#) -}
+trusted: safe
+require own pkg trusted: False
+module header:
+  Nothing
+declaration docs:
+arg docs:
+
