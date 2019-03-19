@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-18 17:50:31.119147138 UTC
+2019-03-19 10:53:28.378694569 UTC
 
 interface main:Main 8063
-  interface hash: c38285eee734e64011cedfbf8b3be8af
-  ABI hash: 1b0973be37457564fe5555b35c62b5fc
+  interface hash: 8d621f65dc6e90d1f83dfc0fd6481b04
+  ABI hash: 56fff2d3b711eefa56b1cda4d28cbbde
   export-list hash: aba3a011044e019021af567631e88f53
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 41157dda25afcb8501e0e59ceee8ebaa
@@ -54,7 +54,7 @@ import  -/  base-4.12.0.0:GHC.Show 4e438f26d903388cc6c2c5d64ed01b98
 import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
 import  -/  base-4.12.0.0:System.IO 88c2b1c4079c52d62ed362d4eb9a5302
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
-import  -/  project-template-0.0.0.0:MyProj 368f4a1dc1ccffbb8b17efd92fc0c4bb
+import  -/  project-template-0.0.0.0:MyProj a2ffbdb0ae831c9e93eb59e728957ece
 be86c9d078d3acbf19ba91fe74a24273
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -73,12 +73,12 @@ e5875966b74dad2d29772660b8a75e33
 d026be77cb9ced20e35a61514e0458aa
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-70d7e410444b5503366f9192fb9d155f
+1d7cda93f23da56f0858c0d220abafb5
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-f2559fd6d9d69cc2e15842791534a922
+09350597868b59d1bd86923750e99c3e
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -86,7 +86,7 @@ f2559fd6d9d69cc2e15842791534a922
      Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
                  case (GHC.IO.Handle.Text.hPutStr'
                          GHC.IO.Handle.FD.stdout
-                         Main.main7
+                         Main.main5
                          GHC.Types.True)
                         `cast`
                       (GHC.Types.N:IO[0] <()>_R)
@@ -100,46 +100,47 @@ f2559fd6d9d69cc2e15842791534a922
                         (<GHC.IO.Handle.Types.Handle__>_R
                          ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R))
                         ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 case Draw.draw1 Type.createField ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 case MyProj.$wgameLoop
+                        Type.createField
+                        MyProj.tetris2
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
                  System.IO.appendFile2
                    @ ()
-                   Main.main5
+                   Main.main3
                    GHC.IO.IOMode.WriteMode
                    (\ (hdl :: GHC.IO.Handle.Types.Handle)[OneShot] ->
                     GHC.IO.Handle.Text.hPutStr'
                       hdl
-                      (GHC.Base.++ @ GHC.Types.Char ipv3 Main.main2)
+                      (GHC.Base.++
+                         @ GHC.Types.Char
+                         ipv3
+                         (GHC.CString.unpackAppendCString#
+                            Main.main2
+                            (case ipv5 of ww2 { GHC.Types.I# ww3 ->
+                             case GHC.Show.$wshowSignedInt
+                                    0#
+                                    ww3
+                                    (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                             GHC.Types.: @ GHC.Types.Char ww5 ww6 } })))
                       GHC.Types.False)
                    ipv4 } } }) -}
-a1a1534111d91e4e3a7f614f9ee46ad8
-  main2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackAppendCString#
-                   Main.main4
-                   Main.main3) -}
-4423528b4cbaa80d87a109ba29637736
-  main3 :: [GHC.Types.Char]
-  {- Unfolding: (case GHC.Show.$wshowSignedInt
-                        0#
-                        0#
-                        (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
-                 GHC.Types.: @ GHC.Types.Char ww5 ww6 }) -}
-78822f2b80c510af3fe0b0c98eb66ea0
-  main4 :: GHC.Prim.Addr#
+15a6dcdbb0630402553a848017142fef
+  main2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: (" - "#) -}
-7f3eab2f18300aa8b85c490c93cb8329
+2b202b06c43e6dc64ca79b3eefc7b265
+  main3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Main.main4) -}
+bd0a48574913450f14fb25020bbc17e7
+  main4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("results"#) -}
+5f039be894ec597e92cefdfbb3955599
   main5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# Main.main6) -}
-38b50a91f409441e56ae05ee10ad7792
+ac5890392b07a800b037c6f71fbd242c
   main6 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("results"#) -}
-083487f5f32a87e82fe6696efbbb948a
-  main7 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# Main.main8) -}
-3f0411dfb785c03993dbc404a7399808
-  main8 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Enter your name: "#) -}
-15ac9a9a32e0e705c9435a4872408cbf
-  main9 ::
+72dfd8487ac072ae30ec3950d7eb50a6
+  main7 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1,
