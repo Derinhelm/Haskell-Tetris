@@ -3,7 +3,7 @@
 module MyProj    where
 
 import Graphics.Gloss
-import Graphics.Gloss.Data.ViewPort
+import Graphics.Gloss.Interface.Pure.Game
 import Draw
 import Type
 
@@ -26,8 +26,8 @@ createNextFigure = 1
 shiftFigure :: Field -> Field --сдвиг фигуры(на 1 вниз + по клавишам) - пока не реализовано
 shiftFigure x  = x
 
-addFigure :: Field -> NumberFigure -> Field -- падение новой фигуры  - пока не реализовано
-addFigure field _ = field
+addFigure :: Field  -> Field -- падение новой фигуры  - пока не реализовано
+addFigure field = field
 
 deleteLines :: Field -> Int -> (Field, Int) -- удаление линии со всеми заполненными  - пока не реализовано
 deleteLines f r = (f, r)
@@ -39,26 +39,22 @@ checkEnd  field | funFieldAny (\c -> (typeCell c) == 3) field = True -- не у�
 
 checkLand :: Field -> (Bool, Field) --проверка, что фигурка приземлилась 
 checkLand t = (True, t)
+
+haveFlyFigure :: Field -> Bool -- поменять!!!!!!!
+haveFlyFigure _ = True
+
+handle :: Event -> Field -> IO Field
+handle key field = return field
+
+endGame :: Field
+endGame = createField --поменять!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             
-gameLoop :: Field -> Int -> NumberFigure -> IO Int --игровой цикл 
-gameLoop oldField oldResult nextFigure = if isLand 
-                                                then if checkEnd newField1 
-                                                        then do
-                                                                drawField oldField
-                                                                return oldResult
-                                                        else do
-                                                                drawField newField1
-                                                                --можно рисовать и oldField,отличаются типом клетки(незаметно при рисовании) 
-                                                                drawField newField2
-                                                                gameLoop (addFigure newField2 nextFigure) newResult (createNextFigure)
-                                                else 
-                                                        do
-                                                                drawField oldField
-                                                                gameLoop (shiftFigure newField1) newResult nextFigure
-    where
-        (isLand, newField1) = checkLand oldField
-        (newField2, newResult) = deleteLines newField1 oldResult
+gameLoop :: Float -> Field -> IO Field --игровой цикл 
+gameLoop _ field  = if haveFlyFigure field 
+                        then return (shiftFigure field)
+                        else if checkEnd field
+                                then return endGame
+                                else return (addFigure field)       
 
 
-tetris :: IO Int  --функция, которая создает начальную картину игры, запускает первый игровой цикл, возвращает результат игры
-tetris = gameLoop  createField 0 createNextFigure
+

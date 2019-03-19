@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-19 10:53:27.099977104 UTC
+2019-03-19 13:17:27.197719952 UTC
 
 interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:Draw 8063
-  interface hash: ad8f323b419ccf331ef1ac9d143cb70c
-  ABI hash: 42c5d39368a456c9a1887a3b3f82ec09
-  export-list hash: e0e0e2ffa71b4d073bd61247ca1dc2cf
+  interface hash: 6cc00a1602d9e920ed327d10e7f02b66
+  ABI hash: 12c152f1683c6535487bc391ad1fd19e
+  export-list hash: a6fb822a147ef83f6381d532fc093c58
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: b176a7fae7e4488ae62dd9b3f12b8417
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -18,6 +18,7 @@ exports:
   Draw.drawCell
   Draw.drawField
   Draw.drawLine
+  Draw.fps
   Draw.objects
   Draw.pictureField
   Draw.window
@@ -62,7 +63,6 @@ import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Display 00343016c1cbf1a564f259e863c55bf4
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Picture dfdd7bdaa58e50073d0e7acd8f32d783
-import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Display 3ad49ba84c686525512d90d55b04a0ef
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Picture 82e16028b6e02fb465dc928e7e9197a2
 import  -/  Type 8d1eef560cda4fd88a79e92507d26c67
@@ -163,63 +163,38 @@ c4bed4ad50fa32c60fea908bfd381cc0
                    @ Graphics.Gloss.Internals.Data.Picture.Point
                    ww1
                    ww2 }) -}
-44e6d8469b9453107db1c9cd3e909aa8
-  drawField :: Type.Field -> GHC.Types.IO ()
-  {- Arity: 2, Strictness: <L,U><S,U>,
+a6f28c2e88977985a13e25bb9b775a3a
+  drawField ::
+    Type.Field
+    -> GHC.Types.IO Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Arity: 2, Strictness: <L,1*U><S,U>,
      Unfolding: InlineRule (0, True, True)
                 Draw.drawField1
                   `cast`
-                (<Type.Field>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-e3351007847c4147690e4fd23dce9c0f
+                (<Type.Field>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Graphics.Gloss.Internals.Data.Picture.Picture>_R)) -}
+bb3c6eb3756c23ae84aa7bf3bc38069e
   drawField1 ::
     Type.Field
     -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <L,U><S,U>,
-     Unfolding: (\ (f :: Type.Field)
-                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 case Graphics.Gloss.Internals.Interface.Display.displayWithBackend1
-                        @ Graphics.Gloss.Internals.Interface.Backend.GLUT.GLUTState
-                        Graphics.Gloss.Internals.Interface.Backend.GLUT.$fBackendGLUTState
-                        Graphics.Gloss.Internals.Interface.Backend.GLUT.glutStateInit
-                        Draw.window
-                        Graphics.Gloss.Data.Color.blue
-                        (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                         (# s1,
-                            Graphics.Gloss.Internals.Data.Picture.Pictures
-                              (Draw.pictureField f GHC.Types.False) #))
-                          `cast`
-                        (Sym (GHC.Types.N:IO[0]
-                                  <Graphics.Gloss.Internals.Data.Picture.Picture>_R))
-                        Graphics.Gloss.Interface.Pure.Display.display2
-                          `cast`
-                        (<Graphics.Gloss.Data.Controller.Controller>_R
-                         ->_R Sym (GHC.Types.N:IO[0] <()>_R))
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 Graphics.Gloss.Internals.Interface.Display.displayWithBackend1
-                   @ Graphics.Gloss.Internals.Interface.Backend.GLUT.GLUTState
-                   Graphics.Gloss.Internals.Interface.Backend.GLUT.$fBackendGLUTState
-                   Graphics.Gloss.Internals.Interface.Backend.GLUT.glutStateInit
-                   Draw.window
-                   Graphics.Gloss.Data.Color.blue
-                   (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                    (# s1,
-                       Graphics.Gloss.Internals.Data.Picture.Pictures
-                         (Draw.pictureField f GHC.Types.True) #))
-                     `cast`
-                   (Sym (GHC.Types.N:IO[0]
-                             <Graphics.Gloss.Internals.Data.Picture.Picture>_R))
-                   Graphics.Gloss.Interface.Pure.Display.display2
-                     `cast`
-                   (<Graphics.Gloss.Data.Controller.Controller>_R
-                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
-                   ipv }) -}
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.Gloss.Internals.Data.Picture.Picture #)
+  {- Arity: 2, Strictness: <L,1*U><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (f :: Type.Field) (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 (# s,
+                    Graphics.Gloss.Internals.Data.Picture.Pictures
+                      (Draw.pictureField f GHC.Types.False) #)) -}
 321b5af2f22716c9fbd4bbf1b8d32f21
   drawLine ::
     Type.Line
     -> GHC.Types.Bool
     -> [Graphics.Gloss.Internals.Data.Picture.Picture]
   {- Arity: 2, Strictness: <S,1*U><L,U> -}
+e70523295322e9a1101e10d7730cf77f
+  fps :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 60#) -}
 7ddcef537683a53d604468558c45bc06
   objects ::
     GHC.Types.Float

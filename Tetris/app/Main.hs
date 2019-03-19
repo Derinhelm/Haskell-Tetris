@@ -1,6 +1,9 @@
 module Main where
 
 import MyProj
+import Draw
+import Type
+import Graphics.Gloss.Interface.IO.Game
 
 
 
@@ -8,5 +11,6 @@ main :: IO ()
 main = do
     putStrLn "Enter your name: "
     name <- getLine
-    result <- tetris
-    writeFile "results" (name ++ " - " ++  (show result))
+    playIO window blue fps createField drawField handle gameLoop 
+    --result из файла
+    writeFile "results" (name ++ " - ")-- ++  (show result))

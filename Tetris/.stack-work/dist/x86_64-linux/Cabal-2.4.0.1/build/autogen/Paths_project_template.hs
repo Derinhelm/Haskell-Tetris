@@ -29,12 +29,12 @@ version :: Version
 version = Version [0,0,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
-bindir     = "/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/bin"
-libdir     = "/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/lib/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"
-dynlibdir  = "/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/lib/x86_64-linux-ghc-8.6.3"
-datadir    = "/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/share/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0"
-libexecdir = "/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/libexec/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0"
-sysconfdir = "/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/etc"
+bindir     = "/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/bin"
+libdir     = "/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/lib/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"
+dynlibdir  = "/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/lib/x86_64-linux-ghc-8.6.3"
+datadir    = "/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/share/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0"
+libexecdir = "/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/libexec/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0"
+sysconfdir = "/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/etc"
 
 getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
 getBinDir = catchIO (getEnv "project_template_bindir") (\_ -> return bindir)

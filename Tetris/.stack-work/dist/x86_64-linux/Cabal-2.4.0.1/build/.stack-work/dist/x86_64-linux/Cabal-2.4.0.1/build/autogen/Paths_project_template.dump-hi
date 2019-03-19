@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-18 10:26:25.950492393 UTC
+2019-03-19 13:07:38.243526468 UTC
 
 interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:Paths_project_template 8063
-  interface hash: 44c6dfddaaeab61ab9782598ecf9aaad
-  ABI hash: 1ace73653b10f680d605b4a254e151ca
+  interface hash: 6a8f5886bf843bedb477f438238687c3
+  ABI hash: fdf9e0661f0331f2956163701ec16252
   export-list hash: 0f5215b6ec8b52de35007be01762aad0
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 2b20641ea72b1fa3442209edea95e42d
@@ -64,14 +64,14 @@ d9056c1e1884c1aa08e6ef33157618a6
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
      Unfolding: ("project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"#) -}
-7a5e8f1fbb4e9de47cf8e5a1eaed5b22
+739be98f044a693bfa040aa60e26b874
   getBinDir :: GHC.Types.IO GHC.IO.FilePath
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Paths_project_template.getBinDir1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
-0b456f1a0961a5c686ff75e620344284
+75f1df8c7c033829dda4e433ef9a489f
   getBinDir1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
@@ -83,7 +83,7 @@ d9056c1e1884c1aa08e6ef33157618a6
                    Paths_project_template.getBinDir5
                    Paths_project_template.getBinDir2
                    eta) -}
-937e63fd9cab0ceb01d8e1c04e518d91
+d551624f51a1949718cd50f6e0ba0227
   getBinDir2 ::
     GHC.Exception.Type.SomeException
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -109,14 +109,14 @@ d9056c1e1884c1aa08e6ef33157618a6
                         eta
                    GHC.Types.True
                    -> (# eta, Paths_project_template.getBinDir3 #) } }) -}
-9f615f5cc42a2c89b1f1ba80550b18c4
+b3d2aba7e5d61899cbb8573c6f17962b
   getBinDir3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    Paths_project_template.getBinDir4) -}
-c30ce284f34c483290bf9f5531852cbc
+288732a634ecb23ef957b4e8fbe66993
   getBinDir4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/bin"#) -}
+     Unfolding: ("/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/bin"#) -}
 0efb62919e714b598b2c420397c98c78
   getBinDir5 ::
     GHC.Prim.State# GHC.Prim.RealWorld
@@ -151,14 +151,14 @@ b8d82d3c30748cac6954e3295ad0fb1f
 0cdf64d6ec9cda3f127fa8a4d35323d4
   getBinDir7 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("project_template_bindir"#) -}
-34486c5999bcde3c93a1cc5d901217b2
+2aba26d925bbc24e21325ba421942ad5
   getDataDir :: GHC.Types.IO GHC.IO.FilePath
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Paths_project_template.getDataDir1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
-e2c70916e452a983f0097a3c093e0ab4
+3cc2f9693da754da1926d5c0c5bd9cbe
   getDataDir1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
@@ -170,7 +170,7 @@ e2c70916e452a983f0097a3c093e0ab4
                    Paths_project_template.getDataDir5
                    Paths_project_template.getDataDir2
                    eta) -}
-5c6f2e2977ee6812a8022c17daf77b3f
+3a6b3537c6e1cae9bb4d00a10cafe0f9
   getDataDir2 ::
     GHC.Exception.Type.SomeException
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -196,14 +196,14 @@ e2c70916e452a983f0097a3c093e0ab4
                         eta
                    GHC.Types.True
                    -> (# eta, Paths_project_template.getDataDir3 #) } }) -}
-cb23994e4fb67255fa579d539cc47658
+7347ba5c05a1ca6d946f1f826d6e23fd
   getDataDir3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    Paths_project_template.getDataDir4) -}
-1955259a6aebc9c9d34976d2b96de5a9
+25f718e39e7fbcdef5538f2e5af371d9
   getDataDir4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/share/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0"#) -}
+     Unfolding: ("/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/share/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0"#) -}
 77831ff9d38bab10068258b75b719824
   getDataDir5 ::
     GHC.Prim.State# GHC.Prim.RealWorld
@@ -238,7 +238,7 @@ cb23994e4fb67255fa579d539cc47658
 4ce5d158cae3c0488c0424e10660ad18
   getDataDir7 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("project_template_datadir"#) -}
-e7d722f1f3537d8b55eee46150353ce7
+22ae173e1eb72323f41b853762980f10
   getDataFileName :: GHC.IO.FilePath -> GHC.Types.IO GHC.IO.FilePath
   {- Arity: 2, Strictness: <L,U><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -246,7 +246,7 @@ e7d722f1f3537d8b55eee46150353ce7
                   `cast`
                 (<GHC.IO.FilePath>_R
                  ->_R Sym (GHC.Types.N:IO[0] <GHC.IO.FilePath>_R)) -}
-30149eeb34d03e627b8b07b9a971999c
+0635d316a3ae6ff2c059141ee0f1355b
   getDataFileName1 ::
     GHC.IO.FilePath
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -270,14 +270,14 @@ e7d722f1f3537d8b55eee46150353ce7
 bcea69f31a6b65f87751aa61a92a242e
   getDataFileName2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("/"#) -}
-e6679104c06756afe8e18ea00541f84c
+9cec385e020e6a657ac727a0e404cea1
   getDynLibDir :: GHC.Types.IO GHC.IO.FilePath
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Paths_project_template.getDynLibDir1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
-c882439266227da2677a684e9d7f0197
+9d55a518d437e839770696edd3879d83
   getDynLibDir1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
@@ -289,7 +289,7 @@ c882439266227da2677a684e9d7f0197
                    Paths_project_template.getDynLibDir5
                    Paths_project_template.getDynLibDir2
                    eta) -}
-a6c17ad62de78220bc256d9acb5329e8
+b1a9cf94806f904bb3f8b40f335822d8
   getDynLibDir2 ::
     GHC.Exception.Type.SomeException
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -315,14 +315,14 @@ a6c17ad62de78220bc256d9acb5329e8
                         eta
                    GHC.Types.True
                    -> (# eta, Paths_project_template.getDynLibDir3 #) } }) -}
-7409273e830d5962d99d984f93035329
+5d986d166c8c6df8d5e789e2bf880328
   getDynLibDir3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    Paths_project_template.getDynLibDir4) -}
-4405b84c7796e4d721c91ed0e2335f94
+4e4d98c6ce6b7aae83a2cb2dd1b21ba3
   getDynLibDir4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/lib/x86_64-linux-ghc-8.6.3"#) -}
+     Unfolding: ("/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/lib/x86_64-linux-ghc-8.6.3"#) -}
 9853e6541357ea4f52b3e039d63c2537
   getDynLibDir5 ::
     GHC.Prim.State# GHC.Prim.RealWorld
@@ -357,14 +357,14 @@ e6bd78c2d2dd2f097ca7043e2e20910f
 e950ee9791395d0d1e021d22d7cc4602
   getDynLibDir7 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("project_template_dynlibdir"#) -}
-854525428d2428ae317535141b2cfa7b
+2ec050dcf38178d8c43af9b24f0b4e69
   getLibDir :: GHC.Types.IO GHC.IO.FilePath
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Paths_project_template.getLibDir1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
-861e8164f82be4f9cae492644be7247a
+60bea6af8d132a48f4e70dbf95609e34
   getLibDir1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
@@ -376,7 +376,7 @@ e950ee9791395d0d1e021d22d7cc4602
                    Paths_project_template.getLibDir5
                    Paths_project_template.getLibDir2
                    eta) -}
-513c57be8f24dd89749ed3301ffb85a0
+2c4b0a060c9e903847ce671264ed688b
   getLibDir2 ::
     GHC.Exception.Type.SomeException
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -402,14 +402,14 @@ e950ee9791395d0d1e021d22d7cc4602
                         eta
                    GHC.Types.True
                    -> (# eta, Paths_project_template.getLibDir3 #) } }) -}
-4d4956c3db8b1683b49972a1463fdd80
+89c65c5e26daaf2aeda06325bc7602a7
   getLibDir3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    Paths_project_template.getLibDir4) -}
-064e901b030b8b8e9b856d12e9f60fa5
+ac2bc11453cf25fa5a20061fef3872e1
   getLibDir4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/lib/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"#) -}
+     Unfolding: ("/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/lib/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"#) -}
 33618504bf1307cf82b6184c0e04c338
   getLibDir5 ::
     GHC.Prim.State# GHC.Prim.RealWorld
@@ -444,14 +444,14 @@ e950ee9791395d0d1e021d22d7cc4602
 69fea7789c82f22db95ceae84a531139
   getLibDir7 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("project_template_libdir"#) -}
-808286a5b74559a43cffd8de7d76e5fa
+87a47cb0fb4e0c51e5b58a9de68be2d2
   getLibexecDir :: GHC.Types.IO GHC.IO.FilePath
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Paths_project_template.getLibexecDir1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
-4feaf0896857495755ee83a2dd262e80
+360b7c3cd3dcce7f587b762218f820b0
   getLibexecDir1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
@@ -463,7 +463,7 @@ e950ee9791395d0d1e021d22d7cc4602
                    Paths_project_template.getLibexecDir5
                    Paths_project_template.getLibexecDir2
                    eta) -}
-a6edcad49f20d25b2e6ba786adc99fb0
+23ed536b57f1fe09a824376d2f7135cf
   getLibexecDir2 ::
     GHC.Exception.Type.SomeException
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -489,14 +489,14 @@ a6edcad49f20d25b2e6ba786adc99fb0
                         eta
                    GHC.Types.True
                    -> (# eta, Paths_project_template.getLibexecDir3 #) } }) -}
-f4e6636a9d2393a14b8f828ce3f0edb5
+76d659cfd33bf1ad96962b86a7b39ddf
   getLibexecDir3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    Paths_project_template.getLibexecDir4) -}
-f4906197f25d0997df59426a82aebc6a
+d40473fdc6c7862133e44d9292d61949
   getLibexecDir4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/libexec/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0"#) -}
+     Unfolding: ("/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/libexec/x86_64-linux-ghc-8.6.3/project-template-0.0.0.0"#) -}
 263fffbd9a4c5bc679b4969059098821
   getLibexecDir5 ::
     GHC.Prim.State# GHC.Prim.RealWorld
@@ -531,14 +531,14 @@ e40e9cb2e6c731c549944ae7ddddcbb7
 1d2a39c7c8d25c81922c6719372a3920
   getLibexecDir7 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("project_template_libexecdir"#) -}
-7c251cd3931f0771c88ff66550e81b47
+a15d3daefaea563eb41ee65152f141a1
   getSysconfDir :: GHC.Types.IO GHC.IO.FilePath
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Paths_project_template.getSysconfDir1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
-b29622de4711117ea3d32e2eabbb8641
+21da1f6b969433f9b60a57cfd673b32e
   getSysconfDir1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
@@ -550,7 +550,7 @@ b29622de4711117ea3d32e2eabbb8641
                    Paths_project_template.getSysconfDir5
                    Paths_project_template.getSysconfDir2
                    eta) -}
-d165bbd6faf54141b87d92dab418a7ff
+31da80c70a977339949bc83e23e5b4ef
   getSysconfDir2 ::
     GHC.Exception.Type.SomeException
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -576,14 +576,14 @@ d165bbd6faf54141b87d92dab418a7ff
                         eta
                    GHC.Types.True
                    -> (# eta, Paths_project_template.getSysconfDir3 #) } }) -}
-66c5521ee20875df807e66869b04d001
+cfc66ebb0468de31a3889c7640c89924
   getSysconfDir3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    Paths_project_template.getSysconfDir4) -}
-0ffd4d2b7b3055837dab3e2044c53312
+833bbdce260bfc504f3153d4f9e3df34
   getSysconfDir4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("/media/derin/DATA/Haskell/Tetris/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/etc"#) -}
+     Unfolding: ("/media/derin/DATA/Haskell/Tetris_aft/.stack-work/install/x86_64-linux/lts-13.6/8.6.3/etc"#) -}
 58310d33185152d1d2272391a253ec88
   getSysconfDir5 ::
     GHC.Prim.State# GHC.Prim.RealWorld
