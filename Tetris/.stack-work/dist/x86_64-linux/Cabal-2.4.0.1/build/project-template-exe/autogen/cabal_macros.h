@@ -44,6 +44,17 @@
   (major1) == 0 && (major2) == 0 && (minor) <= 0)
 #endif /* MIN_VERSION_project_template */
 
+/* package random-1.1 */
+#ifndef VERSION_random
+#define VERSION_random "1.1"
+#endif /* VERSION_random */
+#ifndef MIN_VERSION_random
+#define MIN_VERSION_random(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 0)
+#endif /* MIN_VERSION_random */
+
 /* tool alex-3.1.6 */
 #ifndef TOOL_VERSION_alex
 #define TOOL_VERSION_alex "3.1.6"
@@ -177,7 +188,7 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "project-template-0.0.0.0-BGuSx9swZgY2JfbuTsE3Jt-project-template-exe"
+#define CURRENT_COMPONENT_ID "project-template-0.0.0.0-BGFyeBGGSep2GaFW8yDxmE-project-template-exe"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.0.0.0"

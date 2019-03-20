@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 681c7a556f10e2e25ee83d33cc1becea996bfbf9d4265d702f5dbd09171d1416
+-- hash: 6e918dce3906f99c00218651645d5f3fa4c94f2bf7f8836e779b753a30f346d5
 
 name:           project-template
 version:        0.0.0.0
@@ -17,6 +17,7 @@ extra-source-files:
 
 library
   exposed-modules:
+      Constans
       Draw
       MyProj
       Type
@@ -27,6 +28,7 @@ library
   build-depends:
       base >=4.7 && <5
     , gloss
+    , random
   default-language: Haskell2010
 
 executable project-template-exe
@@ -40,6 +42,7 @@ executable project-template-exe
       base >=4.7 && <5
     , gloss
     , project-template
+    , random
   default-language: Haskell2010
 
 test-suite project-template-test
@@ -54,4 +57,5 @@ test-suite project-template-test
       base >=4.7 && <5
     , gloss
     , project-template
+    , random
   default-language: Haskell2010

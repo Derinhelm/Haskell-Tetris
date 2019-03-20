@@ -1,0 +1,123 @@
+
+==================== FINAL INTERFACE ====================
+2019-03-20 13:10:45.489452992 UTC
+
+interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Constans 8063
+  interface hash: 0d5d297683e40735cd877e115f93171a
+  ABI hash: a86110f4ae3d5dc6d3d2ae46296ba4f0
+  export-list hash: 6b7c9b4c14c288940915583ecccaa9cb
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: d59a86fc39dabe8754ebbfb830e37f1e
+  opt_hash: 6faf2de08de32d19db9870899d88e59a
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Constans.fps
+  Constans.range
+  Constans.window
+module dependencies:
+package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.14
+                      ObjectName-1.1.0.1 OpenGL-3.0.2.2 OpenGLRaw-3.3.2.0
+                      StateVar-1.1.1.1 array-0.5.3.0 base-4.12.0.0 binary-0.8.6.0
+                      bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 deepseq-1.4.4.0
+                      fixed-0.2.1.1 ghc-boot-th-8.6.3 ghc-prim-0.5.3 gloss-1.13.0.1
+                      gloss-rendering-1.13.0.2 half-0.3 integer-gmp-1.0.2.0
+                      pretty-1.1.3.6 stm-2.5.0.0 template-haskell-2.14.0.0 text-1.2.3.1
+orphans: stm-2.5.0.0:Control.Monad.STM text-1.2.3.1:Data.Text
+         binary-0.8.6.0:Data.Binary.Generic text-1.2.3.1:Data.Text.Show
+         bytestring-0.10.8.2:Data.ByteString.Builder base-4.12.0.0:GHC.Float
+         base-4.12.0.0:GHC.Base
+family instance modules: base-4.12.0.0:Control.Applicative
+                         base-4.12.0.0:Data.Complex base-4.12.0.0:Data.Functor.Compose
+                         base-4.12.0.0:Data.Functor.Const
+                         base-4.12.0.0:Data.Functor.Identity
+                         base-4.12.0.0:Data.Functor.Product base-4.12.0.0:Data.Functor.Sum
+                         base-4.12.0.0:Data.Monoid base-4.12.0.0:Data.Semigroup
+                         base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:Data.Version
+                         base-4.12.0.0:Data.Void base-4.12.0.0:GHC.Exts
+                         base-4.12.0.0:GHC.Generics base-4.12.0.0:GHC.IO.Exception
+                         containers-0.6.0.1:Data.IntMap.Internal
+                         containers-0.6.0.1:Data.IntSet.Internal
+                         containers-0.6.0.1:Data.Map.Internal
+                         containers-0.6.0.1:Data.Sequence.Internal
+                         containers-0.6.0.1:Data.Set.Internal containers-0.6.0.1:Data.Tree
+                         ghc-boot-th-8.6.3:GHC.ForeignSrcLang.Type
+                         ghc-boot-th-8.6.3:GHC.LanguageExtensions.Type half-0.3:Numeric.Half
+                         pretty-1.1.3.6:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.6:Text.PrettyPrint.HughesPJ
+                         template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.3.1:Data.Text
+import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
+import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Display 00343016c1cbf1a564f259e863c55bf4
+b1c85fe136dcfec624a50de16a2428a0
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Constans.$trModule3
+                   Constans.$trModule1) -}
+37964baa49b4303a9c7b8bf6cf8efa1e
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Constans.$trModule2) -}
+a070fdc7fb8e0c6d65479646f6de9ad7
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Constans"#) -}
+8b71dc4818cd6868d2aecce88265d2d6
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Constans.$trModule4) -}
+a0e136dcd5c8836044e89701c7e1c171
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an"#) -}
+553e97e7b6b7fff2daccce9da0d43862
+  fps :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 60#) -}
+1e545c1b5e1f04338084f1619b073dd1
+  range :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Constans.range2, Constans.range1)) -}
+f775221078095706b4d85a0b1c5dbfd2
+  range1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10#) -}
+9d8a9e07214eda577c38aede28662b2e
+  range2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# -10#) -}
+a04be28c09c0fd3a294c4c9f923ecf73
+  window :: Graphics.Gloss.Data.Display.Display
+  {- Strictness: m1,
+     Unfolding: (Graphics.Gloss.Data.Display.InWindow
+                   Constans.window5
+                   Constans.window3
+                   Constans.window1) -}
+b9de1dbd1c5e607f50e95de12c7ea4e9
+  window1 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Constans.window2, Constans.window2)) -}
+38220724dbcb20817a42f5e6425b56c1
+  window2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+97301186a652a5be10f8b4828b4d3b8f
+  window3 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Constans.window4, Constans.window4)) -}
+4ded55d9138a6acd40c305aee934f259
+  window4 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1000#) -}
+3227d20662cf6bc13cc0429850aee164
+  window5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Constans.window6) -}
+d1f3344684c6fe52975089b28b16f7c2
+  window6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Tetris"#) -}
+trusted: none
+require own pkg trusted: False
+module header:
+  Nothing
+declaration docs:
+arg docs:
+

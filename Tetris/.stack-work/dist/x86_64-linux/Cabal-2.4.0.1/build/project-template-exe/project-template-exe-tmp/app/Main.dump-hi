@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-19 13:59:17.76028639 UTC
+2019-03-20 13:31:13.786742727 UTC
 
 interface main:Main 8063
-  interface hash: 696d2154469f982ff665f3b822622077
-  ABI hash: 39d51eb54fd98cc7673ddbbfe68e6771
-  export-list hash: aba3a011044e019021af567631e88f53
+  interface hash: 84bfd835c31f5d158cdf3a7fd10a4683
+  ABI hash: 3ca161428be828f1bc6afc11651e412a
+  export-list hash: 20c68f547accb97c62ee138a2f3d3bd6
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 41157dda25afcb8501e0e59ceee8ebaa
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -23,11 +23,15 @@ package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.14
                       bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 deepseq-1.4.4.0
                       fixed-0.2.1.1 ghc-boot-th-8.6.3 ghc-prim-0.5.3 gloss-1.13.0.1
                       gloss-rendering-1.13.0.2 half-0.3 integer-gmp-1.0.2.0
-                      pretty-1.1.3.6 project-template-0.0.0.0 stm-2.5.0.0
-                      template-haskell-2.14.0.0 text-1.2.3.1
+                      pretty-1.1.3.6 project-template-0.0.0.0 random-1.1 stm-2.5.0.0
+                      template-haskell-2.14.0.0 text-1.2.3.1 time-1.8.0.2
 orphans: stm-2.5.0.0:Control.Monad.STM text-1.2.3.1:Data.Text
          binary-0.8.6.0:Data.Binary.Generic text-1.2.3.1:Data.Text.Show
-         bytestring-0.10.8.2:Data.ByteString.Builder base-4.12.0.0:GHC.Float
+         bytestring-0.10.8.2:Data.ByteString.Builder
+         time-1.8.0.2:Data.Time.Format.Parse
+         time-1.8.0.2:Data.Time.LocalTime.Internal.ZonedTime
+         time-1.8.0.2:Data.Time.LocalTime.Internal.LocalTime
+         time-1.8.0.2:Data.Time.Calendar.Gregorian base-4.12.0.0:GHC.Float
          base-4.12.0.0:GHC.Base
 family instance modules: base-4.12.0.0:Control.Applicative
                          base-4.12.0.0:Data.Complex base-4.12.0.0:Data.Functor.Compose
@@ -54,10 +58,12 @@ import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
 import  -/  base-4.12.0.0:System.IO 88c2b1c4079c52d62ed362d4eb9a5302
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
-import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.IO.Game e364cc81678e318c506c2166775eac31
-import  -/  project-template-0.0.0.0:Draw 12c152f1683c6535487bc391ad1fd19e
-import  -/  project-template-0.0.0.0:MyProj 2d1e2ac6ee7e9a7bf630129d99ffdf4d
-import  -/  project-template-0.0.0.0:Type 8d1eef560cda4fd88a79e92507d26c67
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Game 3b871ad7b6d70d672603a275ef8ba1e4
+import  -/  project-template-0.0.0.0:Constans a86110f4ae3d5dc6d3d2ae46296ba4f0
+import  -/  project-template-0.0.0.0:Draw e827216931acb380c8e25cdb3578a324
+import  -/  project-template-0.0.0.0:MyProj 5e8dcdbf50d771533a9c248fe6199bff
+import  -/  project-template-0.0.0.0:Type 66da883b5513e822d5e6553c4386bfac
+import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 be86c9d078d3acbf19ba91fe74a24273
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -76,12 +82,12 @@ e5875966b74dad2d29772660b8a75e33
 d026be77cb9ced20e35a61514e0458aa
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-9293cf5bbb984a723714fe89841045b1
+f6eca2fbe30f2e158cdfa99551013635
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-4d6ef2d134d7aaec514dccf12ca29308
+8e994b7cb54c67be25d927957c8b73dc
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -89,7 +95,7 @@ d026be77cb9ced20e35a61514e0458aa
      Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
                  case (GHC.IO.Handle.Text.hPutStr'
                          GHC.IO.Handle.FD.stdout
-                         Main.main6
+                         Main.main10
                          GHC.Types.True)
                         `cast`
                       (GHC.Types.N:IO[0] <()>_R)
@@ -103,32 +109,48 @@ d026be77cb9ced20e35a61514e0458aa
                         (<GHC.IO.Handle.Types.Handle__>_R
                          ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R))
                         ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case System.Random.theStdGen
+                        `cast`
+                      (GHC.IORef.N:IORef[0] <System.Random.StdGen>_N) of wild { GHC.STRef.STRef r# ->
+                 case GHC.Prim.atomicModifyMutVar#
+                        @ GHC.Prim.RealWorld
+                        @ System.Random.StdGen
+                        @ (System.Random.StdGen, System.Random.StdGen)
+                        @ System.Random.StdGen
+                        r#
+                        System.Random.newStdGen2
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 case ipv5 of b1 { System.Random.StdGen ipv6 ipv7 ->
                  case Graphics.Gloss.Internals.Interface.Game.playWithBackendIO1
-                        @ Type.Field
+                        @ Type.GameState
                         @ Graphics.Gloss.Internals.Interface.Backend.GLUT.GLUTState
                         Graphics.Gloss.Internals.Interface.Backend.GLUT.$fBackendGLUTState
                         Graphics.Gloss.Internals.Interface.Backend.GLUT.glutStateInit
-                        Draw.window
+                        Constans.window
                         Graphics.Gloss.Data.Color.blue
-                        Draw.fps
-                        Type.createField
-                        Draw.drawField1
+                        Constans.fps
+                        (Type.GameState
+                           Type.createField
+                           b1
+                           (GHC.Types.[] @ Type.NumberFigure)
+                           Main.main9)
+                        Main.main8
                           `cast`
-                        (<Type.Field>_R
+                        (<Type.GameState>_R
                          ->_R Sym (GHC.Types.N:IO[0]
                                        <Graphics.Gloss.Internals.Data.Picture.Picture>_R))
-                        MyProj.handle1
+                        Main.main7
                           `cast`
                         (<Graphics.Gloss.Internals.Interface.Event.Event>_R
-                         ->_R <Type.Field>_R
-                         ->_R Sym (GHC.Types.N:IO[0] <Type.Field>_R))
-                        MyProj.gameLoop1
+                         ->_R <Type.GameState>_R
+                         ->_R Sym (GHC.Types.N:IO[0] <Type.GameState>_R))
+                        Main.main6
                           `cast`
                         (<GHC.Types.Float>_R
-                         ->_R <Type.Field>_R
-                         ->_R Sym (GHC.Types.N:IO[0] <Type.Field>_R))
-                        GHC.Types.False
-                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                         ->_R <Type.GameState>_R
+                         ->_R Sym (GHC.Types.N:IO[0] <Type.GameState>_R))
+                        GHC.Types.True
+                        ipv4 of ds4 { (#,#) ipv8 ipv9 ->
                  System.IO.appendFile2
                    @ ()
                    Main.main4
@@ -138,7 +160,21 @@ d026be77cb9ced20e35a61514e0458aa
                       hdl
                       (GHC.Base.++ @ GHC.Types.Char ipv3 Main.main2)
                       GHC.Types.False)
-                   ipv4 } } }) -}
+                   ipv8 } } } } } }) -}
+ced90cf68455747f975fff5c40fc7e72
+  main10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Main.main11) -}
+faa0426406fbe8f6d7765f09ecaceaac
+  main11 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Enter your name: "#) -}
+72054024a9a1a94363b934ab57712ba0
+  main12 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
 5125976d93522f774d7a99e094af0511
   main2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# Main.main3) -}
@@ -151,20 +187,41 @@ d026be77cb9ced20e35a61514e0458aa
 b3cc3372436f8d0341963a6abb81c920
   main5 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("results"#) -}
-f5ad5aaaab1aa538e5d4a13fb6764f78
-  main6 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# Main.main7) -}
-1d47fd881fc02a47b6317eff7d1530f0
-  main7 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("Enter your name: "#) -}
-c3f72a06869df4cdd37da648315f57c8
+6164a255785d7b3653c243018ddd6864
+  main6 ::
+    GHC.Types.Float
+    -> Type.GameState
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Type.GameState #)
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
+     Unfolding: (\ (time :: GHC.Types.Float)
+                   (world1 :: Type.GameState)
+                   (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 (# s1, world1 #)) -}
+690f1985e1a6a367fa74acf402f353a8
+  main7 ::
+    Graphics.Gloss.Internals.Interface.Event.Event
+    -> Type.GameState
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Type.GameState #)
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
+     Unfolding: (\ (event :: Graphics.Gloss.Internals.Interface.Event.Event)
+                   (world1 :: Type.GameState)[OneShot]
+                   (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# s1, world1 #)) -}
+ddd66b113a2dfa188ad30019afca9e79
   main8 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1,
-     Unfolding: (GHC.TopHandler.runMainIO1
-                   @ ()
-                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+    Type.GameState
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.Gloss.Internals.Data.Picture.Picture #)
+  {- Arity: 2, Strictness: <L,1*U(1*U,A,A,A)><S,U>,
+     Unfolding: (\ (x :: Type.GameState)
+                   (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# s1, Draw.drawGame x #)) -}
+2bf0b18f6c6a26b37a77bcb650f1cc01
+  main9 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
 trusted: none
 require own pkg trusted: False
 module header:

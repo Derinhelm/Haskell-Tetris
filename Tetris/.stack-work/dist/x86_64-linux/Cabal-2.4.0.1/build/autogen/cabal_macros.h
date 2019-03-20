@@ -33,6 +33,17 @@
   (major1) == 1 && (major2) == 13 && (minor) <= 0)
 #endif /* MIN_VERSION_gloss */
 
+/* package random-1.1 */
+#ifndef VERSION_random
+#define VERSION_random "1.1"
+#endif /* VERSION_random */
+#ifndef MIN_VERSION_random
+#define MIN_VERSION_random(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 0)
+#endif /* MIN_VERSION_random */
+
 /* tool alex-3.1.6 */
 #ifndef TOOL_VERSION_alex
 #define TOOL_VERSION_alex "3.1.6"
@@ -166,10 +177,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"
+#define CURRENT_PACKAGE_KEY "project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"
+#define CURRENT_COMPONENT_ID "project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.0.0.0"

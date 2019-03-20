@@ -2,12 +2,12 @@
 module Draw where
 import Type
 import Graphics.Gloss
+import Constans
+import System.IO
+import System.Random
 
-window :: Display
-window = InWindow "Tetris" (1000, 1000) (0, 0)
 
-fps :: Int
-fps = 60
+
 
 objects :: Float -> Float -> Color -> Bool -> Picture -- если isGrid = True, то рисуем решетку, значит, надо rectangleWire
 objects x y col isGrid  | isGrid = translate (50 * (y - 6)) (50 * (x - 7)) $ color black $ rectangleWire 50 50
@@ -25,7 +25,15 @@ pictureField :: Field -> Bool -> [Picture]
 pictureField [] _ = []
 pictureField (x : xs) isGrid = (drawLine x isGrid) ++ (pictureField xs isGrid)
 
-drawField :: Field -> IO Picture
-drawField f = return (pictures (pictureField  f False))
 
---drawNextFigure :: NumberFigure -> IO()
+drawFigure :: NumberFigure -> Picture
+drawFigure _ = rectangleSolid 10 20
+
+drawResult :: Int -> Picture
+drawResult _ = rectangleSolid 10 20
+
+drawGame :: GameState -> Picture
+drawGame (GameState(gameField :: Field) (gameRandomGen :: StdGen) (gameFigures :: [NumberFigure]) (gameResult :: Int)) = 
+    pictures((pictureField gameField False) ++ [(drawFigure (head gameFigures))] ++ [(drawResult gameResult)])
+
+  

@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-19 13:59:16.311085705 UTC
+2019-03-20 13:31:01.65685727 UTC
 
-interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:MyProj 8063
-  interface hash: 74645b19372e128fd44b38e5992a23bd
-  ABI hash: 2d1e2ac6ee7e9a7bf630129d99ffdf4d
-  export-list hash: fc4672068d518a039ea83c0c701a658e
+interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:MyProj 8063
+  interface hash: a50d04b1b5294e216715e9821cfd30a5
+  ABI hash: 5e8dcdbf50d771533a9c248fe6199bff
+  export-list hash: 3ae275844e5485e1ffd10404cdb57f66
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: b176a7fae7e4488ae62dd9b3f12b8417
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -17,27 +17,27 @@ interface project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE:MyProj 8063
 exports:
   MyProj.addFigure
   MyProj.checkEnd
-  MyProj.checkLand
   MyProj.createNextFigure
   MyProj.deleteLines
   MyProj.endGame
-  MyProj.funFieldAll
-  MyProj.funFieldAny
-  MyProj.funLineAll
-  MyProj.funLineAny
   MyProj.gameLoop
   MyProj.handle
   MyProj.haveFlyFigure
   MyProj.shiftFigure
-module dependencies: Draw Type
+module dependencies: Constans Draw Type
 package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.14
                       ObjectName-1.1.0.1 OpenGL-3.0.2.2 OpenGLRaw-3.3.2.0
                       StateVar-1.1.1.1 array-0.5.3.0 base-4.12.0.0 binary-0.8.6.0
                       bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 deepseq-1.4.4.0
                       fixed-0.2.1.1 ghc-boot-th-8.6.3 ghc-prim-0.5.3 gloss-1.13.0.1
                       gloss-rendering-1.13.0.2 half-0.3 integer-gmp-1.0.2.0
-                      pretty-1.1.3.6 stm-2.5.0.0 template-haskell-2.14.0.0 text-1.2.3.1
-orphans: stm-2.5.0.0:Control.Monad.STM text-1.2.3.1:Data.Text
+                      pretty-1.1.3.6 random-1.1 stm-2.5.0.0 template-haskell-2.14.0.0
+                      text-1.2.3.1 time-1.8.0.2
+orphans: time-1.8.0.2:Data.Time.Format.Parse
+         time-1.8.0.2:Data.Time.LocalTime.Internal.ZonedTime
+         time-1.8.0.2:Data.Time.LocalTime.Internal.LocalTime
+         time-1.8.0.2:Data.Time.Calendar.Gregorian
+         stm-2.5.0.0:Control.Monad.STM text-1.2.3.1:Data.Text
          binary-0.8.6.0:Data.Binary.Generic text-1.2.3.1:Data.Text.Show
          bytestring-0.10.8.2:Data.ByteString.Builder base-4.12.0.0:GHC.Float
          base-4.12.0.0:GHC.Base
@@ -61,7 +61,6 @@ family instance modules: base-4.12.0.0:Control.Applicative
                          pretty-1.1.3.6:Text.PrettyPrint.HughesPJ
                          template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
                          text-1.2.3.1:Data.Text
-import  -/  base-4.12.0.0:Data.Foldable 00188ddf89c975fee76bdfad479443c1
 import  -/  base-4.12.0.0:GHC.Base cc906f98291a1b830546e99a96674547
 import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
 import  -/  ghc-prim-0.5.3:GHC.Classes e0d9c979f6368701f34fa421754d2cce
@@ -69,334 +68,186 @@ import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Game 3b871ad7b6d70d672603a275ef8ba1e4
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Internals.Interface.Event 70b3da3875a2c6427df4272fec7eb5e1
-import  -/  Draw 12c152f1683c6535487bc391ad1fd19e
-  exports: a6fb822a147ef83f6381d532fc093c58
-import  -/  Type 8d1eef560cda4fd88a79e92507d26c67
-  exports: f665aa94ed217f79f139e966fb35927e
-  Cell 32908d2cab836d3b5050ddbb5afa10f7
-  Field 6be124ee151753aa2bde2641251bd2e1
-  Line fcd8ccd715b32cf954bf3293edcfd3ac
-  createField 8c332f6b2268f4a37c641ae3c4fa0d6d
-  lowerCell f37708f9688eef7f147c4617091a9db3
-  typeCell 8a9ffc3e094d2ac3397ef5b9d28b7bf5
-f94f0bec7044d7d81330eb3b8f4661fd
+import  -/  Constans a86110f4ae3d5dc6d3d2ae46296ba4f0
+  exports: 6b7c9b4c14c288940915583ecccaa9cb
+import  -/  Draw e827216931acb380c8e25cdb3578a324
+  exports: 551067e2732157ecbd258059c1ba69cc
+import  -/  Type 66da883b5513e822d5e6553c4386bfac
+  exports: f2deaed13c34578ab3aeb611e8a17f3a
+  Field cff2286d27e6392df8d5af5cd3f4b99a
+  GameState f2f46b54669258b02928e2e0f3f586b3
+  createField 03301ac4f712d79e125b7e314f8da4c2
+  funFieldAll f3348f54733fff744c14c483dc51410e
+  funFieldAny e2fc49ae8e6e6604234795ccc0087a1c
+  lowerCell 57e24d476c19beda91528cbb9b930b2d
+  typeCell 46a2f670b604fe56b2cc6403b9b8d47b
+cd917b6f8bcf6b8aaecc693871acbf44
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module
                    MyProj.$trModule3
                    MyProj.$trModule1) -}
-5492c79612a440659cd51581ed0598d4
+637140a171b8785eee75ba9876bdb7d6
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS MyProj.$trModule2) -}
-f2c3d4697308f5e864dbcb1cba224dbe
+204fe942f1473ca5b92b79589814a20e
   $trModule2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("MyProj"#) -}
-b24f127a86df220fd31378711955550f
+bd66823722c82efecacae7b7af71d506
   $trModule3 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS MyProj.$trModule4) -}
-94947f9096acbfa16986f7c2152a7bc6
+99aa6c486c15517abc54f67dbd421cb5
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("project-template-0.0.0.0-JNDiYFsrJVZJauSEZOAPtE"#) -}
-bf837734bae1280f00c9853f000accef
-  addFigure :: Type.Field -> Type.Field
-  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
-     Unfolding: InlineRule (1, True, True)
-                (\ (field :: Type.Field) -> field) -}
-0a3750c1d2e44798629e155ab283aacc
+     Unfolding: ("project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an"#) -}
+8982e41aa577e1ad6a60170bc2dafa49
+  addFigure :: Type.Field -> GHC.Types.IO Type.Field
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                MyProj.addFigure1
+                  `cast`
+                (<Type.Field>_R ->_R Sym (GHC.Types.N:IO[0] <Type.Field>_R)) -}
+c5ec046c53758c1a054ec7da4e4a169b
+  addFigure1 ::
+    Type.Field
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Type.Field #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (field :: Type.Field)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 (# s, field #)) -}
+0ac887e9100709b28c521b266770ec03
   checkEnd :: Type.Field -> GHC.Types.Bool
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: (\ (field :: Type.Field) ->
+                 case (MyProj.checkEnd_go field)
+                        `cast`
+                      (Data.Semigroup.Internal.N:Any[0]) of wild {
+                   GHC.Types.False
+                   -> letrec {
+                        go :: [Type.Line] -> GHC.Types.Bool
+                          <join 1> {- Arity: 1, Strictness: <S,1*U> -}
+                        = \ (ds :: [Type.Line]) ->
+                          case ds of wild1 {
+                            [] -> GHC.Types.False
+                            : y ys
+                            -> let {
+                                 exit :: GHC.Types.Bool <join 0> = go ys
+                               } in
+                               letrec {
+                                 go1 :: [Type.Cell] -> GHC.Types.Bool
+                                   <join 1> {- Arity: 1, Strictness: <S,1*U> -}
+                                 = \ (ds1 :: [Type.Cell]) ->
+                                   case ds1 of wild2 {
+                                     [] -> exit
+                                     : y1 ys1
+                                     -> case y1 of wild3 { Type.Cell ds2 ds3 ds4 ds5 ->
+                                        case ds4 of wild4 { GHC.Types.I# x ->
+                                        case x of wild5 {
+                                          DEFAULT -> go1 ys1
+                                          1#
+                                          -> case ds2 of ww5 { GHC.Types.I# ww6 ->
+                                             case ds3 of ww7 { GHC.Types.I# ww8 ->
+                                             case GHC.List.$w!!
+                                                    @ Type.Cell
+                                                    (GHC.List.$w!!
+                                                       @ Type.Line
+                                                       field
+                                                       (GHC.Prim.+# ww6 1#))
+                                                    ww8 of wild6 { Type.Cell ds6 ds7 ds8 ds9 ->
+                                             case ds8 of wild7 { GHC.Types.I# x1 ->
+                                             case x1 of wild8 {
+                                               DEFAULT -> go1 ys1
+                                               0# -> GHC.Types.True } } } } } } } } }
+                               } in
+                               go1 y }
+                      } in
+                      go field
+                   GHC.Types.True -> GHC.Types.True }) -}
+e19a4462f3fe372aa240818f4fe7b626
+  checkEnd_go :: [Type.Line] -> Data.Semigroup.Internal.Any
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+566a01fc468e8b3359fc5d525f207b96
+  createNextFigure :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
+207e6e13d640b459e260ebd38a86377e
+  deleteLines ::
+    Type.Field -> GHC.Types.Int -> (Type.Field, GHC.Types.Int)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>m,
+     Unfolding: InlineRule (0, True, True)
+                (GHC.Tuple.(,) @ Type.Field @ GHC.Types.Int) -}
+d4f9ea9c4aea12db5e56d36c0ae5e709
+  endGame :: Type.Field
+  {- Unfolding: InlineRule (0, True, True) Type.createField -}
+1d2ec9aed37916ca93f15b4a1c3dabb2
+  gameLoop :: GHC.Types.Float -> Type.GameState -> Type.GameState
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S,1*U(U,U,U,U)>m,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: GHC.Types.Float) (a :: Type.GameState) -> a) -}
+c63718ef401cfd9c35a6526a21e6eacc
+  handle ::
+    Graphics.Gloss.Internals.Interface.Event.Event
+    -> Type.GameState -> Type.GameState
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S,1*U(U,U,U,U)>m,
+     Unfolding: InlineRule (2, True, True)
+                (\ (key :: Graphics.Gloss.Internals.Interface.Event.Event)
+                   (game :: Type.GameState) ->
+                 game) -}
+60205c434b373e3b39c352866ccf8247
+  haveFlyFigure :: Type.Field -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (field :: Type.Field) ->
                  let {
-                   $j :: GHC.Types.Bool <join 0>
-                   = letrec {
-                       go :: [Type.Line] -> GHC.Types.Bool
-                         <join 1> {- Arity: 1, Strictness: <S,1*U> -}
-                       = \ (ds :: [Type.Line]) ->
-                         case ds of wild {
-                           [] -> GHC.Types.False
-                           : y ys
-                           -> let {
-                                exit :: GHC.Types.Bool <join 0> = go ys
-                              } in
-                              letrec {
-                                go1 :: [Type.Cell] -> GHC.Types.Bool
-                                  <join 1> {- Arity: 1, Strictness: <S,1*U> -}
-                                = \ (ds1 :: [Type.Cell]) ->
-                                  case ds1 of wild1 {
-                                    [] -> exit
-                                    : y1 ys1
-                                    -> case y1 of wild2 { Type.Cell ds2 ds3 ds4 ds5 ->
-                                       case ds4 of wild3 { GHC.Types.I# x ->
-                                       case x of wild4 {
-                                         DEFAULT -> go1 ys1
-                                         1#
-                                         -> case ds2 of ww5 { GHC.Types.I# ww6 ->
-                                            case ds3 of ww7 { GHC.Types.I# ww8 ->
-                                            case GHC.List.$w!!
-                                                   @ Type.Cell
-                                                   (GHC.List.$w!!
-                                                      @ Type.Line
-                                                      field
-                                                      (GHC.Prim.+# ww6 1#))
-                                                   ww8 of wild5 { Type.Cell ds6 ds7 ds8 ds9 ->
-                                            case ds8 of wild6 { GHC.Types.I# x1 ->
-                                            case x1 of wild7 {
-                                              DEFAULT -> go1 ys1
-                                              0# -> GHC.Types.True } } } } } } } } }
-                              } in
-                              go1 y }
-                     } in
-                     go field
+                   exit :: GHC.Types.Bool <join 0>
+                   = (MyProj.haveFlyFigure_go field)
+                       `cast`
+                     (Data.Semigroup.Internal.N:Any[0])
                  } in
                  letrec {
                    go :: [Type.Line] -> GHC.Types.Bool
                      <join 1> {- Arity: 1, Strictness: <S,1*U> -}
                    = \ (ds :: [Type.Line]) ->
                      case ds of wild {
-                       [] -> $j
+                       [] -> exit
                        : y ys
                        -> let {
-                            exit :: GHC.Types.Bool <join 0> = go ys
+                            exit1 :: GHC.Types.Bool <join 0> = go ys
                           } in
                           letrec {
                             go1 :: [Type.Cell] -> GHC.Types.Bool
                               <join 1> {- Arity: 1, Strictness: <S,1*U> -}
                             = \ (ds1 :: [Type.Cell]) ->
                               case ds1 of wild1 {
-                                [] -> exit
+                                [] -> exit1
                                 : y1 ys1
                                 -> case y1 of wild2 { Type.Cell ds2 ds3 ds4 ds5 ->
                                    case ds4 of wild3 { GHC.Types.I# x ->
-                                   case x of wild4 { DEFAULT -> go1 ys1 3# -> GHC.Types.True } } } }
+                                   case x of wild4 {
+                                     DEFAULT -> go1 ys1
+                                     1#
+                                     -> case ds2 of ww5 { GHC.Types.I# ww6 ->
+                                        case ds3 of ww7 { GHC.Types.I# ww8 ->
+                                        case GHC.List.$w!!
+                                               @ Type.Cell
+                                               (GHC.List.$w!!
+                                                  @ Type.Line
+                                                  field
+                                                  (GHC.Prim.+# ww6 1#))
+                                               ww8 of wild5 { Type.Cell ds6 ds7 ds8 ds9 ->
+                                        case ds8 of wild6 { GHC.Types.I# x1 ->
+                                        case x1 of wild7 {
+                                          DEFAULT -> go1 ys1 0# -> GHC.Types.False } } } } } } } } }
                           } in
                           go1 y }
                  } in
                  go field) -}
-f9d8a70d0693880d7f8b462f5f7490c0
-  checkLand :: Type.Field -> (GHC.Types.Bool, Type.Field)
-  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
-     Unfolding: InlineRule (1, True, False)
-                (\ (t :: Type.Field) -> (GHC.Types.True, t)) -}
-57fbd3def631065bcf0c9fc2d9ddc495
-  createNextFigure :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
-702cdb09b53ea79cd625ec77decfb787
-  deleteLines ::
-    Type.Field -> GHC.Types.Int -> (Type.Field, GHC.Types.Int)
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>m,
-     Unfolding: InlineRule (0, True, True)
-                (GHC.Tuple.(,) @ Type.Field @ GHC.Types.Int) -}
-8fe1ce4923a4fc53890ca32a9d6047f3
-  endGame :: Type.Field
-  {- Unfolding: InlineRule (0, True, True) Type.createField -}
-cae66b8dbf9753dc85c1453158b883cd
-  funFieldAll ::
-    (Type.Cell -> GHC.Types.Bool) -> Type.Field -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
-     Unfolding: InlineRule (0, True, True)
-                MyProj.funFieldAll1
-                  `cast`
-                (<Type.Cell -> GHC.Types.Bool>_R
-                 ->_R <Type.Field>_R
-                 ->_R Data.Semigroup.Internal.N:All[0]) -}
-a5e3db7b583ba6d8189fe108ada9e001
-  funFieldAll1 ::
-    (Type.Cell -> GHC.Types.Bool)
-    -> Type.Field -> Data.Semigroup.Internal.All
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
-     Unfolding: (\ (f :: Type.Cell -> GHC.Types.Bool)
-                   (field :: Type.Field) ->
-                 letrec {
-                   go :: [Type.Line] -> Data.Semigroup.Internal.All
-                     <join 1> {- Arity: 1, Strictness: <S,1*U> -}
-                   = \ (ds :: [Type.Line]) ->
-                     case ds of wild {
-                       []
-                       -> GHC.Types.True `cast` (Sym (Data.Semigroup.Internal.N:All[0]))
-                       : y ys
-                       -> let {
-                            exit :: Data.Semigroup.Internal.All <join 0> = go ys
-                          } in
-                          letrec {
-                            go1 :: [Type.Cell] -> Data.Semigroup.Internal.All
-                              <join 1> {- Arity: 1, Strictness: <S,1*U> -}
-                            = \ (ds1 :: [Type.Cell]) ->
-                              case ds1 of wild1 {
-                                [] -> exit
-                                : y1 ys1
-                                -> case f y1 of wild2 {
-                                     GHC.Types.False
-                                     -> GHC.Types.False
-                                          `cast`
-                                        (Sym (Data.Semigroup.Internal.N:All[0]))
-                                     GHC.Types.True -> go1 ys1 } }
-                          } in
-                          go1 y }
-                 } in
-                 go field) -}
-1ae078f7f4073d11f63523173b2c1ada
-  funFieldAny ::
-    (Type.Cell -> GHC.Types.Bool) -> Type.Field -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
-     Unfolding: InlineRule (0, True, True)
-                MyProj.funFieldAny1
-                  `cast`
-                (<Type.Cell -> GHC.Types.Bool>_R
-                 ->_R <Type.Field>_R
-                 ->_R Data.Semigroup.Internal.N:Any[0]) -}
-06ebb37831e591dd1cf70bc977a4cc4d
-  funFieldAny1 ::
-    (Type.Cell -> GHC.Types.Bool)
-    -> Type.Field -> Data.Semigroup.Internal.Any
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
-     Unfolding: (\ (f :: Type.Cell -> GHC.Types.Bool)
-                   (field :: Type.Field) ->
-                 letrec {
-                   go :: [Type.Line] -> Data.Semigroup.Internal.Any
-                     <join 1> {- Arity: 1, Strictness: <S,1*U> -}
-                   = \ (ds :: [Type.Line]) ->
-                     case ds of wild {
-                       []
-                       -> GHC.Types.False `cast` (Sym (Data.Semigroup.Internal.N:Any[0]))
-                       : y ys
-                       -> let {
-                            exit :: Data.Semigroup.Internal.Any <join 0> = go ys
-                          } in
-                          letrec {
-                            go1 :: [Type.Cell] -> Data.Semigroup.Internal.Any
-                              <join 1> {- Arity: 1, Strictness: <S,1*U> -}
-                            = \ (ds1 :: [Type.Cell]) ->
-                              case ds1 of wild1 {
-                                [] -> exit
-                                : y1 ys1
-                                -> case f y1 of wild2 {
-                                     GHC.Types.False -> go1 ys1
-                                     GHC.Types.True
-                                     -> GHC.Types.True
-                                          `cast`
-                                        (Sym (Data.Semigroup.Internal.N:Any[0])) } }
-                          } in
-                          go1 y }
-                 } in
-                 go field) -}
-6123b3c10696e7ed3529e41b898ecc06
-  funLineAll ::
-    (Type.Cell -> GHC.Types.Bool) -> Type.Line -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
-     Unfolding: InlineRule (0, True, True)
-                MyProj.funLineAll1
-                  `cast`
-                (<Type.Cell -> GHC.Types.Bool>_R
-                 ->_R <Type.Line>_R
-                 ->_R Data.Semigroup.Internal.N:All[0]) -}
-a3a826723a06c1789db056949abc61e7
-  funLineAll1 ::
-    (Type.Cell -> GHC.Types.Bool)
-    -> Type.Line -> Data.Semigroup.Internal.All
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ (f :: Type.Cell -> GHC.Types.Bool) (str1 :: Type.Line) ->
-                 letrec {
-                   go :: [Type.Cell] -> Data.Semigroup.Internal.All
-                     <join 1> {- Arity: 1 -}
-                   = \ (ds :: [Type.Cell]) ->
-                     case ds of wild {
-                       []
-                       -> GHC.Types.True `cast` (Sym (Data.Semigroup.Internal.N:All[0]))
-                       : y ys
-                       -> case f y of wild1 {
-                            GHC.Types.False
-                            -> GHC.Types.False `cast` (Sym (Data.Semigroup.Internal.N:All[0]))
-                            GHC.Types.True -> go ys } }
-                 } in
-                 go str1) -}
-f9d13ab0eec582ac14f6b3fc02d685b3
-  funLineAny ::
-    (Type.Cell -> GHC.Types.Bool) -> Type.Line -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
-     Unfolding: InlineRule (0, True, True)
-                MyProj.funLineAny1
-                  `cast`
-                (<Type.Cell -> GHC.Types.Bool>_R
-                 ->_R <Type.Line>_R
-                 ->_R Data.Semigroup.Internal.N:Any[0]) -}
-9f06e1c363cd6a29fe2b08571744405b
-  funLineAny1 ::
-    (Type.Cell -> GHC.Types.Bool)
-    -> Type.Line -> Data.Semigroup.Internal.Any
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ (f :: Type.Cell -> GHC.Types.Bool) (str1 :: Type.Line) ->
-                 letrec {
-                   go :: [Type.Cell] -> Data.Semigroup.Internal.Any
-                     <join 1> {- Arity: 1 -}
-                   = \ (ds :: [Type.Cell]) ->
-                     case ds of wild {
-                       []
-                       -> GHC.Types.False `cast` (Sym (Data.Semigroup.Internal.N:Any[0]))
-                       : y ys
-                       -> case f y of wild1 {
-                            GHC.Types.False -> go ys
-                            GHC.Types.True
-                            -> GHC.Types.True
-                                 `cast`
-                               (Sym (Data.Semigroup.Internal.N:Any[0])) } }
-                 } in
-                 go str1) -}
-4a2b4cd8baa1bbd90a13439ee6bbf33c
-  gameLoop ::
-    GHC.Types.Float -> Type.Field -> GHC.Types.IO Type.Field
-  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                MyProj.gameLoop1
-                  `cast`
-                (<GHC.Types.Float>_R
-                 ->_R <Type.Field>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <Type.Field>_R)) -}
-1833bc4c6928999c3d16095f0237ef15
-  gameLoop1 ::
-    GHC.Types.Float
-    -> Type.Field
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Type.Field #)
-  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
-     Unfolding: InlineRule (3, True, True)
-                (\ (ds :: GHC.Types.Float)
-                   (field :: Type.Field)
-                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 (# s, field #)) -}
-0e97464b0ea56a6c6532578921387b0a
-  handle ::
-    Graphics.Gloss.Internals.Interface.Event.Event
-    -> Type.Field -> GHC.Types.IO Type.Field
-  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                MyProj.handle1
-                  `cast`
-                (<Graphics.Gloss.Internals.Interface.Event.Event>_R
-                 ->_R <Type.Field>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <Type.Field>_R)) -}
-4ff3b308bf2d892248f86133b1cd7f64
-  handle1 ::
-    Graphics.Gloss.Internals.Interface.Event.Event
-    -> Type.Field
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Type.Field #)
-  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
-     Unfolding: InlineRule (3, True, True)
-                (\ (key :: Graphics.Gloss.Internals.Interface.Event.Event)
-                   (field :: Type.Field)
-                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 (# s, field #)) -}
-8d926b781da9fd70e16b5dcb1e5955f8
-  haveFlyFigure :: Type.Field -> GHC.Types.Bool
-  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
-     Unfolding: InlineRule (1, True, True)
-                (\ (ds :: Type.Field) -> GHC.Types.True) -}
-cf5740ab9c78af5b1458b96f43112107
+b478cf662d841f3258ead25805c45268
+  haveFlyFigure_go :: [Type.Line] -> Data.Semigroup.Internal.Any
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+a514fb6ab69fb6869be32f4329f3f836
   shiftFigure :: Type.Field -> Type.Field
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, True) (\ (x :: Type.Field) -> x) -}
