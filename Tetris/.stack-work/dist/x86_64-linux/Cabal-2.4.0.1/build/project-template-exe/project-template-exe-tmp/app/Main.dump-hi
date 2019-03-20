@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-20 13:31:13.786742727 UTC
+2019-03-20 13:55:23.249410033 UTC
 
 interface main:Main 8063
-  interface hash: 84bfd835c31f5d158cdf3a7fd10a4683
-  ABI hash: 3ca161428be828f1bc6afc11651e412a
+  interface hash: 74c6c08d25fffa189753d617cfd517bb
+  ABI hash: a57a665f3b0e517205d750b5533cb8ed
   export-list hash: 20c68f547accb97c62ee138a2f3d3bd6
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 41157dda25afcb8501e0e59ceee8ebaa
@@ -60,8 +60,8 @@ import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Game 3b871ad7b6d70d672603a275ef8ba1e4
 import  -/  project-template-0.0.0.0:Constans a86110f4ae3d5dc6d3d2ae46296ba4f0
-import  -/  project-template-0.0.0.0:Draw e827216931acb380c8e25cdb3578a324
-import  -/  project-template-0.0.0.0:MyProj 5e8dcdbf50d771533a9c248fe6199bff
+import  -/  project-template-0.0.0.0:Draw 17e18204a137b20103a02e1df7cfb56d
+import  -/  project-template-0.0.0.0:MyProj 27e7b956efc19596b7d005a5cfafa228
 import  -/  project-template-0.0.0.0:Type 66da883b5513e822d5e6553c4386bfac
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 be86c9d078d3acbf19ba91fe74a24273
@@ -82,12 +82,12 @@ e5875966b74dad2d29772660b8a75e33
 d026be77cb9ced20e35a61514e0458aa
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-f6eca2fbe30f2e158cdfa99551013635
+d7c67ec0d417ee39618fcde4da66c625
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-8e994b7cb54c67be25d927957c8b73dc
+d8de49631a8e6e42e4d4b153dcedf91b
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -167,7 +167,7 @@ ced90cf68455747f975fff5c40fc7e72
 faa0426406fbe8f6d7765f09ecaceaac
   main11 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Enter your name: "#) -}
-72054024a9a1a94363b934ab57712ba0
+81cb65741380156dc6cf536dcc453824
   main12 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -187,17 +187,17 @@ faa0426406fbe8f6d7765f09ecaceaac
 b3cc3372436f8d0341963a6abb81c920
   main5 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("results"#) -}
-6164a255785d7b3653c243018ddd6864
+fcf69b9001b7cbef2de0f7106f421786
   main6 ::
     GHC.Types.Float
     -> Type.GameState
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, Type.GameState #)
-  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
+  {- Arity: 3, Strictness: <L,A><L,1*U(U,U,U,U)><S,U>,
      Unfolding: (\ (time :: GHC.Types.Float)
                    (world1 :: Type.GameState)
                    (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 (# s1, world1 #)) -}
+                 (# s1, MyProj.gameLoop time world1 #)) -}
 690f1985e1a6a367fa74acf402f353a8
   main7 ::
     Graphics.Gloss.Internals.Interface.Event.Event
@@ -209,13 +209,13 @@ b3cc3372436f8d0341963a6abb81c920
                    (world1 :: Type.GameState)[OneShot]
                    (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
                  (# s1, world1 #)) -}
-ddd66b113a2dfa188ad30019afca9e79
+fcb7392c51aca2980845ee1237088e8c
   main8 ::
     Type.GameState
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Graphics.Gloss.Internals.Data.Picture.Picture #)
-  {- Arity: 2, Strictness: <L,1*U(1*U,A,A,A)><S,U>,
+  {- Arity: 2, Strictness: <L,1*U(1*U,A,A,1*U(U))><S,U>,
      Unfolding: (\ (x :: Type.GameState)
                    (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
                  (# s1, Draw.drawGame x #)) -}

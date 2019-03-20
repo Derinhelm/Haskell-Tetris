@@ -1,4 +1,6 @@
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE RecordWildCards #-}
+
 
 module MyProj    where
 
@@ -11,11 +13,11 @@ import Constans
 createNextFigure::Int -- получение номера новой следующей фигуры - пока не реализовано
 createNextFigure = 1 
 
-shiftFigure :: Field -> Field --сдвиг фигуры(на 1 вниз + по клавишам) - пока не реализовано
+shiftFigure :: GameState -> GameState --сдвиг фигуры(на 1 вниз + по клавишам) - пока не реализовано
 shiftFigure x  = x
 
-addFigure :: Field  -> IO Field -- падение новой фигуры  - пока не реализовано
-addFigure field = return field--do
+addFigure :: GameState  -> GameState -- падение новой фигуры  - пока не реализовано
+addFigure field = field--do
 
 
         
@@ -35,12 +37,18 @@ haveFlyFigure field = (funFieldAll (\c -> ((typeCell c) /= 1) ||
 handle :: Event -> GameState -> GameState
 handle key game = game
 
-endGame :: Field
-endGame = createField --поменять!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+endGame ::GameState -> GameState
+endGame x = x --поменять!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! должно быть без параметров 
             
 
 gameLoop :: Float -> GameState -> GameState
-gameLoop _ a = a
+gameLoop _ game@GameState {..}  = 
+        if (haveFlyFigure gameField)
+                        then (shiftFigure game)
+                        else if (checkEnd gameField)
+                                then  (endGame game)
+                                else  (addFigure game)       
+      
 
 --gameLoop :: Float -> Field -> Field --игровой цикл 
 --gameLoop _ field  = if haveFlyFigure field 

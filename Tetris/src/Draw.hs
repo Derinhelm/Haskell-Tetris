@@ -26,14 +26,15 @@ pictureField [] _ = []
 pictureField (x : xs) isGrid = (drawLine x isGrid) ++ (pictureField xs isGrid)
 
 
-drawFigure :: NumberFigure -> Picture
-drawFigure _ = rectangleSolid 10 20
+drawFigure :: NumberFigure -> [Picture]
+drawFigure _ = [translate (-400) 250 $ color green $ rectangleSolid 20 20]
 
-drawResult :: Int -> Picture
-drawResult _ = rectangleSolid 10 20
+drawResult :: Int -> Picture--[Picture]
+drawResult res = translate 330 200 $ color yellow $ (Text (show res))
+--drawResult res = [translate 330 200 $ color yellow $ (Text (show res)), translate 330 250 $ color yellow $ (Text (show "result"))]
 
 drawGame :: GameState -> Picture
 drawGame (GameState(gameField :: Field) (gameRandomGen :: StdGen) (gameFigures :: [NumberFigure]) (gameResult :: Int)) = 
-    pictures((pictureField gameField False) ++ [(drawFigure (head gameFigures))] ++ [(drawResult gameResult)])
+    pictures((pictureField gameField False) ++ (drawFigure (head gameFigures)) ++ [(drawResult gameResult)])
 
   
