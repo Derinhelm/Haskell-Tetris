@@ -13,7 +13,13 @@ main = do
     putStrLn "Enter your name: "
     name <- getLine
     gen <- newStdGen
-    let createGame = GameState (createField) gen (createManyFigures) 0 
-    play window blue fps createGame drawGame handle gameLoop 
+    let createGame = GameState (createField) gen (createListFigures) 0 (createCoordFigures) (createColorFigures)
+    --a <- return (gameLoop 0 (createGame))
+    --b <- return (gameLoop 0 a)
+    --c <- return (gameLoop 0 b)
+    --putStrLn(show a)
+    --putStrLn(show b)
+    --putStrLn(show c)
+    play window black fps createGame drawGame handle gameLoop 
     --result из файла
     writeFile "results" (name ++ " - ")-- ++  (show result))

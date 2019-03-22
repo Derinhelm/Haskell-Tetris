@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-20 13:10:45.489452992 UTC
+2019-03-22 13:35:16.318407446 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Constans 8063
-  interface hash: 0d5d297683e40735cd877e115f93171a
-  ABI hash: a86110f4ae3d5dc6d3d2ae46296ba4f0
-  export-list hash: 6b7c9b4c14c288940915583ecccaa9cb
+  interface hash: 35371453fa7881282d226a0df486d833
+  ABI hash: a2074c6396511319a3de7e4f866d3841
+  export-list hash: 4e851395688f4e2271ad07b9b5734963
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: d59a86fc39dabe8754ebbfb830e37f1e
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -15,6 +15,8 @@ interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Constans 8063
   used TH splices: False
   where
 exports:
+  Constans.colorBoard
+  Constans.createListFigures
   Constans.fps
   Constans.range
   Constans.window
@@ -52,7 +54,9 @@ family instance modules: base-4.12.0.0:Control.Applicative
                          text-1.2.3.1:Data.Text
 import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
 import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Display 00343016c1cbf1a564f259e863c55bf4
+import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
 b1c85fe136dcfec624a50de16a2428a0
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -74,19 +78,41 @@ a0e136dcd5c8836044e89701c7e1c171
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
      Unfolding: ("project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an"#) -}
+a46ee52867c7f2352348479a0f097919
+  colorBoard :: Graphics.Gloss.Internals.Data.Color.Color
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                Graphics.Gloss.Data.Color.white -}
+2391bc42dc0701d6ec01069e1c8c0a8d
+  createListFigures :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures3
+                   Constans.createListFigures1) -}
+bd883b94b86229498dfb1f48d65e2a4f
+  createListFigures1 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures2
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+b8594ee31b276177867d858f5585a0f9
+  createListFigures2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2#) -}
+886eae45239a930c0d8a277a2d4abcb6
+  createListFigures3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
 553e97e7b6b7fff2daccce9da0d43862
   fps :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 60#) -}
-1e545c1b5e1f04338084f1619b073dd1
+863af02e1d98d7d04606088f665e96e2
   range :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Constans.range2, Constans.range1)) -}
-f775221078095706b4d85a0b1c5dbfd2
+     Unfolding: ((Constans.createListFigures3, Constans.range1)) -}
+1da8a18775264b03341a3d769a88c13c
   range1 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10#) -}
-9d8a9e07214eda577c38aede28662b2e
-  range2 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# -10#) -}
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7#) -}
 a04be28c09c0fd3a294c4c9f923ecf73
   window :: Graphics.Gloss.Data.Display.Display
   {- Strictness: m1,

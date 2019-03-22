@@ -1,13 +1,13 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-20 13:18:19.078981175 UTC
+2019-03-22 18:49:14.652615135 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Type 8063
-  interface hash: 9eee33bb38f457d24e5868787eb08a32
-  ABI hash: 66da883b5513e822d5e6553c4386bfac
-  export-list hash: f2deaed13c34578ab3aeb611e8a17f3a
+  interface hash: b106c16df508d47506c7ac65219e104f
+  ABI hash: 7b8d5bd3c80029b0a8a22edfd6169f19
+  export-list hash: 909189a38ea3238aedea71017e62ecfa
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
-  flag hash: b176a7fae7e4488ae62dd9b3f12b8417
+  flag hash: 7a242ffa3d761dff45aed995f1434522
   opt_hash: 6faf2de08de32d19db9870899d88e59a
   hpc_hash: 93b885adfe0da089cdf634904fd59f71
   plugin_hash: ad164012d6b1e14942349d58b1132007
@@ -15,24 +15,29 @@ interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Type 8063
   used TH splices: False
   where
 exports:
+  Type.changeCell
   Type.changeCellInField
   Type.changeCellInLine
+  Type.createColorFigures
+  Type.createCoordFigures
   Type.createField
-  Type.createIndices
   Type.createLine
-  Type.createManyFigures
   Type.funFieldAll
   Type.funFieldAny
   Type.funLineAll
   Type.funLineAny
   Type.getCell
+  Type.higherCell
   Type.lowerCell
+  Type.mapField
+  Type.mapLine
   Type.typeCell
   Type.typeCellFromField
   Type.Cell{Type.Cell cellColor cellType numCell numLine}
+  Type.CoordCell
+  Type.CoordFigures
   Type.Field
-  Type.GameState{Type.GameState gameField gameFigures gameRandomGen gameResult}
-  Type.Indices
+  Type.GameState{Type.GameState colorTetr coordTetr gameField gameFigures gameRandomGen gameResult}
   Type.Line
   Type.NumberFigure
   Type.Result
@@ -74,6 +79,7 @@ family instance modules: base-4.12.0.0:Control.Applicative
                          template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
                          text-1.2.3.1:Data.Text
 import  -/  base-4.12.0.0:Data.Foldable 00188ddf89c975fee76bdfad479443c1
+import  -/  base-4.12.0.0:Data.Maybe 1e8e1362415df45376dffd98f8a47766
 import  -/  base-4.12.0.0:GHC.Base cc906f98291a1b830546e99a96674547
 import  -/  base-4.12.0.0:GHC.List 734a72beb76d276fb4a0ba2689a5711f
 import  -/  base-4.12.0.0:GHC.Num 847723f2584d989dac1eada133ac3fb8
@@ -84,8 +90,8 @@ import  -/  ghc-prim-0.5.3:GHC.Classes e0d9c979f6368701f34fa421754d2cce
 import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
-import  -/  Constans a86110f4ae3d5dc6d3d2ae46296ba4f0
-  exports: 6b7c9b4c14c288940915583ecccaa9cb
+import  -/  Constans a2074c6396511319a3de7e4f866d3841
+  exports: 4e851395688f4e2271ad07b9b5734963
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 ce69d132984f15c162cb28e115878ea4
   $fShowCell :: GHC.Show.Show Type.Cell
@@ -149,6 +155,50 @@ ce69d132984f15c162cb28e115878ea4
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { Type.Cell ww3 ww4 ww5 ww6 ->
                  Type.$w$cshowsPrec ww1 ww3 ww4 ww5 ww6 } }) -}
+9c21f4bed2afaaca1dc2e29261755836
+  $fShowGameState :: GHC.Show.Show Type.GameState
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ Type.GameState
+                  Type.$fShowGameState_$cshowsPrec
+                  Type.$fShowGameState_$cshow
+                  Type.$fShowGameState_$cshowList -}
+9c21f4bed2afaaca1dc2e29261755836
+  $fShowGameState1 :: Type.GameState -> GHC.Show.ShowS
+  {- Arity: 2,
+     Strictness: <S,1*U(1*U,1*U(U,U),1*U,1*U(U),1*U,1*U)><L,U>,
+     Unfolding: (\ (w :: Type.GameState) (w1 :: GHC.Base.String) ->
+                 case w of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 Type.$w$cshowsPrec1 0# ww1 ww2 ww3 ww4 ww5 ww6 w1 }) -}
+9c21f4bed2afaaca1dc2e29261755836
+  $fShowGameState_$cshow :: Type.GameState -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U(U,U),1*U,1*U(U),1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Type.GameState) ->
+                 Type.$fShowGameState_$cshowsPrec
+                   Type.$fShowCell8
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+9c21f4bed2afaaca1dc2e29261755836
+  $fShowGameState_$cshowList :: [Type.GameState] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ls :: [Type.GameState]) (s :: GHC.Base.String) ->
+                 GHC.Show.showList__ @ Type.GameState Type.$fShowGameState1 ls s) -}
+9c21f4bed2afaaca1dc2e29261755836
+  $fShowGameState_$cshowsPrec ::
+    GHC.Types.Int -> Type.GameState -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <S(S),1*U(U)><S,1*U(1*U,1*U(U,U),1*U,1*U(U),1*U,1*U)><L,U>,
+     Inline: [2],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: Type.GameState)
+                   (w2 :: GHC.Base.String) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Type.GameState ww3 ww4 ww5 ww6 ww7 ww8 ->
+                 Type.$w$cshowsPrec1 ww1 ww3 ww4 ww5 ww6 ww7 ww8 w2 } }) -}
 b66278e7125e440179bcfe20c31d9e4b
   $tc'Cell :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -323,6 +373,20 @@ b37ccd362537d441e3fb680d1eeb2f5b
                         @ GHC.Types.Char
                         GHC.Show.$fShow(,)4
                         (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 x)) }) -}
+ed8889cd02eec045acd2b4c261fb2050
+  $w$cshowsPrec1 ::
+    GHC.Prim.Int#
+    -> Type.Field
+    -> System.Random.StdGen
+    -> [Type.NumberFigure]
+    -> GHC.Types.Int
+    -> [Type.CoordFigures]
+    -> [Graphics.Gloss.Internals.Data.Color.Color]
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 8,
+     Strictness: <S,U><L,1*U><L,1*U(U,U)><L,1*U><L,1*U(U)><L,1*U><L,1*U><L,U>,
+     Inline: [2] -}
 c8576e44f2878a3d233a336a12b0fdbf
   $wchangeCellInField ::
     Type.Field
@@ -449,33 +513,62 @@ c8576e44f2878a3d233a336a12b0fdbf
 c02ee1d0e7445bca58c1fdd6dca50539
   $wgo :: GHC.Prim.Int# -> (# Type.Line, [Type.Line] #)
   {- Arity: 1, HasNoCafRefs, Strictness: <L,U>, Inline: [2] -}
-32cc2b4d9ce4d04cab9934b74d95ff91
-  $wlowerCell ::
-    GHC.Prim.Int# -> GHC.Prim.Int# -> Type.Field -> Type.Cell
-  {- Arity: 3, Strictness: <S,U><S,U><S,1*U>, Inline: [2],
+0e42618a7036379d54836b47ec87ae42
+  $whigherCell ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int -> Type.Field -> GHC.Maybe.Maybe Type.Cell
+  {- Arity: 3, Strictness: <S,1*U><L,1*U(U)><L,1*U>, Inline: [2],
      Unfolding: (\ (ww :: GHC.Prim.Int#)
-                   (ww1 :: GHC.Prim.Int#)
+                   (ww1 :: GHC.Types.Int)
                    (w :: Type.Field) ->
-                 GHC.List.$w!!
-                   @ Type.Cell
-                   (GHC.List.$w!! @ Type.Line w (GHC.Prim.+# ww 1#))
-                   ww1) -}
+                 case ww of wild {
+                   DEFAULT
+                   -> GHC.Maybe.Just
+                        @ Type.Cell
+                        (case ww1 of ww2 { GHC.Types.I# ww3 ->
+                         GHC.List.$w!!
+                           @ Type.Cell
+                           (GHC.List.$w!! @ Type.Line w (GHC.Prim.-# wild 1#))
+                           ww3 })
+                   1# -> GHC.Maybe.Nothing @ Type.Cell }) -}
+7f92797e626726d849d5a57bd9724083
+  $wlowerCell ::
+    GHC.Prim.Int#
+    -> GHC.Types.Int -> Type.Field -> GHC.Maybe.Maybe Type.Cell
+  {- Arity: 3, Strictness: <S,1*U><L,1*U(U)><L,1*U>, Inline: [2],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (ww1 :: GHC.Types.Int)
+                   (w :: Type.Field) ->
+                 case ww of wild {
+                   DEFAULT
+                   -> GHC.Maybe.Just
+                        @ Type.Cell
+                        (case ww1 of ww2 { GHC.Types.I# ww3 ->
+                         GHC.List.$w!!
+                           @ Type.Cell
+                           (GHC.List.$w!! @ Type.Line w (GHC.Prim.+# wild 1#))
+                           ww3 })
+                   15# -> GHC.Maybe.Nothing @ Type.Cell }) -}
 ce69d132984f15c162cb28e115878ea4
   data Cell
     = Cell {numLine :: GHC.Types.Int,
             numCell :: GHC.Types.Int,
             cellType :: GHC.Types.Int,
             cellColor :: Graphics.Gloss.Internals.Data.Color.Color}
+a84a815ac9d0a4e801bd442bfa023e94
+  type CoordCell = (GHC.Types.Int, GHC.Types.Int)
+b3b9710d1bc9d5841b96879fe6ccdd74
+  type CoordFigures = [Type.CoordCell]
 cff2286d27e6392df8d5af5cd3f4b99a
   type Field = [Type.Line]
-f2f46b54669258b02928e2e0f3f586b3
+9c21f4bed2afaaca1dc2e29261755836
   data GameState
     = GameState {gameField :: Type.Field,
                  gameRandomGen :: System.Random.StdGen,
                  gameFigures :: [Type.NumberFigure],
-                 gameResult :: GHC.Types.Int}
-3c6df879de0ce5891ee155ebc1d5d90a
-  type Indices = [(GHC.Types.Int, GHC.Types.Int)]
+                 gameResult :: GHC.Types.Int,
+                 coordTetr :: [Type.CoordFigures],
+                 colorTetr :: [Graphics.Gloss.Internals.Data.Color.Color]}
 bec16fc1c01d7327740e42f85f13dafe
   type Line = [Type.Cell]
 ee576e2d2b8f44f9596901e8945ba26f
@@ -498,6 +591,16 @@ ce69d132984f15c162cb28e115878ea4
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.Cell) ->
                  case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds3 }) -}
+bab72f3e741d699fd4bbfec24e9d13da
+  changeCell :: Type.Field -> Type.Cell -> Type.Cell -> Type.Field
+  {- Arity: 3,
+     Strictness: <L,U><S(S(S)LLL),1*U(1*U(U),1*U(U),A,A)><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (field :: Type.Field)
+                   (oldCell :: Type.Cell)
+                   (newCell :: Type.Cell) ->
+                 case oldCell of wild { Type.Cell ds ds1 ds2 ds3 ->
+                 Type.changeCellInField field ds ds1 newCell }) -}
 799ff397206bd1f1e15baa9e2bc2c8a8
   changeCellInField ::
     Type.Field
@@ -520,17 +623,370 @@ ce69d132984f15c162cb28e115878ea4
                 (\ (w :: Type.Line) (w1 :: GHC.Types.Int) (w2 :: Type.Cell) ->
                  case w1 of ww { GHC.Types.I# ww1 ->
                  Type.$wchangeCellInLine w ww1 w2 }) -}
+9c21f4bed2afaaca1dc2e29261755836
+  colorTetr ::
+    Type.GameState -> [Graphics.Gloss.Internals.Data.Color.Color]
+  RecSel Left Type.GameState
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLLLLS),1*U(A,A,A,A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Type.GameState) ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ->
+                 ds6 }) -}
+9c21f4bed2afaaca1dc2e29261755836
+  coordTetr :: Type.GameState -> [Type.CoordFigures]
+  RecSel Left Type.GameState
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLLLSL),1*U(A,A,A,A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Type.GameState) ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ->
+                 ds5 }) -}
+381069a73fbc1e853e0228197ae15e26
+  createColorFigures :: [Graphics.Gloss.Internals.Data.Color.Color]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Color.Color
+                   Graphics.Gloss.Data.Color.green
+                   Type.createColorFigures1) -}
+d9da9d2a4f71cb0b99bb2231ebfb5186
+  createColorFigures1 :: [Graphics.Gloss.Internals.Data.Color.Color]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Color.Color
+                   Type.createColorFigures8
+                   Type.createColorFigures2) -}
+0804850fdda26a6d6728d1191591b91b
+  createColorFigures2 :: [Graphics.Gloss.Internals.Data.Color.Color]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Color.Color
+                   Graphics.Gloss.Data.Color.violet
+                   Type.createColorFigures3) -}
+6023615c9cddbbf9b82a7aa8f60fe89e
+  createColorFigures3 :: [Graphics.Gloss.Internals.Data.Color.Color]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Color.Color
+                   Graphics.Gloss.Data.Color.red
+                   Type.createColorFigures4) -}
+3d9f8f13bf0a85acf949e756731d8ff0
+  createColorFigures4 :: [Graphics.Gloss.Internals.Data.Color.Color]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Color.Color
+                   Graphics.Gloss.Data.Color.blue
+                   Type.createColorFigures5) -}
+536baa2f93e4949c17d9ee2e13eb304d
+  createColorFigures5 :: [Graphics.Gloss.Internals.Data.Color.Color]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Color.Color
+                   Graphics.Gloss.Data.Color.yellow
+                   Type.createColorFigures6) -}
+2e4688b1fb06df23ca8a84e7b0b56905
+  createColorFigures6 :: [Graphics.Gloss.Internals.Data.Color.Color]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Color.Color
+                   Type.createColorFigures7
+                   (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Color.Color)) -}
+7e2a5821964b21af882c60492f691b7c
+  createColorFigures7 :: Graphics.Gloss.Internals.Data.Color.Color
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (Graphics.Gloss.Internals.Data.Color.RGBA
+                   0.5#
+                   0.5#
+                   0.5#
+                   1.0#) -}
+a8b896f4d46ca27ab184df07aca15dd6
+  createColorFigures8 :: Graphics.Gloss.Internals.Data.Color.Color
+  {- Unfolding: (case Graphics.Gloss.Internals.Data.Color.$wclampColor
+                        0.2#
+                        0.2#
+                        1.2#
+                        1.0# of ww5 { (#,,,#) ww6 ww7 ww8 ww9 ->
+                 Graphics.Gloss.Internals.Data.Color.RGBA ww6 ww7 ww8 ww9 }) -}
+14167b66f89197ac93d6020d914b341f
+  createCoordFigures :: [Type.CoordFigures]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordFigures
+                   Type.createCoordFigures44
+                   Type.createCoordFigures1) -}
+d1c1fef5762cfa59670e5133869075c6
+  createCoordFigures1 :: [Type.CoordFigures]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordFigures
+                   Type.createCoordFigures39
+                   Type.createCoordFigures2) -}
+766f747ce465fd2d358cd30a2fd9fbd5
+  createCoordFigures10 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures11
+                   (GHC.Types.[] @ Type.CoordCell)) -}
+e3a0530ac65543335351f72cfcdd2719
+  createCoordFigures11 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Type.createCoordFigures13,
+                  Type.createCoordFigures12)) -}
+db3d7406350213dd2d992d07e36e71d8
+  createCoordFigures12 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 6#) -}
+41d17d133d40054d93f1a6086f80b2a5
+  createCoordFigures13 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3#) -}
+556bb095fe25371c3031d6e5045e4239
+  createCoordFigures14 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Type.createCoordFigures13,
+                  Type.createCoordFigures15)) -}
+2c5e0da032ff1090b9163c71385ab87a
+  createCoordFigures15 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 5#) -}
+bc0a3534bb8ad57219a2ecc703f288ba
+  createCoordFigures16 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Type.createCoordFigures17,
+                  Type.createCoordFigures15)) -}
+7a85ec334409ebc43d31c1208dce4b51
+  createCoordFigures17 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2#) -}
+fba41f5e803fa39944b919764ece06dc
+  createCoordFigures18 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Type.createCoordFigures19,
+                  Type.createCoordFigures15)) -}
+679b173d8db5b522f1a6fb801189c7bc
+  createCoordFigures19 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
+88c047e1a3c10cd02f8b0648e15a7ffd
+  createCoordFigures2 :: [Type.CoordFigures]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordFigures
+                   Type.createCoordFigures36
+                   Type.createCoordFigures3) -}
+07f8f1e90db497608525fbcbac6bcc23
+  createCoordFigures20 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures23
+                   Type.createCoordFigures21) -}
+7538a5639f66939b1793428b7c4cd1c7
+  createCoordFigures21 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures22
+                   Type.createCoordFigures9) -}
+bfa052d3a14d8ec0a774a7cbbd7f6f01
+  createCoordFigures22 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Type.createCoordFigures17,
+                  Type.createCoordFigures12)) -}
+757f263d68dfd5d94962edf00483618f
+  createCoordFigures23 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Type.createCoordFigures19,
+                  Type.createCoordFigures12)) -}
+aef6c5b5537b46a02543ab03e33f577a
+  createCoordFigures24 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures18
+                   Type.createCoordFigures25) -}
+09cf4036833b0fe34e853b3038cdddff
+  createCoordFigures25 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures16
+                   Type.createCoordFigures26) -}
+30255c190e9774ad99b4c7e59b2cd811
+  createCoordFigures26 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures14
+                   Type.createCoordFigures27) -}
+fd49a5ceb4c1af4bfae2c6d10340fc28
+  createCoordFigures27 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures28
+                   (GHC.Types.[] @ Type.CoordCell)) -}
+8d4311309e3d1b7ec995bd4740b7b5d2
+  createCoordFigures28 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Type.createCoordFigures29,
+                  Type.createCoordFigures15)) -}
+e10102c22e1116e44360f4e3ebd2f7b3
+  createCoordFigures29 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4#) -}
+faff66b4b77cefbc4bcdc7e5f3ee363b
+  createCoordFigures3 :: [Type.CoordFigures]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordFigures
+                   Type.createCoordFigures30
+                   Type.createCoordFigures4) -}
+61eda838bb8d94b7c2b6f78b4e5e3be9
+  createCoordFigures30 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures18
+                   Type.createCoordFigures31) -}
+448a3a9cb05ac1d77672b78ad0aed4dd
+  createCoordFigures31 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures23
+                   Type.createCoordFigures32) -}
+c19d48ed609412c45e11e4f5dc9d8c91
+  createCoordFigures32 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures34
+                   Type.createCoordFigures33) -}
+222141eca7da891a05304cb5f6662309
+  createCoordFigures33 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures22
+                   (GHC.Types.[] @ Type.CoordCell)) -}
+f901387350f5fd5e3828bfa70d50fd8a
+  createCoordFigures34 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Type.createCoordFigures19,
+                  Type.createCoordFigures35)) -}
+d7a816fbb8936c17e7e7cdd2e4f955b6
+  createCoordFigures35 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7#) -}
+3b08cd749a437cd94d248328d3ee685e
+  createCoordFigures36 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures23
+                   Type.createCoordFigures37) -}
+98dca6a337bc0c62e98bd285af550872
+  createCoordFigures37 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures34
+                   Type.createCoordFigures38) -}
+e7ce04d62d6f49a37ac778984635db50
+  createCoordFigures38 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures16
+                   Type.createCoordFigures33) -}
+77df45e54fd36139f3f2480d5a90e0f1
+  createCoordFigures39 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures18
+                   Type.createCoordFigures40) -}
+54888d7e5855238efa1b39c7352fe4ca
+  createCoordFigures4 :: [Type.CoordFigures]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordFigures
+                   Type.createCoordFigures24
+                   Type.createCoordFigures5) -}
+db0c7b1245a799315668f56a15d63398
+  createCoordFigures40 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures23
+                   Type.createCoordFigures41) -}
+3c2784074010a01337f981c8519de1a8
+  createCoordFigures41 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures22
+                   Type.createCoordFigures42) -}
+d2796928257f19c1904b3a85531a4fa9
+  createCoordFigures42 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures43
+                   (GHC.Types.[] @ Type.CoordCell)) -}
+b380f72122303ed4859dcc9b23d2cfec
+  createCoordFigures43 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Type.createCoordFigures17,
+                  Type.createCoordFigures35)) -}
+9d82625bf7db972d80b4844d6d67d233
+  createCoordFigures44 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures18
+                   Type.createCoordFigures45) -}
+b7a04d1152ae94eeca39d56df8f95760
+  createCoordFigures45 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures23
+                   Type.createCoordFigures38) -}
+9c076cf130239fe4b1f24176e0fde13a
+  createCoordFigures5 :: [Type.CoordFigures]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordFigures
+                   Type.createCoordFigures20
+                   Type.createCoordFigures6) -}
+ec26ec32e33e18791b3c4e7e36c829d4
+  createCoordFigures6 :: [Type.CoordFigures]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordFigures
+                   Type.createCoordFigures7
+                   (GHC.Types.[] @ Type.CoordFigures)) -}
+b0b70999c985683e4a9181c23de38f80
+  createCoordFigures7 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures18
+                   Type.createCoordFigures8) -}
+470e99b10d962d08d2f5543c417360d5
+  createCoordFigures8 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures16
+                   Type.createCoordFigures9) -}
+a3433fceb3dcf5f84170d62b8a5545d9
+  createCoordFigures9 :: [Type.CoordCell]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Type.CoordCell
+                   Type.createCoordFigures14
+                   Type.createCoordFigures10) -}
 03301ac4f712d79e125b7e314f8da4c2
   createField :: Type.Field
   {- Unfolding: (case Type.$wgo 1# of ww { (#,#) ww1 ww2 ->
                  GHC.Types.: @ Type.Line ww1 ww2 }) -}
-1d172e6c817a8bd26032783a928c8838
-  createIndices :: Type.Indices
-  {- Unfolding: (Type.createIndices_go 1#) -}
-bd09aa1e027139ca9d313b696485c000
-  createIndices_go ::
-    GHC.Prim.Int# -> [(GHC.Types.Int, GHC.Types.Int)]
-  {- Arity: 1, HasNoCafRefs, Strictness: <L,U> -}
 f3f1c8b216140076880672e10bc0f73f
   createLine :: GHC.Types.Int -> Type.Line
   {- Arity: 1, HasNoCafRefs, Strictness: <L,U>,
@@ -551,11 +1007,6 @@ f3f1c8b216140076880672e10bc0f73f
                           10# -> GHC.Types.[] @ Type.Cell })
                  } in
                  go 1#) -}
-b572a425b035a36db4e5829435bcec64
-  createManyFigures :: [Type.NumberFigure]
-  {- HasNoCafRefs,
-     Unfolding: InlineRule (0, True, True)
-                (GHC.Types.[] @ Type.NumberFigure) -}
 f3348f54733fff744c14c483dc51410e
   funFieldAll ::
     (Type.Cell -> GHC.Types.Bool) -> Type.Field -> GHC.Types.Bool
@@ -710,36 +1161,42 @@ dea54d666d4e02685791bbf0723e0424
                                (Sym (Data.Semigroup.Internal.N:Any[0])) } }
                  } in
                  go str1) -}
-f2f46b54669258b02928e2e0f3f586b3
+9c21f4bed2afaaca1dc2e29261755836
   gameField :: Type.GameState -> Type.Field
   RecSel Left Type.GameState
-  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLL),1*U(1*U,A,A,A)>,
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(SLLLLL),1*U(1*U,A,A,A,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 -> ds1 }) -}
-f2f46b54669258b02928e2e0f3f586b3
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ->
+                 ds1 }) -}
+9c21f4bed2afaaca1dc2e29261755836
   gameFigures :: Type.GameState -> [Type.NumberFigure]
   RecSel Left Type.GameState
-  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLSLLL),1*U(A,A,1*U,A,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 -> ds3 }) -}
-f2f46b54669258b02928e2e0f3f586b3
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ->
+                 ds3 }) -}
+9c21f4bed2afaaca1dc2e29261755836
   gameRandomGen :: Type.GameState -> System.Random.StdGen
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LSLL),1*U(A,1*U(U,U),A,A)>m,
+     Strictness: <S(LSLLLL),1*U(A,1*U(U,U),A,A,A,A)>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 -> ds2 }) -}
-f2f46b54669258b02928e2e0f3f586b3
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ->
+                 ds2 }) -}
+9c21f4bed2afaaca1dc2e29261755836
   gameResult :: Type.GameState -> GHC.Types.Int
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLLS),1*U(A,A,A,1*U(U))>m,
+     Strictness: <S(LLLSLL),1*U(A,A,A,1*U(U),A,A)>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 -> ds4 }) -}
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ->
+                 ds4 }) -}
 e0b0d74dc81858d2413e5fb147c7c3a8
   getCell ::
     Type.Field -> GHC.Types.Int -> GHC.Types.Int -> Type.Cell
@@ -754,17 +1211,32 @@ e0b0d74dc81858d2413e5fb147c7c3a8
                    @ Type.Cell
                    (GHC.List.$w!! @ Type.Line field ww3)
                    ww1 } }) -}
-57e24d476c19beda91528cbb9b930b2d
-  lowerCell :: Type.Cell -> Type.Field -> Type.Cell
+d8e5b97e01498246c56ca20b87c5acd1
+  higherCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
   {- Arity: 2,
-     Strictness: <S(S(S)S(S)LL),1*U(1*U(U),1*U(U),A,A)><S,1*U>,
+     Strictness: <S(S(S)LLL),1*U(1*U(1*U),1*U(U),A,A)><L,1*U>,
      Inline: [2],
      Unfolding: InlineRule (2, True, False)
                 (\ (w :: Type.Cell) (w1 :: Type.Field) ->
                  case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                  case ww1 of ww5 { GHC.Types.I# ww6 ->
-                 case ww2 of ww7 { GHC.Types.I# ww8 ->
-                 Type.$wlowerCell ww6 ww8 w1 } } }) -}
+                 Type.$whigherCell ww6 ww2 w1 } }) -}
+b10c0207ab1dd2abc3b2171d317f91b1
+  lowerCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
+  {- Arity: 2,
+     Strictness: <S(S(S)LLL),1*U(1*U(1*U),1*U(U),A,A)><L,1*U>,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Type.Cell) (w1 :: Type.Field) ->
+                 case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
+                 case ww1 of ww5 { GHC.Types.I# ww6 ->
+                 Type.$wlowerCell ww6 ww2 w1 } }) -}
+e011b7b413381307ce976d37845fc3d2
+  mapField :: (Type.Cell -> Type.Cell) -> Type.Field -> Type.Field
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U> -}
+1d6884d694ac4844a73439dc5a9b450d
+  mapLine :: (Type.Cell -> Type.Cell) -> Type.Line -> Type.Line
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U> -}
 ce69d132984f15c162cb28e115878ea4
   numCell :: Type.Cell -> GHC.Types.Int
   RecSel Left Type.Cell
@@ -804,6 +1276,7 @@ ce69d132984f15c162cb28e115878ea4
                         ww1 of wild { Type.Cell ds ds1 ds2 ds3 ->
                  ds2 } } }) -}
 instance GHC.Show.Show [Type.Cell] = Type.$fShowCell
+instance GHC.Show.Show [Type.GameState] = Type.$fShowGameState
 trusted: none
 require own pkg trusted: False
 module header:
