@@ -20,6 +20,6 @@ main = do
     --putStrLn(show a)
     --putStrLn(show b)
     --putStrLn(show c)
-    play window black fps createGame drawGame handle gameLoop 
+    play window black fps createGame drawGame handleEvent gameLoop 
     --result из файла
     --writeFile "results" (name ++ " - ")-- ++  (show result))

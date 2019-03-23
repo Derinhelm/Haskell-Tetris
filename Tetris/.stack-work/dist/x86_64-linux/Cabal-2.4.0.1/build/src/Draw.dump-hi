@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-23 10:18:47.622518755 UTC
+2019-03-23 18:27:07.203038027 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Draw 8063
-  interface hash: 5d028c400f70117efd750742ea12b987
-  ABI hash: 631061711378809058244142e212eb4e
+  interface hash: 5d49d62bb5a5a195f78f8d1b1627e8bf
+  ABI hash: d52815c42f40e09882b406393fcd6e46
   export-list hash: 551067e2732157ecbd258059c1ba69cc
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 7a242ffa3d761dff45aed995f1434522
@@ -73,11 +73,11 @@ import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb4570453126
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Picture dfdd7bdaa58e50073d0e7acd8f32d783
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Picture 82e16028b6e02fb465dc928e7e9197a2
-import  -/  Constans c78d21066748386b79aec5cb534d2967
+import  -/  Constans 6cea23f6eb3fcedea9432880ee76d0b7
   exports: 4e851395688f4e2271ad07b9b5734963
   colorBoard a46ee52867c7f2352348479a0f097919
-import  -/  Type 36c97f8f4df3b1b434b660151e14c570
-  exports: 7e4f631d1bcb2fb996fc3a17ac39460a
+import  -/  Type 498a41dcd3ceebaade90a6e5ee739e81
+  exports: dc4ce3c02f2ae6968c3c1b20add06518
   Cell a490fb91284b41c392b2e9ae69e56c0f
   Cell ce69d132984f15c162cb28e115878ea4
   Field cff2286d27e6392df8d5af5cd3f4b99a
@@ -142,7 +142,7 @@ f1d99ac04d0fd749b2b041eff03a13ed
                                       GHC.Types.: @ GHC.Types.Char ww5 ww6 } }))))
                             (GHC.Types.[]
                                @ Graphics.Gloss.Internals.Data.Picture.Picture))) #)) -}
-76fbead663f73f67acfce7f0ed3e2c0d
+77389705d264c3a4328a8b90b36b8678
   drawCell ::
     Type.Cell
     -> GHC.Types.Bool -> Graphics.Gloss.Internals.Data.Picture.Picture
@@ -162,9 +162,7 @@ f1d99ac04d0fd749b2b041eff03a13ed
                               GHC.Types.F#
                                 (GHC.Prim.timesFloat#
                                    50.0#
-                                   (GHC.Prim.plusFloat#
-                                      (GHC.Prim.negateFloat# (GHC.Prim.int2Float# i))
-                                      5.0#)) })
+                                   (GHC.Prim.minusFloat# (GHC.Prim.int2Float# i) 6.0#)) })
                              (case ww1 of wild2 { GHC.Types.I# i ->
                               GHC.Types.F#
                                 (GHC.Prim.timesFloat#
@@ -179,9 +177,7 @@ f1d99ac04d0fd749b2b041eff03a13ed
                               GHC.Types.F#
                                 (GHC.Prim.timesFloat#
                                    50.0#
-                                   (GHC.Prim.plusFloat#
-                                      (GHC.Prim.negateFloat# (GHC.Prim.int2Float# i))
-                                      5.0#)) })
+                                   (GHC.Prim.minusFloat# (GHC.Prim.int2Float# i) 6.0#)) })
                              (case ww1 of wild2 { GHC.Types.I# i ->
                               GHC.Types.F#
                                 (GHC.Prim.timesFloat#
@@ -198,9 +194,7 @@ f1d99ac04d0fd749b2b041eff03a13ed
                               GHC.Types.F#
                                 (GHC.Prim.timesFloat#
                                    50.0#
-                                   (GHC.Prim.plusFloat#
-                                      (GHC.Prim.negateFloat# (GHC.Prim.int2Float# i))
-                                      5.0#)) })
+                                   (GHC.Prim.minusFloat# (GHC.Prim.int2Float# i) 6.0#)) })
                              (case ww1 of wild2 { GHC.Types.I# i ->
                               GHC.Types.F#
                                 (GHC.Prim.timesFloat#
@@ -217,9 +211,7 @@ f1d99ac04d0fd749b2b041eff03a13ed
                               GHC.Types.F#
                                 (GHC.Prim.timesFloat#
                                    50.0#
-                                   (GHC.Prim.plusFloat#
-                                      (GHC.Prim.negateFloat# (GHC.Prim.int2Float# i))
-                                      5.0#)) })
+                                   (GHC.Prim.minusFloat# (GHC.Prim.int2Float# i) 6.0#)) })
                              (case ww1 of wild2 { GHC.Types.I# i ->
                               GHC.Types.F#
                                 (GHC.Prim.timesFloat#
@@ -351,7 +343,7 @@ f3103ce08b7444a060238d60af6d359e
                       Graphics.Gloss.Data.Color.yellow
                       (Graphics.Gloss.Internals.Data.Picture.Text
                          (GHC.Show.$fShowInt_$cshow res)))) -}
-8cc97c69c8ba8a6b2a7f3319601c5e02
+db5bf9538169bbb67fadd83b185254ba
   objects ::
     GHC.Types.Float
     -> GHC.Types.Float
@@ -370,9 +362,7 @@ f3103ce08b7444a060238d60af6d359e
                    -> Graphics.Gloss.Internals.Data.Picture.Translate
                         (case w1 of wild1 { GHC.Types.F# x ->
                          GHC.Types.F#
-                           (GHC.Prim.timesFloat#
-                              50.0#
-                              (GHC.Prim.plusFloat# (GHC.Prim.negateFloat# x) 5.0#)) })
+                           (GHC.Prim.timesFloat# 50.0# (GHC.Prim.minusFloat# x 6.0#)) })
                         (case w of wild1 { GHC.Types.F# x ->
                          GHC.Types.F#
                            (GHC.Prim.timesFloat#
@@ -383,9 +373,7 @@ f3103ce08b7444a060238d60af6d359e
                    -> Graphics.Gloss.Internals.Data.Picture.Translate
                         (case w1 of wild1 { GHC.Types.F# x ->
                          GHC.Types.F#
-                           (GHC.Prim.timesFloat#
-                              50.0#
-                              (GHC.Prim.plusFloat# (GHC.Prim.negateFloat# x) 5.0#)) })
+                           (GHC.Prim.timesFloat# 50.0# (GHC.Prim.minusFloat# x 6.0#)) })
                         (case w of wild1 { GHC.Types.F# x ->
                          GHC.Types.F#
                            (GHC.Prim.timesFloat#

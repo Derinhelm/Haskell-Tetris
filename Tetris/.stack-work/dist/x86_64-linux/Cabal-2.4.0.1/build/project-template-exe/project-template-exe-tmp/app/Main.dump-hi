@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-23 11:02:33.725118923 UTC
+2019-03-23 19:07:55.726616279 UTC
 
 interface main:Main 8063
-  interface hash: 8df736c6ca19627c8990a010b21cf282
-  ABI hash: 2be3a8a5642c85d1061e80ada3961666
+  interface hash: 51eebc1576f2e4f8865c82813e3047be
+  ABI hash: 5d7eef2ea2726a4e2d371366f9e85626
   export-list hash: 20c68f547accb97c62ee138a2f3d3bd6
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 41157dda25afcb8501e0e59ceee8ebaa
@@ -57,10 +57,10 @@ import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Game 3b871ad7b6d70d672603a275ef8ba1e4
-import  -/  project-template-0.0.0.0:Constans 4ea61f4c546d06955e8ffbc5cfe68962
-import  -/  project-template-0.0.0.0:Draw 631061711378809058244142e212eb4e
-import  -/  project-template-0.0.0.0:MyProj 4b88285fa2cda8e2101d938477acf51e
-import  -/  project-template-0.0.0.0:Type 36c97f8f4df3b1b434b660151e14c570
+import  -/  project-template-0.0.0.0:Constans e7d9a011a758ab9eba63cd7434f19521
+import  -/  project-template-0.0.0.0:Draw d52815c42f40e09882b406393fcd6e46
+import  -/  project-template-0.0.0.0:MyProj 3805f893da421bf88afbdf2088daa30a
+import  -/  project-template-0.0.0.0:Type 498a41dcd3ceebaade90a6e5ee739e81
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 be86c9d078d3acbf19ba91fe74a24273
   $trModule :: GHC.Types.Module
@@ -80,12 +80,12 @@ e5875966b74dad2d29772660b8a75e33
 d026be77cb9ced20e35a61514e0458aa
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-62cb0166182e8f54cd67615df5465935
+31b7c1f0a4c13378041afe16b66b5953
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-059a3abe9ede9b32f2373d9778f6489a
+01837e843cb32cdca0734ce81917c72c
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -137,28 +137,28 @@ d026be77cb9ced20e35a61514e0458aa
                         GHC.Types.True
                         ipv of ds2 { (#,#) ipv4 ipv5 ->
                  (# ipv4, GHC.Tuple.() #) } } } }) -}
-49469040e3f0322955e5ad87d835d5db
+586f15b1050c3d9c5b24eec2c47c9d5b
   main2 ::
     GHC.Types.Float
     -> Type.GameState
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, Type.GameState #)
-  {- Arity: 3, Strictness: <L,A><L,1*U(U,U,U,U,U,U,1*U)><S,U>,
+  {- Arity: 3, Strictness: <L,A><L,1*U(U,U,U,U(U),U,U,1*U)><S,U>,
      Unfolding: (\ (time :: GHC.Types.Float)
                    (world1 :: Type.GameState)
                    (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
                  (# s1, MyProj.gameLoop time world1 #)) -}
-6d6945fd8dc98f704e9ed8b70d119825
+2a2378600c30a334c4a481dfd4fd7320
   main3 ::
     Graphics.Gloss.Internals.Interface.Event.Event
     -> Type.GameState
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, Type.GameState #)
-  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
+  {- Arity: 3, Strictness: <L,1*U><L,1*U(U,U,U,U,U,U,U)><S,U>,
      Unfolding: (\ (event :: Graphics.Gloss.Internals.Interface.Event.Event)
                    (world1 :: Type.GameState)[OneShot]
                    (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 (# s1, world1 #)) -}
+                 (# s1, MyProj.handleEvent event world1 #)) -}
 87554dadc2fb6471cb8e59a3d9cf22df
   main4 ::
     Type.GameState
@@ -172,7 +172,7 @@ d026be77cb9ced20e35a61514e0458aa
 baad8a2fd2ef8bf9dc8ab4b0b52b28f9
   main5 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
-8b192a55b6a3c2a0d05ec493f0b9403d
+40d600964a1146dfdc9c4aa30bc2ad21
   main6 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

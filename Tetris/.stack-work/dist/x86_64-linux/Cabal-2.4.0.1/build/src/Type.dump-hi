@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-23 10:17:11.667505955 UTC
+2019-03-23 19:04:23.050398871 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Type 8063
-  interface hash: 66075dfdef514a96d626a19c43577605
-  ABI hash: 36c97f8f4df3b1b434b660151e14c570
-  export-list hash: 7e4f631d1bcb2fb996fc3a17ac39460a
+  interface hash: e9e260c948e41fec4b7c68771fa51092
+  ABI hash: 498a41dcd3ceebaade90a6e5ee739e81
+  export-list hash: dc4ce3c02f2ae6968c3c1b20add06518
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 7a242ffa3d761dff45aed995f1434522
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -27,10 +27,13 @@ exports:
   Type.funLineAll
   Type.funLineAny
   Type.getCell
+  Type.getCellColor
   Type.higherCell
+  Type.leftCell
   Type.lowerCell
   Type.mapField
   Type.mapLine
+  Type.rightCell
   Type.typeCell
   Type.typeCellFromField
   Type.Cell{Type.Cell cellColor cellType numCell numLine}
@@ -91,7 +94,7 @@ import  -/  ghc-prim-0.5.3:GHC.Classes e0d9c979f6368701f34fa421754d2cce
 import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
-import  -/  Constans c78d21066748386b79aec5cb534d2967
+import  -/  Constans e7d9a011a758ab9eba63cd7434f19521
   exports: 4e851395688f4e2271ad07b9b5734963
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 ce69d132984f15c162cb28e115878ea4
@@ -528,6 +531,24 @@ c02ee1d0e7445bca58c1fdd6dca50539
                            (GHC.List.$w!! @ Type.Line w (GHC.Prim.-# wild 1#))
                            ww3 })
                    0# -> GHC.Maybe.Nothing @ Type.Cell }) -}
+68ee8bfd63dcb7e88c5377c518a97269
+  $wleftCell ::
+    GHC.Types.Int
+    -> GHC.Prim.Int# -> Type.Field -> GHC.Maybe.Maybe Type.Cell
+  {- Arity: 3, Strictness: <L,1*U(U)><S,1*U><L,1*U>, Inline: [2],
+     Unfolding: (\ (ww :: GHC.Types.Int)
+                   (ww1 :: GHC.Prim.Int#)
+                   (w :: Type.Field) ->
+                 case ww1 of wild {
+                   DEFAULT
+                   -> GHC.Maybe.Just
+                        @ Type.Cell
+                        (case ww of ww2 { GHC.Types.I# ww3 ->
+                         GHC.List.$w!!
+                           @ Type.Cell
+                           (GHC.List.$w!! @ Type.Line w ww3)
+                           (GHC.Prim.-# wild 1#) })
+                   0# -> GHC.Maybe.Nothing @ Type.Cell }) -}
 9a73d8fbbefffc0ac9118bc8c94ae9a4
   $wlowerCell ::
     GHC.Prim.Int#
@@ -546,6 +567,24 @@ c02ee1d0e7445bca58c1fdd6dca50539
                            (GHC.List.$w!! @ Type.Line w (GHC.Prim.+# wild 1#))
                            ww3 })
                    14# -> GHC.Maybe.Nothing @ Type.Cell }) -}
+44f99a6eb9048c66a0e83f4f201e61bb
+  $wrightCell ::
+    GHC.Types.Int
+    -> GHC.Prim.Int# -> Type.Field -> GHC.Maybe.Maybe Type.Cell
+  {- Arity: 3, Strictness: <L,1*U(U)><S,1*U><L,1*U>, Inline: [2],
+     Unfolding: (\ (ww :: GHC.Types.Int)
+                   (ww1 :: GHC.Prim.Int#)
+                   (w :: Type.Field) ->
+                 case ww1 of wild {
+                   DEFAULT
+                   -> GHC.Maybe.Just
+                        @ Type.Cell
+                        (case ww of ww2 { GHC.Types.I# ww3 ->
+                         GHC.List.$w!!
+                           @ Type.Cell
+                           (GHC.List.$w!! @ Type.Line w ww3)
+                           (GHC.Prim.+# wild 1#) })
+                   9# -> GHC.Maybe.Nothing @ Type.Cell }) -}
 ce69d132984f15c162cb28e115878ea4
   data Cell
     = Cell {numLine :: GHC.Types.Int,
@@ -1212,6 +1251,14 @@ e0b0d74dc81858d2413e5fb147c7c3a8
                    @ Type.Cell
                    (GHC.List.$w!! @ Type.Line field ww3)
                    ww1 } }) -}
+cbf98000775ec3539180fa3ef9520b83
+  getCellColor ::
+    Type.Cell -> Graphics.Gloss.Internals.Data.Color.Color
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLLS),1*U(A,A,A,1*U(U,U,U,U))>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (c :: Type.Cell) ->
+                 case c of wild { Type.Cell ds ds1 ds2 ds3 -> ds3 }) -}
 d0d89ef5f6f1b1d4b13b6bb2c7192751
   higherCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
   {- Arity: 2,
@@ -1222,6 +1269,16 @@ d0d89ef5f6f1b1d4b13b6bb2c7192751
                  case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                  case ww1 of ww5 { GHC.Types.I# ww6 ->
                  Type.$whigherCell ww6 ww2 w1 } }) -}
+1fcd0aeb63942547b516cf8df40bd6a6
+  leftCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
+  {- Arity: 2,
+     Strictness: <S(LS(S)LL),1*U(1*U(U),1*U(1*U),A,A)><L,1*U>,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Type.Cell) (w1 :: Type.Field) ->
+                 case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
+                 case ww2 of ww5 { GHC.Types.I# ww6 ->
+                 Type.$wleftCell ww1 ww6 w1 } }) -}
 b365ab3402e0b802bfae3b031f79a917
   lowerCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
   {- Arity: 2,
@@ -1254,6 +1311,16 @@ ce69d132984f15c162cb28e115878ea4
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.Cell) ->
                  case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds1 }) -}
+98857b461e4106f2a1a231a4d2b3b4d0
+  rightCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
+  {- Arity: 2,
+     Strictness: <S(LS(S)LL),1*U(1*U(U),1*U(1*U),A,A)><L,1*U>,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Type.Cell) (w1 :: Type.Field) ->
+                 case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
+                 case ww2 of ww5 { GHC.Types.I# ww6 ->
+                 Type.$wrightCell ww1 ww6 w1 } }) -}
 46a2f670b604fe56b2cc6403b9b8d47b
   typeCell :: Type.Cell -> GHC.Types.Int
   {- Arity: 1, HasNoCafRefs,

@@ -12,13 +12,13 @@ import Debug.Trace
 
 
 objects :: Float -> Float -> Color -> Bool -> Picture -- если isGrid = True, то рисуем решетку, значит, надо rectangleWire
-objects x y col isGrid  | isGrid = translate (50 * (- y + 5)) (50 * (- x + 6)) $ color black $ rectangleWire 50 50
-                        | otherwise = translate (50 * (- y + 5)) (50 * (- x + 6)) $ color col$ rectangleSolid 50 50
+objects x y col isGrid  | isGrid = translate (50 * (y - 6)) (50 * (- x + 6)) $ color black $ rectangleWire 50 50
+                        | otherwise = translate (50 * (y - 6)) (50 * (- x + 6)) $ color col$ rectangleSolid 50 50
 
 drawCell :: Cell -> Bool -> Picture
 drawCell (Cell( numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) isGrid 
     |(cellType == 2) = (objects (realToFrac numLine) (realToFrac numCell) colorBoard isGrid)
-    |otherwise = (objects (realToFrac numLine) (realToFrac numCell) cellColor isGrid)
+    | otherwise = (objects (realToFrac numLine) (realToFrac numCell) cellColor isGrid)
 
 drawLine :: Line -> Bool -> [Picture]
 drawLine [] _ = []

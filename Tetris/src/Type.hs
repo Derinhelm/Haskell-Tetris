@@ -61,7 +61,8 @@ data GameState = GameState
 
 
 
-
+getCellColor :: Cell -> Color
+getCellColor c@Cell{..} = cellColor
 
 getCell :: Field -> Int -> Int -> Cell -- получение клетки из поля
 getCell field x y = (!!) ((!!) field  x)  y 
@@ -104,6 +105,19 @@ lowerCell :: Cell -> Field -> Maybe Cell --клетка на 1 ниже данн
 lowerCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) field 
     | (numLine == 14) = Nothing
     | otherwise = Just (getCell field (numLine + 1) numCell)
+
+
+leftCell :: Cell -> Field -> Maybe Cell --клетка на 1 левее данной 
+leftCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) field 
+    | (numCell == 0) = Nothing
+    | otherwise = Just (getCell field (numLine) (numCell - 1))
+
+
+rightCell :: Cell -> Field -> Maybe Cell --клетка на 1 правее данной 
+rightCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) field 
+    | (numCell == 9) = Nothing
+    | otherwise = Just (getCell field numLine (numCell + 1))
+
 
 
 changeCellInLine :: Line -> Int -> Cell -> Line -- протестить!!!!!!!!!!!!!!!
