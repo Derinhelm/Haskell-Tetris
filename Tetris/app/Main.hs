@@ -10,10 +10,10 @@ import System.Random
 
 main :: IO ()
 main = do
-    putStrLn "Enter your name: "
-    name <- getLine
+    --putStrLn "Enter your name: "
+    --name <- getLine
     gen <- newStdGen
-    let createGame = GameState (createField) gen (createListFigures) 0 (createCoordFigures) (createColorFigures)
+    let createGame = GameState (createField) gen (createListFigures) 0 (createCoordFigures) (createColorFigures) False
     --a <- return (gameLoop 0 (createGame))
     --b <- return (gameLoop 0 a)
     --c <- return (gameLoop 0 b)
@@ -22,4 +22,4 @@ main = do
     --putStrLn(show c)
     play window black fps createGame drawGame handle gameLoop 
     --result из файла
-    writeFile "results" (name ++ " - ")-- ++  (show result))
+    --writeFile "results" (name ++ " - ")-- ++  (show result))

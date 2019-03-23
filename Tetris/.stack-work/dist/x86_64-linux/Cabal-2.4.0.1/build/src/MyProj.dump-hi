@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-22 19:09:05.75169145 UTC
+2019-03-23 11:08:39.236066406 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:MyProj 8063
-  interface hash: e526b52291e07bb6d2228072f1e40f82
-  ABI hash: d89e76ae57cb078b58ac093cd3234a16
-  export-list hash: 35adfd03f76faa7a33a02cd557f8d6e5
+  interface hash: 1da9147f84c620627727a12ad53377e9
+  ABI hash: 4b88285fa2cda8e2101d938477acf51e
+  export-list hash: 94a608d4edb6d553ae07bf63f26e670b
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 7a242ffa3d761dff45aed995f1434522
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -15,12 +15,15 @@ interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:MyProj 8063
   used TH splices: False
   where
 exports:
-  MyProj.checkEnd
+  MyProj.changeLandCell
+  MyProj.changeLandCellField
+  MyProj.checkCanAddFigure
   MyProj.checkFlyCell
   MyProj.createCellShiftFigure
+  MyProj.createEnd
   MyProj.deleteLines
-  MyProj.endGame
   MyProj.gameLoop
+  MyProj.getNewColor
   MyProj.handle
   MyProj.haveFlyFigure
   MyProj.newFigureOnField
@@ -65,44 +68,49 @@ family instance modules: base-4.12.0.0:Control.Applicative
                          template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
                          text-1.2.3.1:Data.Text
 import  -/  base-4.12.0.0:Data.Maybe 1e8e1362415df45376dffd98f8a47766
+import  -/  base-4.12.0.0:Debug.Trace 6e89d30f3850c77c707392fc46e9b589
 import  -/  base-4.12.0.0:GHC.Base cc906f98291a1b830546e99a96674547
 import  -/  base-4.12.0.0:GHC.List 734a72beb76d276fb4a0ba2689a5711f
+import  -/  base-4.12.0.0:GHC.Num 847723f2584d989dac1eada133ac3fb8
+import  -/  base-4.12.0.0:GHC.Show 4e438f26d903388cc6c2c5d64ed01b98
 import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
 import  -/  ghc-prim-0.5.3:GHC.Classes e0d9c979f6368701f34fa421754d2cce
 import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Game 3b871ad7b6d70d672603a275ef8ba1e4
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Internals.Interface.Event 70b3da3875a2c6427df4272fec7eb5e1
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
-import  -/  Constans a2074c6396511319a3de7e4f866d3841
+import  -/  Constans 4ea61f4c546d06955e8ffbc5cfe68962
   exports: 4e851395688f4e2271ad07b9b5734963
   colorBoard a46ee52867c7f2352348479a0f097919
-import  -/  Draw a04544b4bb338a821708f5bd35493658
+import  -/  Draw 631061711378809058244142e212eb4e
   exports: 551067e2732157ecbd258059c1ba69cc
-import  -/  Type 7b8d5bd3c80029b0a8a22edfd6169f19
-  exports: 909189a38ea3238aedea71017e62ecfa
+import  -/  Type 36c97f8f4df3b1b434b660151e14c570
+  exports: 7e4f631d1bcb2fb996fc3a17ac39460a
   Cell a490fb91284b41c392b2e9ae69e56c0f
   Cell ce69d132984f15c162cb28e115878ea4
   CoordFigures b3b9710d1bc9d5841b96879fe6ccdd74
   Field cff2286d27e6392df8d5af5cd3f4b99a
-  GameState 59c849fe145a77337055cb422c2bea74
-  GameState 9c21f4bed2afaaca1dc2e29261755836
+  GameState f1548da61a583e6c07d84a70f79e92a7
+  GameState 868b64aad4fe42962fd45c408868db30
   cellColor ce69d132984f15c162cb28e115878ea4
   cellType ce69d132984f15c162cb28e115878ea4
-  changeCellInField 799ff397206bd1f1e15baa9e2bc2c8a8
-  colorTetr 9c21f4bed2afaaca1dc2e29261755836
-  coordTetr 9c21f4bed2afaaca1dc2e29261755836
+  changeCellInField 26217e12acaf2e7546740dd30e9aeca6
+  colorTetr 868b64aad4fe42962fd45c408868db30
+  coordTetr 868b64aad4fe42962fd45c408868db30
+  endGame 868b64aad4fe42962fd45c408868db30
   funFieldAll f3348f54733fff744c14c483dc51410e
   funFieldAny e2fc49ae8e6e6604234795ccc0087a1c
-  gameField 9c21f4bed2afaaca1dc2e29261755836
-  gameFigures 9c21f4bed2afaaca1dc2e29261755836
-  gameRandomGen 9c21f4bed2afaaca1dc2e29261755836
-  gameResult 9c21f4bed2afaaca1dc2e29261755836
-  higherCell d8e5b97e01498246c56ca20b87c5acd1
-  lowerCell b10c0207ab1dd2abc3b2171d317f91b1
+  gameField 868b64aad4fe42962fd45c408868db30
+  gameFigures 868b64aad4fe42962fd45c408868db30
+  gameRandomGen 868b64aad4fe42962fd45c408868db30
+  gameResult 868b64aad4fe42962fd45c408868db30
+  higherCell d0d89ef5f6f1b1d4b13b6bb2c7192751
+  lowerCell b365ab3402e0b802bfae3b031f79a917
   mapField e011b7b413381307ce976d37845fc3d2
   numCell ce69d132984f15c162cb28e115878ea4
   numLine ce69d132984f15c162cb28e115878ea4
   typeCell 46a2f670b604fe56b2cc6403b9b8d47b
+  typeCellFromField 21e57c95a2c7b52276682d382c51505d
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 cd917b6f8bcf6b8aaecc693871acbf44
   $trModule :: GHC.Types.Module
@@ -125,107 +133,175 @@ bd66823722c82efecacae7b7af71d506
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
      Unfolding: ("project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an"#) -}
-ffda611d4faa05553388cebe5077438b
+af5ca0f5ad40f40a033c1835fe0fad0d
   $wcheckFlyCell ::
     Type.Field
     -> GHC.Prim.Int#
     -> GHC.Types.Int
-    -> GHC.Types.Int
+    -> GHC.Prim.Int#
     -> GHC.Types.Bool
-  {- Arity: 4, Strictness: <L,1*U><S,1*U><L,1*U(U)><L,1*U(1*U)>,
+  {- Arity: 4, Strictness: <L,1*U><S,1*U><L,1*U(U)><S,1*U>,
      Inline: [2],
      Unfolding: (\ (w :: Type.Field)
                    (ww :: GHC.Prim.Int#)
                    (ww1 :: GHC.Types.Int)
-                   (ww2 :: GHC.Types.Int) ->
+                   (ww2 :: GHC.Prim.Int#) ->
                  case ww of wild {
                    DEFAULT
-                   -> case ww2 of wild1 { GHC.Types.I# x ->
-                      case x of wild2 {
+                   -> case ww2 of wild1 {
                         DEFAULT -> GHC.Types.True
                         1#
                         -> case ww1 of ww3 { GHC.Types.I# ww4 ->
                            case GHC.List.$w!!
                                   @ Type.Cell
                                   (GHC.List.$w!! @ Type.Line w (GHC.Prim.+# wild 1#))
-                                  ww4 of wild3 { Type.Cell ds1 ds2 ds3 ds4 ->
-                           case ds3 of wild4 { GHC.Types.I# x1 ->
-                           case x1 of wild5 {
-                             DEFAULT -> GHC.Types.True 0# -> GHC.Types.False } } } } } }
-                   15# -> GHC.Types.True }) -}
-e5f2ec8b52bd0f9e0f178213a2e05b9c
-  checkEnd :: Type.Field -> GHC.Types.Bool
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: InlineRule (0, True, True)
-                MyProj.checkEnd1
-                  `cast`
-                (<Type.Field>_R ->_R Data.Semigroup.Internal.N:Any[0]) -}
-a7fa86d6ef7a492f15f0d75b944fd06d
-  checkEnd1 :: Type.Field -> Data.Semigroup.Internal.Any
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (field :: Type.Field) ->
-                 letrec {
-                   go :: [Type.Line] -> Data.Semigroup.Internal.Any
-                     <join 1> {- Arity: 1, Strictness: <S,1*U> -}
-                   = \ (ds :: [Type.Line]) ->
-                     case ds of wild {
-                       []
-                       -> GHC.Types.False `cast` (Sym (Data.Semigroup.Internal.N:Any[0]))
-                       : y ys
-                       -> let {
-                            exit :: Data.Semigroup.Internal.Any <join 0> = go ys
-                          } in
-                          letrec {
-                            go1 :: [Type.Cell] -> Data.Semigroup.Internal.Any
-                              <join 1> {- Arity: 1, Strictness: <S,1*U> -}
-                            = \ (ds1 :: [Type.Cell]) ->
-                              case ds1 of wild1 {
-                                [] -> exit
-                                : y1 ys1
-                                -> case y1 of wild2 { Type.Cell ds2 ds3 ds4 ds5 ->
-                                   case ds4 of wild3 { GHC.Types.I# x ->
-                                   case x of wild4 {
-                                     DEFAULT -> go1 ys1
-                                     1#
-                                     -> case ds2 of ww5 { GHC.Types.I# ww6 ->
-                                        case ww6 of wild5 {
-                                          DEFAULT
-                                          -> case ds3 of ww2 { GHC.Types.I# ww3 ->
-                                             case GHC.List.$w!!
-                                                    @ Type.Cell
-                                                    (GHC.List.$w!!
-                                                       @ Type.Line
-                                                       field
-                                                       (GHC.Prim.+# wild5 1#))
-                                                    ww3 of wild6 { Type.Cell ds6 ds7 ds8 ds9 ->
-                                             case ds8 of wild7 { GHC.Types.I# x1 ->
-                                             case x1 of wild8 {
-                                               DEFAULT -> go1 ys1
-                                               0#
-                                               -> GHC.Types.True
-                                                    `cast`
-                                                  (Sym (Data.Semigroup.Internal.N:Any[0])) } } } }
-                                          15#
-                                          -> case Data.Maybe.fromJust1
-                                             ret_ty Data.Semigroup.Internal.Any
-                                             of {} } } } } } }
-                          } in
-                          go1 y }
-                 } in
-                 go field) -}
-f471b4471bbe289c7956404bab03bd59
+                                  ww4 of wild2 { Type.Cell ds1 ds2 ds3 ds4 ->
+                           case ds3 of wild3 { GHC.Types.I# x ->
+                           case x of wild4 {
+                             DEFAULT -> GHC.Types.True 0# -> GHC.Types.False } } } } }
+                   14#
+                   -> case ww2 of wild1 {
+                        DEFAULT -> GHC.Types.True 1# -> GHC.Types.False } }) -}
+e186a6aacc21f101c6c5540d15505f29
+  $wgameLoop ::
+    Type.Field
+    -> System.Random.StdGen
+    -> [Type.NumberFigure]
+    -> GHC.Types.Int
+    -> [Type.CoordFigures]
+    -> [Graphics.Gloss.Internals.Data.Color.Color]
+    -> GHC.Types.Bool
+    -> Type.GameState
+  {- Arity: 7, Strictness: <L,U><L,U><L,U><L,U><L,U><L,U><S,1*U>,
+     Inline: [2],
+     Unfolding: (\ (ww :: Type.Field)
+                   (ww1 :: System.Random.StdGen)
+                   (ww2 :: [Type.NumberFigure])
+                   (ww3 :: GHC.Types.Int)
+                   (ww4 :: [Type.CoordFigures])
+                   (ww5 :: [Graphics.Gloss.Internals.Data.Color.Color])
+                   (ww6 :: GHC.Types.Bool) ->
+                 case ww6 of wild {
+                   GHC.Types.False
+                   -> case MyProj.haveFlyFigure ww of wild1 {
+                        GHC.Types.False
+                        -> MyProj.$wnewFigureOnGame
+                             (MyProj.changeLandCellField ww)
+                             ww1
+                             ww2
+                             ww3
+                             ww4
+                             ww5
+                        GHC.Types.True
+                        -> Type.GameState
+                             (MyProj.shiftFigureOnField ww)
+                             ww1
+                             ww2
+                             ww3
+                             ww4
+                             ww5
+                             GHC.Types.False }
+                   GHC.Types.True
+                   -> Type.GameState ww ww1 ww2 ww3 ww4 ww5 GHC.Types.True }) -}
+16eae5337d79a9d43c40f03716f1f80f
+  $wnewFigureOnGame ::
+    Type.Field
+    -> System.Random.StdGen
+    -> [Type.NumberFigure]
+    -> GHC.Types.Int
+    -> [Type.CoordFigures]
+    -> [Graphics.Gloss.Internals.Data.Color.Color]
+    -> Type.GameState
+  {- Arity: 6, Strictness: <L,U><L,U><S,1*U><L,U><S,U><L,U>,
+     Inline: [2],
+     Unfolding: (\ (ww :: Type.Field)
+                   (ww1 :: System.Random.StdGen)
+                   (ww2 :: [Type.NumberFigure])
+                   (ww3 :: GHC.Types.Int)
+                   (ww4 :: [Type.CoordFigures])
+                   (ww5 :: [Graphics.Gloss.Internals.Data.Color.Color]) ->
+                 case ww2 of wild {
+                   [] -> case GHC.List.badHead ret_ty Type.GameState of {}
+                   : x ds1
+                   -> case x of wild1 { GHC.Types.I# x1 ->
+                      let {
+                        coordNextFigure :: Type.CoordFigures
+                        = GHC.List.$w!! @ Type.CoordFigures ww4 (GHC.Prim.-# x1 1#)
+                      } in
+                      case MyProj.checkCanAddFigure ww coordNextFigure of wild2 {
+                        GHC.Types.False
+                        -> Debug.Trace.trace
+                             @ Type.GameState
+                             MyProj.gameLoop1
+                             (Type.GameState ww ww1 wild ww3 ww4 ww5 GHC.Types.True)
+                        GHC.Types.True
+                        -> Type.GameState
+                             (MyProj.newFigureOnField
+                                ww
+                                coordNextFigure
+                                (GHC.List.$w!!
+                                   @ Graphics.Gloss.Internals.Data.Color.Color
+                                   ww5
+                                   (GHC.Prim.-# x1 1#)))
+                             ww1
+                             ds1
+                             ww3
+                             ww4
+                             ww5
+                             GHC.Types.False } } }) -}
+0d40bfda25685ba7b813a3c913ca2054
+  changeLandCell :: Type.GameState -> Type.GameState
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(1*U,U,U,U,U,U,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (game :: Type.GameState) ->
+                 case game of wild { Type.GameState ds ds1 ds2 ds3 ds4 ds5 ds6 ->
+                 Type.GameState
+                   (MyProj.changeLandCellField ds)
+                   ds1
+                   ds2
+                   ds3
+                   ds4
+                   ds5
+                   GHC.Types.False }) -}
+2df8ab02e95c0e2ac2aac1ce417fd7f3
+  changeLandCellField :: Type.Field -> Type.Field
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (field :: Type.Field) ->
+                 Type.mapField MyProj.changeLandCellField1 field) -}
+6825a11667967758f4fa0ee95835ff85
+  changeLandCellField1 :: Type.Cell -> Type.Cell
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLS(S)L),1*U(U,U,U(U),U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (c :: Type.Cell) ->
+                 case c of wild { Type.Cell ds ds1 ds2 ds3 ->
+                 case ds2 of wild1 { GHC.Types.I# ds4 ->
+                 case ds4 of ds5 {
+                   DEFAULT -> wild
+                   1# -> Type.Cell ds ds1 MyProj.changeLandCellField2 ds3 } } }) -}
+2922a800fc69ea036734de4abd831bec
+  changeLandCellField2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+1bf4764c62ddbc7a547d0968e600fc0a
+  checkCanAddFigure ::
+    Type.Field -> Type.CoordFigures -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <L,U><S,1*U> -}
+b578d2e798d5dd14f90efb329e1926d8
   checkFlyCell :: Type.Field -> Type.Cell -> GHC.Types.Bool
   {- Arity: 2,
-     Strictness: <L,1*U><S(S(S)LLL),1*U(1*U(1*U),1*U(U),1*U(1*U),A)>,
+     Strictness: <L,1*U><S(S(S)LS(S)L),1*U(1*U(1*U),1*U(U),1*U(1*U),A)>,
      Inline: [2],
      Unfolding: InlineRule (2, True, False)
                 (\ (w :: Type.Field) (w1 :: Type.Cell) ->
                  case w1 of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                  case ww1 of ww5 { GHC.Types.I# ww6 ->
-                 MyProj.$wcheckFlyCell w ww6 ww2 ww3 } }) -}
-40b437354a5adbed97a3c7dddfea5460
+                 case ww3 of ww7 { GHC.Types.I# ww8 ->
+                 MyProj.$wcheckFlyCell w ww6 ww2 ww8 } } }) -}
+fb82ff17305cedaba1569d2ece2827af
   createCellShiftFigure :: Type.Field -> Type.Cell -> Type.Cell
-  {- Arity: 2, Strictness: <L,1*U><S(S(S)LLL),1*U(U(U),U(U),U,U)>m,
+  {- Arity: 2,
+     Strictness: <L,1*U><S(S(S)LLL),1*U(U(U),U(U),U(U),U)>m,
      Inline: [2],
      Unfolding: InlineRule (2, True, False)
                 (\ (w :: Type.Field) (w1 :: Type.Cell) ->
@@ -240,90 +316,88 @@ f471b4471bbe289c7956404bab03bd59
                              ww8 of wild1 { Type.Cell ds1 ds2 ds3 ds4 ->
                       case ds3 of wild2 { GHC.Types.I# ds ->
                       case ds of ds7 {
-                        DEFAULT -> MyProj.createCellShiftFigure3
+                        DEFAULT -> MyProj.createCellShiftFigure4
                         0# -> Type.Cell (GHC.Types.I# wild) ww7 ww3 ww4
                         1#
                         -> Type.Cell
                              (GHC.Types.I# wild)
                              ww7
-                             MyProj.createCellShiftFigure2
-                             ww4
-                        2# -> Type.Cell (GHC.Types.I# wild) ww7 ww3 ww4 } } } }
-                   1#
+                             MyProj.createCellShiftFigure3
+                             ds4
+                        2#
+                        -> case ww3 of wild3 { GHC.Types.I# ds8 ->
+                           case ds8 of ds9 {
+                             DEFAULT -> MyProj.createCellShiftFigure2
+                             0# -> Type.Cell (GHC.Types.I# wild) ww7 wild3 ww4
+                             1#
+                             -> Type.Cell
+                                  (GHC.Types.I# wild)
+                                  ww7
+                                  MyProj.createCellShiftFigure1
+                                  Graphics.Gloss.Data.Color.white
+                             2# -> Type.Cell (GHC.Types.I# wild) ww7 wild3 ww4 } } } } } }
+                   0#
                    -> Type.Cell
-                        (GHC.Types.I# 1#)
+                        (GHC.Types.I# 0#)
                         ww2
                         MyProj.createCellShiftFigure1
                         Graphics.Gloss.Data.Color.white } } }) -}
-21d550f65d211fad071e16ef9f3ad18e
+ccbde823fdafa32c1971a1630be45866
   createCellShiftFigure1 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
-b49eefaaa1d8b0f11c15b82f791938fd
-  createCellShiftFigure2 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
-39347a4528ee518480d91797c2c89e93
-  createCellShiftFigure3 :: Type.Cell
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2#) -}
+3373d6a03b48fbb5e29a13076763be5c
+  createCellShiftFigure2 :: Type.Cell
   {- Strictness: x -}
+1c40ea06eb60b80cd1bb7a564f70d1ac
+  createCellShiftFigure3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
+464528d6c88a02e78e206bf52b4c2bb7
+  createCellShiftFigure4 :: Type.Cell
+  {- Strictness: x -}
+716d55e4c123d4a220dd5e2c81637095
+  createEnd :: Type.GameState -> Type.GameState
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U,U,U,U,U,U)>m,
+     Unfolding: InlineRule (1, True, True)
+                (\ (x :: Type.GameState) -> x) -}
 207e6e13d640b459e260ebd38a86377e
   deleteLines ::
     Type.Field -> GHC.Types.Int -> (Type.Field, GHC.Types.Int)
   {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>m,
      Unfolding: InlineRule (0, True, True)
                 (GHC.Tuple.(,) @ Type.Field @ GHC.Types.Int) -}
-3461008f34dcd1f04e0f23b60b909fb9
-  endGame :: Type.GameState -> Type.GameState
-  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U,U,U,U,U)>m,
-     Unfolding: InlineRule (1, True, True)
-                (\ (x :: Type.GameState) -> x) -}
-4871ee6ed2fb4f99c3d2ace811b7ec89
+655a43c832f7abbf5166b8b868aa48e0
   gameLoop :: GHC.Types.Float -> Type.GameState -> Type.GameState
-  {- Arity: 2, Strictness: <L,A><S(SLLLLL),1*U(U,U,U,U,U,U)>m,
+  {- Arity: 2, Strictness: <L,A><S(LLLLLLS),1*U(U,U,U,U,U,U,1*U)>,
      Inline: [2],
      Unfolding: InlineRule (2, True, False)
                 (\ (w :: GHC.Types.Float) (w1 :: Type.GameState) ->
-                 case w1 of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ->
-                 case MyProj.haveFlyFigure ww1 of wild {
-                   GHC.Types.False
-                   -> case (MyProj.checkEnd1 ww1)
-                             `cast`
-                           (Data.Semigroup.Internal.N:Any[0]) of wild1 {
-                        GHC.Types.False
-                        -> Type.GameState
-                             (case ww3 of wild2 {
-                                [] -> case GHC.List.badHead ret_ty Type.Field of {}
-                                : x ds1
-                                -> case x of ww7 { GHC.Types.I# ww8 ->
-                                   MyProj.newFigureOnField
-                                     ww1
-                                     (GHC.List.$w!! @ Type.CoordFigures ww5 ww8)
-                                     (GHC.List.$w!!
-                                        @ Graphics.Gloss.Internals.Data.Color.Color
-                                        ww6
-                                        ww8) } })
-                             ww2
-                             (GHC.List.tail @ Type.NumberFigure ww3)
-                             ww4
-                             ww5
-                             ww6
-                        GHC.Types.True -> Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 }
-                   GHC.Types.True
-                   -> Type.GameState
-                        (MyProj.shiftFigureOnField ww1)
-                        ww2
-                        ww3
-                        ww4
-                        ww5
-                        ww6 } }) -}
-3b9f83435c11fcc50bcfd8abf512c7cb
+                 case w1 of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ww7 ->
+                 MyProj.$wgameLoop ww1 ww2 ww3 ww4 ww5 ww6 ww7 }) -}
+2714efa928a7067334bff003689df877
+  gameLoop1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# MyProj.gameLoop2) -}
+9676672856f2618c50207e60dfd42ff1
+  gameLoop2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("checkEnd"#) -}
+6045aaad3571a69724bf7cbd26d385cd
+  getNewColor ::
+    Type.Cell -> Graphics.Gloss.Internals.Data.Color.Color
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLLS),1*U(A,A,A,1*U(U,U,U,U))>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (c :: Type.Cell) ->
+                 case c of wild { Type.Cell ds ds1 ds2 ds3 -> ds3 }) -}
+2b9eecb6a13c5651d05c263982922203
   handle ::
     Graphics.Gloss.Internals.Interface.Event.Event
     -> Type.GameState -> Type.GameState
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S,1*U(U,U,U,U,U,U)>m,
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,A><S,1*U(U,U,U,U,U,U,U)>m,
      Unfolding: InlineRule (2, True, True)
                 (\ (key :: Graphics.Gloss.Internals.Interface.Event.Event)
                    (game :: Type.GameState) ->
                  game) -}
-4cd2e78bf5555594a68a4d9300534734
+e4c2f1257f397aa2536cfd924439f7eb
   haveFlyFigure :: Type.Field -> GHC.Types.Bool
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: (\ (field :: Type.Field) ->
@@ -352,24 +426,26 @@ b49eefaaa1d8b0f11c15b82f791938fd
                                 : y1 ys1
                                 -> case y1 of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                                    case ww1 of ww5 { GHC.Types.I# ww6 ->
+                                   case ww3 of ww7 { GHC.Types.I# ww8 ->
                                    case ww6 of wild2 {
                                      DEFAULT
-                                     -> case ww3 of wild3 { GHC.Types.I# x ->
-                                        case x of wild4 {
+                                     -> case ww8 of wild3 {
                                           DEFAULT -> go1 ys1
                                           1#
-                                          -> case ww2 of ww7 { GHC.Types.I# ww8 ->
+                                          -> case ww2 of ww9 { GHC.Types.I# ww10 ->
                                              case GHC.List.$w!!
                                                     @ Type.Cell
                                                     (GHC.List.$w!!
                                                        @ Type.Line
                                                        field
                                                        (GHC.Prim.+# wild2 1#))
-                                                    ww8 of wild5 { Type.Cell ds2 ds3 ds4 ds5 ->
-                                             case ds4 of wild6 { GHC.Types.I# x1 ->
-                                             case x1 of wild7 {
-                                               DEFAULT -> go1 ys1 0# -> GHC.Types.False } } } } } }
-                                     15# -> go1 ys1 } } } }
+                                                    ww10 of wild4 { Type.Cell ds2 ds3 ds4 ds5 ->
+                                             case ds4 of wild5 { GHC.Types.I# x ->
+                                             case x of wild6 {
+                                               DEFAULT -> go1 ys1 0# -> GHC.Types.False } } } } }
+                                     14#
+                                     -> case ww8 of wild3 {
+                                          DEFAULT -> go1 ys1 1# -> GHC.Types.False } } } } } }
                           } in
                           go1 y }
                  } in
@@ -377,50 +453,36 @@ b49eefaaa1d8b0f11c15b82f791938fd
 b478cf662d841f3258ead25805c45268
   haveFlyFigure_go :: [Type.Line] -> Data.Semigroup.Internal.Any
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-43b510fedc8d4cac81ad96c4c8f75e60
+bab1bc27dcac35d6275ca2a46204f5ce
   newFigureOnField ::
     Type.Field
     -> Type.CoordFigures
     -> Graphics.Gloss.Internals.Data.Color.Color
     -> Type.Field
-  {- Arity: 3, Strictness: <L,U><S,1*U><L,U> -}
-d8bfbc1f1a59e51f323d6062350c3873
+  {- Arity: 3, Strictness: <L,U><S,1*U><L,U(U,U,U,U)> -}
+af14026fda3a906cc8578eb7c8330346
   newFigureOnGame :: Type.GameState -> Type.GameState
-  {- Arity: 1, Strictness: <S,1*U(U,U,U,U,U,U)>m, Inline: [2],
+  {- Arity: 1, Strictness: <S(LLSLSLL),1*U(U,U,1*U,U,U,U,A)>,
+     Inline: [2],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: Type.GameState) ->
-                 case w of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ->
-                 Type.GameState
-                   (case ww3 of wild {
-                      [] -> case GHC.List.badHead ret_ty Type.Field of {}
-                      : x ds1
-                      -> case x of ww7 { GHC.Types.I# ww8 ->
-                         MyProj.newFigureOnField
-                           ww1
-                           (GHC.List.$w!! @ Type.CoordFigures ww5 ww8)
-                           (GHC.List.$w!!
-                              @ Graphics.Gloss.Internals.Data.Color.Color
-                              ww6
-                              ww8) } })
-                   ww2
-                   (GHC.List.tail @ Type.NumberFigure ww3)
-                   ww4
-                   ww5
-                   ww6 }) -}
-2399e4363da99ba33663adcca5f20cba
+                 case w of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ww7 ->
+                 MyProj.$wnewFigureOnGame ww1 ww2 ww3 ww4 ww5 ww6 }) -}
+2927b4ddc5058fc09553b94fc2cbd314
   shiftFigure :: Type.GameState -> Type.GameState
-  {- Arity: 1, Strictness: <S,1*U(U,U,U,U,U,U)>m,
+  {- Arity: 1, Strictness: <S,1*U(U,U,U,U,U,U,A)>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ->
                  Type.GameState
                    (MyProj.shiftFigureOnField ds1)
                    ds2
                    ds3
                    ds4
                    ds5
-                   ds6 }) -}
-bfd60afdf3e20961aead862523995f57
+                   ds6
+                   GHC.Types.False }) -}
+27e7ecfb61f0357fb21062b182b4a3bf
   shiftFigureOnField :: Type.Field -> Type.Field
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (1, True, False)

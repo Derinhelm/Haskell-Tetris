@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-22 13:35:16.318407446 UTC
+2019-03-23 11:02:32.860246191 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Constans 8063
-  interface hash: 35371453fa7881282d226a0df486d833
-  ABI hash: a2074c6396511319a3de7e4f866d3841
+  interface hash: be56b2fcd603bc0d64848952ef0d8abb
+  ABI hash: 4ea61f4c546d06955e8ffbc5cfe68962
   export-list hash: 4e851395688f4e2271ad07b9b5734963
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: d59a86fc39dabe8754ebbfb830e37f1e
@@ -83,36 +83,112 @@ a46ee52867c7f2352348479a0f097919
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 Graphics.Gloss.Data.Color.white -}
-2391bc42dc0701d6ec01069e1c8c0a8d
+f2bec4115ac83522ae2e9bf9dcbf39c7
   createListFigures :: [GHC.Types.Int]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ GHC.Types.Int
-                   Constans.createListFigures3
+                   Constans.createListFigures17
                    Constans.createListFigures1) -}
-bd883b94b86229498dfb1f48d65e2a4f
+8151ef9c473eeab33cd0e3188363ca6c
   createListFigures1 :: [GHC.Types.Int]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ GHC.Types.Int
-                   Constans.createListFigures2
+                   Constans.createListFigures13
+                   Constans.createListFigures2) -}
+d1c762dd7da16197200b242cff60a25c
+  createListFigures10 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures11
                    (GHC.Types.[] @ GHC.Types.Int)) -}
-b8594ee31b276177867d858f5585a0f9
-  createListFigures2 :: GHC.Types.Int
+0772bc266086fe2c7e95106f34027d47
+  createListFigures11 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3#) -}
+61a6760a05414fe413d4a87ed347ced7
+  createListFigures12 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4#) -}
+3d2a95b447c300f2190d4005c9e52ea2
+  createListFigures13 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2#) -}
-886eae45239a930c0d8a277a2d4abcb6
-  createListFigures3 :: GHC.Types.Int
+9d407dc45494a5fabeebd0171bd49adc
+  createListFigures14 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7#) -}
+36efe1308036a5989d13e053b6434c8f
+  createListFigures15 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 6#) -}
+ba80ce9006751a3ccb2f69590e6279d9
+  createListFigures16 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 5#) -}
+e4edd20c58ad063d4bdc1a532f59e6e1
+  createListFigures17 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
-553e97e7b6b7fff2daccce9da0d43862
+a0d5bc1f5577bd381c832554d8d4a71f
+  createListFigures2 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures16
+                   Constans.createListFigures3) -}
+0da68ed090cb82bccbac8dea1654b928
+  createListFigures3 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures12
+                   Constans.createListFigures4) -}
+4d4d9907521bde2c1e49eccc3d8b2160
+  createListFigures4 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures15
+                   Constans.createListFigures5) -}
+19b8af1654007c2a3bef7817e08b5bda
+  createListFigures5 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures13
+                   Constans.createListFigures6) -}
+c2913ab9d5458b7468735dce10d5fe3a
+  createListFigures6 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures11
+                   Constans.createListFigures7) -}
+6663828e8fddb5a11fedb83b7a073502
+  createListFigures7 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures14
+                   Constans.createListFigures8) -}
+86ba4fb891e2ac9df500da5225be6d15
+  createListFigures8 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures13
+                   Constans.createListFigures9) -}
+61ed69cbc60e9e960b8ab109585bc50e
+  createListFigures9 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Constans.createListFigures12
+                   Constans.createListFigures10) -}
+e983bcb9e9735ef49cbf6b5a169eccea
   fps :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 60#) -}
-863af02e1d98d7d04606088f665e96e2
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10#) -}
+ada622fb2eaa5bf92557ae6e75df0bb1
   range :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Constans.createListFigures3, Constans.range1)) -}
-1da8a18775264b03341a3d769a88c13c
-  range1 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7#) -}
+     Unfolding: ((Constans.createListFigures17,
+                  Constans.createListFigures14)) -}
 a04be28c09c0fd3a294c4c9f923ecf73
   window :: Graphics.Gloss.Data.Display.Display
   {- Strictness: m1,

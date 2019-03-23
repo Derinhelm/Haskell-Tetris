@@ -8,6 +8,8 @@ import Constans
 import System.IO
 import System.Random
 import Data.Maybe
+import Debug.Trace
+
 
 data Cell = Cell {       numLine :: Int
                          , numCell :: Int --номер клетки в столбце
@@ -21,10 +23,10 @@ type Field = [Line]
 
 
 createLine :: Int -> Line
-createLine x = [Cell x y 0 white | y <- [1..10]]
+createLine x = [Cell x y 2 white | y <- [0..9]]
 
 createField :: Field
-createField = [createLine x| x <- [1.. 15]]
+createField = [createLine x| x <- [0.. 14]]
 
 type NumberFigure = Int
 type CoordCell = (Int, Int)--координаты клетки
@@ -32,13 +34,13 @@ type Result = Int
 type CoordFigures = [CoordCell]
 
 createCoordFigures :: [CoordFigures]
-createCoordFigures = [[(1, 5), (1, 6), (2, 5), (2, 6)]
-                    , [(1, 5), (1, 6), (2, 6), (2, 7)]
-                    , [(1, 6), (1, 7), (2, 5), (2, 6)]
-                    , [(1, 5), (1, 6), (1, 7), (2, 6)]
-                    , [(1, 5), (2, 5), (3, 5), (4, 5)]
-                    , [(1, 6), (2, 6), (3, 5), (3, 6)]
-                    , [(1, 5), (2, 5), (3, 5), (3, 6)]
+createCoordFigures = [[(0, 4), (0, 5), (1, 4), (1, 5)]
+                    , [(0, 4), (0, 5), (1, 5), (1, 6)]
+                    , [(0, 5), (0, 6), (1, 4), (1, 5)]
+                    , [(0, 4), (0, 5), (0, 6), (1, 5)]
+                    , [(0, 4), (1, 4), (2, 4), (3, 4)]
+                    , [(0, 5), (1, 5), (2, 4), (2, 5)]
+                    , [(0, 4), (1, 4), (2, 4), (2, 5)]
                     ]
 
 createColorFigures :: [Color]
@@ -51,6 +53,7 @@ data GameState = GameState
     , gameResult :: Int -- текущий результат игры
     , coordTetr :: [CoordFigures] -- Tetr - тетрамино
     , colorTetr :: [Color]
+    , endGame :: Bool
     } deriving Show
     
 
@@ -61,7 +64,7 @@ data GameState = GameState
 
 
 getCell :: Field -> Int -> Int -> Cell -- получение клетки из поля
-getCell field x y = (!!) ((!!) field  x)  y
+getCell field x y = (!!) ((!!) field  x)  y 
 
 typeCell :: Cell -> Int --получение типа клетки 
 typeCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) = cellType
@@ -89,29 +92,33 @@ mapLine f (x : xs) = ((f x) : mapLine f xs)
 
 mapField :: (Cell -> Cell) -> Field -> Field
 mapField _ [] = []
-mapField f (x : xs) = ((mapLine f x) : mapField f xs) -----НАДО СДЕЛАТЬ ПРИМЕНИТЬ!!!
+mapField f (x : xs) = ((mapLine f x) : mapField f xs)
 
 higherCell :: Cell -> Field -> Maybe Cell --клетка на 1 выше данной 
-higherCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) field 
-    | (numLine == 1) = Nothing
-    | otherwise = Just (getCell field (numLine - 1) numCell)
+higherCell c@Cell{..} field 
+    | (numLine == 0) = Nothing
+    | otherwise = {-trace ((show c) ++ " " ++ (show (Just (getCell field (numLine - 1) numCell))))-} 
+            (Just (getCell field (numLine - 1) numCell))
 
 lowerCell :: Cell -> Field -> Maybe Cell --клетка на 1 ниже данной 
 lowerCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) field 
-    | (numLine == 15) = Nothing
+    | (numLine == 14) = Nothing
     | otherwise = Just (getCell field (numLine + 1) numCell)
 
 
 changeCellInLine :: Line -> Int -> Cell -> Line -- протестить!!!!!!!!!!!!!!!
-changeCellInLine line y new = beg ++ [new] ++ end
-    where (beg, end1) = (splitAt (y - 1) line )
+changeCellInLine line y new = --(trace ((show beg) ++ (show end)))
+                                 beg ++ [new] ++ end
+    where (beg, end1) = (splitAt y line )
           (beg2, end) = (splitAt 1 end1)
 
 
 changeCellInField :: Field -> Int -> Int -> Cell -> Field
-changeCellInField field x y new = beg ++ [(changeCellInLine (head beg2) y new)] ++ end 
-    where (beg, end1) = splitAt (x - 1) field 
+changeCellInField field x y new = --(trace (show result)) 
+                                    result
+    where (beg, end1) = splitAt x field 
           (beg2, end) = splitAt 1 end1
+          result = beg ++ [(changeCellInLine (head beg2) y new)] ++ end
 
 changeCell :: Field -> Cell -> Cell -> Field
 changeCell field oldCell@Cell{..} newCell = changeCellInField field numLine numCell newCell 
