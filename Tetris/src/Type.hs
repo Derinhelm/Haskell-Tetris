@@ -57,7 +57,8 @@ data GameState = GameState
     } deriving Show
     
 
-
+getCellLine :: Cell -> Int
+getCellLine c@Cell{..} = numLine
 
 
 
@@ -67,11 +68,11 @@ getCellColor c@Cell{..} = cellColor
 getCell :: Field -> Int -> Int -> Cell -- получение клетки из поля
 getCell field x y = (!!) ((!!) field  x)  y 
 
-typeCell :: Cell -> Int --получение типа клетки 
-typeCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) = cellType
+getCellType :: Cell -> Int --получение типа клетки 
+getCellType (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) = cellType
 
 typeCellFromField :: Field -> Int -> Int -> Int --получение типа клетки по координате клетки
-typeCellFromField field x y = typeCell (getCell field x y)
+typeCellFromField field x y = getCellType (getCell field x y)
 
 
 funLineAll :: (Cell -> Bool) -> Line -> Bool -- проверка, что вся строка удовлетворяет какому-то условию

@@ -17,8 +17,8 @@ import Debug.Trace
 createCellShiftFigure :: Field -> Cell -> Cell
 createCellShiftFigure field c@Cell{..}  = case hc of 
         Nothing -> (Cell numLine numCell 2 colorBoard)
-        Just hc1 ->  case (typeCell hc1) of
-                        2 -> case (typeCell c) of
+        Just hc1 ->  case (getCellType hc1) of
+                        2 -> case (getCellType c) of
                                 1 ->  (Cell numLine numCell 2 colorBoard)
                                 0 -> c
                                 2 -> c
@@ -55,15 +55,33 @@ newFigureOnGame GameState{..}
                   colorNextFigure = ((!!) colorTetr (nextFigure - 1))
 
 checkCompletedLine :: Line -> Bool
-checkCompletedLine line = funLineAll (\c -> ((typeCell c) == 0)) line
+checkCompletedLine line = funLineAll (\c -> ((getCellType c) == 0)) line
 
 countDeletedLines :: Field -> Int -> Int
 countDeletedLines [] res = res
 countDeletedLines (x : xs) oldRes       | (checkCompletedLine x) = countDeletedLines xs (oldRes + 1)
                                         | otherwise = countDeletedLines xs oldRes
         
+numCompLine :: Field -> Int -> Int
+numCompLine [] _ = -1
+numCompLine (x:xs) numberLine   | (checkCompletedLine x) = numberLine
+                                | otherwise = (numCompLine xs (numberLine + 1))
+
+deleteLineWithNumber :: Field -> Int -> Field
+deleteLineWithNumber field numDeletedLine = mapField (\c@Cell{..} -> 
+        if (numLine > numDeletedLine) 
+                then c
+                else case (higherCell c field) of
+                        Nothing -> (Cell numLine numCell 2 colorBoard) --верхний ряд
+                        Just hc ->  (Cell numLine numCell (getCellType hc) (getCellColor hc))
+        ) field
+
+
 deleteLinesFromField :: Field -> Field
-deleteLinesFromField f = f
+deleteLinesFromField field | (curCompLine == -1) = field 
+                           | otherwise = (deleteLinesFromField (deleteLineWithNumber field curCompLine))
+                where curCompLine = (numCompLine field 0)
+
 --Сейчас считает(каждый проход отдельно) полные линии, не умеет их удалять
 deleteLines :: GameState -> GameState -- (делаем перед добавлением новой фигуры)
 --удаление линии со всеми заполненными  - пока не реализовано
@@ -74,17 +92,17 @@ deleteLines game@GameState{..} =
 
 checkFlyCell ::  Field -> Cell -> Bool
 checkFlyCell field c = case lc of
-        Nothing -> ((typeCell c) /= 1)
-        Just lc1 -> ((typeCell c) /= 1) || ((typeCell c == 1) && (typeCell lc1 /= 0)) 
+        Nothing -> ((getCellType c) /= 1)
+        Just lc1 -> ((getCellType c) /= 1) || ((getCellType c == 1) && (getCellType lc1 /= 0)) 
         where lc = lowerCell c field
 
 haveFlyFigure :: Field -> Bool -- поменять!!!!!!!
-haveFlyFigure field = (funFieldAll (checkFlyCell field) field) && (funFieldAny (\c -> ((typeCell c) == 1)) field)
+haveFlyFigure field = (funFieldAll (checkFlyCell field) field) && (funFieldAny (\c -> ((getCellType c) == 1)) field)
 --проверка -    1.что клетка - или не летящая, или летящая, но под ней свободно
 --              2.что на поле есть летящие клетки
       
 changeLandCellField :: Field -> Field
-changeLandCellField field = mapField (\c@Cell{..} -> case (typeCell c) of
+changeLandCellField field = mapField (\c@Cell{..} -> case (getCellType c) of
                                         1 -> (Cell numLine numCell 0 cellColor)
                                         otherwise -> c) field
 
@@ -96,15 +114,15 @@ changeLandCell game@GameState{..} =
         
        
 checkCanMoveLeft:: Field -> Bool
-checkCanMoveLeft field = funFieldAll (\c -> (((typeCell c) /= 1) ||
-         ((isJust (leftCell c field)) && ((typeCell (fromJust (leftCell c field))) /= 0)))) field
+checkCanMoveLeft field = funFieldAll (\c -> (((getCellType c) /= 1) ||
+         ((isJust (leftCell c field)) && ((getCellType (fromJust (leftCell c field))) /= 0)))) field
 
 createCellForMoveLeft :: Field -> Cell -> Cell
-createCellForMoveLeft field c@Cell{..} = case (typeCell c) of 
+createCellForMoveLeft field c@Cell{..} = case (getCellType c) of 
         0 -> c
         otherwise ->  case (rightCell c field) of 
                 Nothing -> (Cell numLine numCell 2 colorBoard)--просто клетка фона
-                Just r -> case (typeCell r) of
+                Just r -> case (getCellType r) of
                         2 -> (Cell numLine numCell 2 colorBoard) -- клетка фона 
                         1 -> (Cell numLine numCell 1 (getCellColor r))
                         0 -> (Cell numLine numCell 2 colorBoard) -- клетка фона 
@@ -116,15 +134,15 @@ moveLeft field  | checkCanMoveLeft field = mapField (createCellForMoveLeft field
 --проблема - мы уже поменяли правую, а теперь ее копируем???? в shift - этой проблемы нет, т.к. идем - сверху вниз                
         
 checkCanMoveRight:: Field -> Bool
-checkCanMoveRight field = funFieldAll (\c -> (((typeCell c) /= 1) ||
-         ((isJust (rightCell c field)) && ((typeCell (fromJust (rightCell c field))) /= 0)))) field
+checkCanMoveRight field = funFieldAll (\c -> (((getCellType c) /= 1) ||
+         ((isJust (rightCell c field)) && ((getCellType (fromJust (rightCell c field))) /= 0)))) field
                 
 createCellForMoveRight :: Field -> Cell -> Cell
-createCellForMoveRight field c@Cell{..} = case (typeCell c) of 
+createCellForMoveRight field c@Cell{..} = case (getCellType c) of 
         0 -> c
         otherwise ->  case (leftCell c field) of 
                 Nothing -> (Cell numLine numCell 2 colorBoard)--просто клетка фона
-                Just l -> case (typeCell l) of
+                Just l -> case (getCellType l) of
                         2 -> (Cell numLine numCell 2 colorBoard) -- клетка фона 
                         1 -> (Cell numLine numCell 1 (getCellColor l))
                         0 -> (Cell numLine numCell 2 colorBoard) -- клетка фона 

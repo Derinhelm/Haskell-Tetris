@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-23 19:07:55.726616279 UTC
+2019-03-25 08:19:17.282304044 UTC
 
 interface main:Main 8063
-  interface hash: 51eebc1576f2e4f8865c82813e3047be
-  ABI hash: 5d7eef2ea2726a4e2d371366f9e85626
+  interface hash: aa6bb7e7e49da99a17992772c24efd4a
+  ABI hash: 2c87dbf93ec4c91f6b3922a5080f1182
   export-list hash: 20c68f547accb97c62ee138a2f3d3bd6
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 41157dda25afcb8501e0e59ceee8ebaa
@@ -59,8 +59,8 @@ import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb4570453126
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Game 3b871ad7b6d70d672603a275ef8ba1e4
 import  -/  project-template-0.0.0.0:Constans e7d9a011a758ab9eba63cd7434f19521
 import  -/  project-template-0.0.0.0:Draw d52815c42f40e09882b406393fcd6e46
-import  -/  project-template-0.0.0.0:MyProj 3805f893da421bf88afbdf2088daa30a
-import  -/  project-template-0.0.0.0:Type 498a41dcd3ceebaade90a6e5ee739e81
+import  -/  project-template-0.0.0.0:MyProj 8faa36c52e5bf079684f9ab94bd9da89
+import  -/  project-template-0.0.0.0:Type 7992dcfedd7be9017e9d1ad883ec38fc
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 be86c9d078d3acbf19ba91fe74a24273
   $trModule :: GHC.Types.Module
@@ -80,12 +80,12 @@ e5875966b74dad2d29772660b8a75e33
 d026be77cb9ced20e35a61514e0458aa
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-31b7c1f0a4c13378041afe16b66b5953
+18d3972d10497842c813afa951910820
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-01837e843cb32cdca0734ce81917c72c
+f42cd5e72b2592f995629998c594a2df
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -137,7 +137,7 @@ d026be77cb9ced20e35a61514e0458aa
                         GHC.Types.True
                         ipv of ds2 { (#,#) ipv4 ipv5 ->
                  (# ipv4, GHC.Tuple.() #) } } } }) -}
-586f15b1050c3d9c5b24eec2c47c9d5b
+97d53d6ad974e23db4e6bedfcded607b
   main2 ::
     GHC.Types.Float
     -> Type.GameState
@@ -172,7 +172,7 @@ d026be77cb9ced20e35a61514e0458aa
 baad8a2fd2ef8bf9dc8ab4b0b52b28f9
   main5 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
-40d600964a1146dfdc9c4aa30bc2ad21
+c30049b86c3dcf722896c6797ccc7f84
   main6 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
