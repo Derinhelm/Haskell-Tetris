@@ -1,0 +1,43 @@
+name:                project-template
+version:             0.0.0.0
+author:              "John Doe"
+copyright:           "2019 John Doe"
+
+extra-source-files:
+- README.md
+
+description:         Please see the README file.
+
+dependencies:
+- base >= 4.7 && < 5
+- random
+- gloss
+
+library:
+  source-dirs: src
+
+executables:
+  project-template-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -Wall
+    - -Werror
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - project-template
+  
+tests:
+  project-template-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -Wall
+    - -Werror
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - project-template
