@@ -46,6 +46,47 @@ createCoordFigures = [[(0, 4), (0, 5), (1, 4), (1, 5)]
 createColorFigures :: [Color]
 createColorFigures = [green, (light blue), violet, red, blue, yellow, greyN 0.5]
 
+
+createRotateModels :: [(CoordFigures, CoordCell)]
+createRotateModels =    [([(0, 0), (0, 1), (1, 0), (1, 1)], (0, 0))
+                        , ([(0, 0), (0, 1), (1, 0), (1, 1)], (0, 1))
+                        , ([(0, 0), (0, 1), (1, 0), (1, 1)], (1, 1))
+                        , ([(0, 0), (0, 1), (1, 0), (1, 1)], (1, 0))
+
+                        , ([(0, 0), (0, 1), (1, 1), (1, 2)], (0, 1))
+                        , ([(0, 1), (1, 0), (1, 1), (2, 0)], (1, 1))
+                        , ([(0, 0), (0, 1), (1, 1), (1, 2)], (1, 1))
+                        , ([(0, 1), (1, 0), (1, 1), (2, 0)], (1, 0))
+
+                        , ([(0, 1), (0, 2), (1, 0), (1, 1)], (1, 1))
+                        , ([(0, 0), (1, 0), (1, 1), (2, 1)], (1, 0))
+                        , ([(0, 1), (0, 2), (1, 0), (1, 1)], (0, 1))
+                        , ([(0, 0), (1, 0), (1, 1), (2, 1)], (1, 1))
+
+
+                        , ([(0, 0), (0, 1), (0, 2), (1, 1)], (0, 1))
+                        , ([(0, 1), (1, 0), (1, 1), (2, 1)], (1, 1))
+                        , ([(0, 1), (1, 0), (1, 1), (1, 2)], (1, 1))
+                        , ([(0, 0), (1, 0), (1, 1), (2, 0)], (1, 0))
+
+                        , ([(0, 0), (1, 0), (2, 0), (3, 0)], (2, 0))
+                        , ([(0, 0), (0, 1), (0, 2), (0, 3)], (0, 1))
+                        , ([(0, 0), (1, 0), (2, 0), (3, 0)], (1, 0))
+                        , ([(0, 0), (0, 1), (0, 2), (0, 3)], (0, 2))
+
+                        , ([(0, 1), (1, 1), (2, 0), (2, 1)], (2, 1))
+                        , ([(0, 0), (1, 0), (1, 1), (1, 2)], (1, 0))
+                        , ([(0, 0), (0, 1), (1, 0), (2, 0)], (0, 0))
+                        , ([(0, 0), (0, 1), (0, 2), (1, 2)], (0, 2))
+
+                        , ([(0, 0), (1, 0), (2, 0), (2, 1)], (2, 0))
+                        , ([(0, 0), (0, 1), (0, 2), (1, 0)], (0, 0))
+                        , ([(0, 0), (0, 1), (1, 1), (2, 1)], (0, 1))
+                        , ([(0, 0), (1, 0), (1, 1), (1, 2)], (1, 0))
+                        ]
+
+
+
 data GameState = GameState
     { gameField :: Field    -- поле
     , gameRandomGen :: StdGen -- Random number generator.
@@ -54,6 +95,7 @@ data GameState = GameState
     , coordTetr :: [CoordFigures] -- Tetr - тетрамино
     , colorTetr :: [Color]
     , endGame :: Bool
+    , rotateTypeFigure :: Int -- тип вращения, число от 0 до 27
     } deriving Show
     
 
@@ -96,6 +138,16 @@ mapField :: (Cell -> Cell) -> Field -> Field
 mapField _ [] = []
 mapField f (x : xs) = ((mapLine f x) : mapField f xs)
 
+findCellCondLine :: Line -> (Cell -> Bool) -> [Cell] -> [Cell]
+findCellCondLine [] f goodCells = goodCells 
+findCellCondLine (x : xs) f goodCells   | (f x) = findCellCondLine xs f (goodCells ++ [x])
+                                        | otherwise = findCellCondLine xs f goodCells
+
+findCellCond :: Field -> (Cell -> Bool) -> [Cell] -> [Cell]
+findCellCond [] f goodCells = goodCells
+findCellCond (x : xs) f goodCells = findCellCond xs f (goodCells ++ (findCellCondLine x f [])) 
+
+
 higherCell :: Cell -> Field -> Maybe Cell --клетка на 1 выше данной 
 higherCell c@Cell{..} field 
     | (numLine == 0) = Nothing
@@ -121,7 +173,7 @@ rightCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor ::
 
 
 
-changeCellInLine :: Line -> Int -> Cell -> Line -- протестить!!!!!!!!!!!!!!!
+changeCellInLine :: Line -> Int -> Cell -> Line 
 changeCellInLine line y new = --(trace ((show beg) ++ (show end)))
                                  beg ++ [new] ++ end
     where (beg, end1) = (splitAt y line )

@@ -13,7 +13,7 @@ main = do
     --putStrLn "Enter your name: "
     --name <- getLine
     gen <- newStdGen
-    let createGame = GameState (createField) gen (createListFigures) 0 (createCoordFigures) (createColorFigures) False
+    let createGame = GameState (createField) gen (createListFigures) 0 (createCoordFigures) (createColorFigures) False 28
     --a <- return (gameLoop 0 (createGame))
     --b <- return (gameLoop 0 a)
     --c <- return (gameLoop 0 b)

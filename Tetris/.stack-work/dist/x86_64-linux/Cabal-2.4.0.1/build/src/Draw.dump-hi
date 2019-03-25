@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-25 07:45:39.394957323 UTC
+2019-03-25 21:43:13.108128011 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Draw 8063
-  interface hash: b131a1c7570a9a80fb07cdacefacd9ab
-  ABI hash: d52815c42f40e09882b406393fcd6e46
+  interface hash: a2007faff39e3db44695566e4be413f3
+  ABI hash: 1a776618c5ef429718205b575876f70e
   export-list hash: 551067e2732157ecbd258059c1ba69cc
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 7a242ffa3d761dff45aed995f1434522
@@ -73,25 +73,26 @@ import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb4570453126
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Picture dfdd7bdaa58e50073d0e7acd8f32d783
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Picture 82e16028b6e02fb465dc928e7e9197a2
-import  -/  Constans 59d04c7a991755b3e63274eef615041f
+import  -/  Constans e7d9a011a758ab9eba63cd7434f19521
   exports: 4e851395688f4e2271ad07b9b5734963
   colorBoard a46ee52867c7f2352348479a0f097919
-import  -/  Type 7992dcfedd7be9017e9d1ad883ec38fc
-  exports: 8def765f3fac83615d221720246f91e4
+import  -/  Type 45d8ccaee99415d0efdd7eca4e49b54f
+  exports: ce00df076bf5945b2ec222b3a5119386
   Cell a490fb91284b41c392b2e9ae69e56c0f
   Cell ce69d132984f15c162cb28e115878ea4
   Field cff2286d27e6392df8d5af5cd3f4b99a
-  GameState f1548da61a583e6c07d84a70f79e92a7
-  GameState 868b64aad4fe42962fd45c408868db30
+  GameState 4db1b57dd81e4bc1cc718d685ed5c8b4
+  GameState 3c2a97b0bb2bff3c82c2e04143c99934
   Line bec16fc1c01d7327740e42f85f13dafe
   NumberFigure ee576e2d2b8f44f9596901e8945ba26f
-  colorTetr 868b64aad4fe42962fd45c408868db30
-  coordTetr 868b64aad4fe42962fd45c408868db30
-  endGame 868b64aad4fe42962fd45c408868db30
-  gameField 868b64aad4fe42962fd45c408868db30
-  gameFigures 868b64aad4fe42962fd45c408868db30
-  gameRandomGen 868b64aad4fe42962fd45c408868db30
-  gameResult 868b64aad4fe42962fd45c408868db30
+  colorTetr 3c2a97b0bb2bff3c82c2e04143c99934
+  coordTetr 3c2a97b0bb2bff3c82c2e04143c99934
+  endGame 3c2a97b0bb2bff3c82c2e04143c99934
+  gameField 3c2a97b0bb2bff3c82c2e04143c99934
+  gameFigures 3c2a97b0bb2bff3c82c2e04143c99934
+  gameRandomGen 3c2a97b0bb2bff3c82c2e04143c99934
+  gameResult 3c2a97b0bb2bff3c82c2e04143c99934
+  rotateTypeFigure 3c2a97b0bb2bff3c82c2e04143c99934
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 962909d598b21745e89c4acee9ed264d
   $trModule :: GHC.Types.Module
@@ -308,16 +309,16 @@ ce427be8a4bb060a5b8847e5a93e632a
   drawFigure8 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.F# -400.0#) -}
-523e2e20c1cce4d11a130cbd0312af35
+e557d970d96589e92da61d0de58f4822
   drawGame ::
     Type.GameState -> Graphics.Gloss.Internals.Data.Picture.Picture
-  {- Arity: 1, Strictness: <S,1*U(1*U,A,A,1*U(U),A,A,A)>m15,
+  {- Arity: 1, Strictness: <S,1*U(1*U,A,A,1*U(U),A,A,A,A)>m15,
      Inline: [2],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: Type.GameState) ->
-                 case w of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ww7 ->
-                 case Draw.$wdrawGame ww1 ww4 of ww8 { Unit# ww9 ->
-                 Graphics.Gloss.Internals.Data.Picture.Pictures ww9 } }) -}
+                 case w of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ww7 ww8 ->
+                 case Draw.$wdrawGame ww1 ww4 of ww9 { Unit# ww10 ->
+                 Graphics.Gloss.Internals.Data.Picture.Pictures ww10 } }) -}
 ab7bd4d2c8dedb76e1b02fce2dee6b68
   drawGame1 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 200.0#) -}
