@@ -44,14 +44,11 @@ createCoordFigures = [[(0, 4), (0, 5), (1, 4), (1, 5)]
                     ]
 
 createColorFigures :: [Color]
-createColorFigures = [green, (light blue), violet, red, blue, yellow, greyN 0.5]
+createColorFigures = [green, (light (light blue)), violet, red, blue, yellow, greyN 0.5]
 
 
 createRotateModels :: [(CoordFigures, CoordCell)]
 createRotateModels =    [([(0, 0), (0, 1), (1, 0), (1, 1)], (0, 0))
-                        , ([(0, 0), (0, 1), (1, 0), (1, 1)], (0, 1))
-                        , ([(0, 0), (0, 1), (1, 0), (1, 1)], (1, 1))
-                        , ([(0, 0), (0, 1), (1, 0), (1, 1)], (1, 0))
 
                         , ([(0, 0), (0, 1), (1, 1), (1, 2)], (0, 1))
                         , ([(0, 1), (1, 0), (1, 1), (2, 0)], (1, 1))

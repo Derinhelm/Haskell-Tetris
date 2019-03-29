@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-25 22:09:51.679031776 UTC
+2019-03-29 22:43:54.201112614 UTC
 
 interface main:Main 8063
-  interface hash: 04caea4bb8042a1e42a8ab354d530ca1
-  ABI hash: 3afdf7ed446b4f845e7b75efd10aacad
+  interface hash: 92ffc9105d9a0d2be275cc10601a8b8a
+  ABI hash: bba973220a0168bdd55398a2d6e1ff3a
   export-list hash: 20c68f547accb97c62ee138a2f3d3bd6
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 41157dda25afcb8501e0e59ceee8ebaa
@@ -57,10 +57,10 @@ import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.Pure.Game 3b871ad7b6d70d672603a275ef8ba1e4
-import  -/  project-template-0.0.0.0:Constans 2bd7c9d69811db52caca3e7a07dbac3a
-import  -/  project-template-0.0.0.0:Draw 1a776618c5ef429718205b575876f70e
-import  -/  project-template-0.0.0.0:MyProj 09d65f7cb7b870321e6b00e3360e4a42
-import  -/  project-template-0.0.0.0:Type df59caa494a616a7b0857b7bb08caaa9
+import  -/  project-template-0.0.0.0:Constans 43171644d89e16e0e000552e5a15f004
+import  -/  project-template-0.0.0.0:Draw b3f2b94f94cb475e3d3a891319c05ea5
+import  -/  project-template-0.0.0.0:MyProj 07b6f9774dd8def6002f46bf5d35de31
+import  -/  project-template-0.0.0.0:Type 32003ef422a3df4aab3a73d87c3551ab
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 be86c9d078d3acbf19ba91fe74a24273
   $trModule :: GHC.Types.Module
@@ -80,12 +80,12 @@ e5875966b74dad2d29772660b8a75e33
 d026be77cb9ced20e35a61514e0458aa
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-c56bbd9bba45bdaac88616a0cf17e7e7
+cc808b9076fb7f32b09898ef5e0deaa5
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-2d23ad8c67df5e1a6c2fd9aa36c81d8b
+6b3b459c059748cb3ebad0617d82643c
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -114,7 +114,7 @@ c56bbd9bba45bdaac88616a0cf17e7e7
                         (Type.GameState
                            Type.createField
                            b1
-                           Constans.createListFigures
+                           (Constans.createListFigures_go b1)
                            Main.main6
                            Type.createCoordFigures
                            Type.createColorFigures
@@ -138,7 +138,7 @@ c56bbd9bba45bdaac88616a0cf17e7e7
                         GHC.Types.True
                         ipv of ds2 { (#,#) ipv4 ipv5 ->
                  (# ipv4, GHC.Tuple.() #) } } } }) -}
-7e710490dfd7dd373b14627dbf0912be
+4dc6e933404364e5204df4ab13350dfb
   main2 ::
     GHC.Types.Float
     -> Type.GameState
@@ -149,24 +149,25 @@ c56bbd9bba45bdaac88616a0cf17e7e7
                    (world1 :: Type.GameState)
                    (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
                  (# s1, MyProj.gameLoop time world1 #)) -}
-c2cc16b7bd1ad0d3369bddf51bdd68bb
+b9458a001cada7d1ed4609e9c576fc90
   main3 ::
     Graphics.Gloss.Internals.Interface.Event.Event
     -> Type.GameState
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, Type.GameState #)
-  {- Arity: 3, Strictness: <L,1*U><L,1*U(U,U,U,U,U,U,U,U(U))><S,U>,
+  {- Arity: 3,
+     Strictness: <L,1*U><L,1*U(U,U(U,U),U,U,U,U,U,U(U))><S,U>,
      Unfolding: (\ (event :: Graphics.Gloss.Internals.Interface.Event.Event)
                    (world1 :: Type.GameState)[OneShot]
                    (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
                  (# s1, MyProj.handleEvent event world1 #)) -}
-42625e16b50b5f5495b7002655ea4978
+a29c8508a071437b8aa2015a366106ac
   main4 ::
     Type.GameState
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Graphics.Gloss.Internals.Data.Picture.Picture #)
-  {- Arity: 2, Strictness: <L,1*U(1*U,A,A,1*U(U),A,A,A,A)><S,U>,
+  {- Arity: 2, Strictness: <L,1*U(1*U,A,1*U,1*U(U),A,A,1*U,A)><S,U>,
      Unfolding: (\ (x :: Type.GameState)
                    (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
                  (# s1, Draw.drawGame x #)) -}
@@ -176,7 +177,7 @@ c2dc0ef40b9de9c86fdffef865a62c34
 422fb0322a7883149b4f9b8b50e16051
   main6 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
-853f1a66a4340b8b8ed018c581dbdeb9
+72950d6cb890a934f89c2969be9bf6f4
   main7 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

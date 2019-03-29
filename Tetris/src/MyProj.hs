@@ -9,7 +9,6 @@ import Graphics.Gloss.Interface.Pure.Game
 import Draw
 import Type
 import Constans
-import System.Random
 import Data.Maybe
 import Debug.Trace
 import Data.List
@@ -53,7 +52,7 @@ newFigureOnGame GameState{..}
         | otherwise =
                  trace "checkEnd" (GameState gameField gameRandomGen gameFigures gameResult coordTetr colorTetr True rotateTypeFigure)
             where nextFigure = (head gameFigures)
-                  rotType = nextFigure * 4
+                  rotType = if (nextFigure == 0) then 0  else nextFigure * 4 - 3
                   coordNextFigure = ((!!) coordTetr (nextFigure))
                   colorNextFigure = ((!!) colorTetr (nextFigure))
 
@@ -112,7 +111,7 @@ changeLandCellField field = mapField (\c@Cell{..} -> case (getCellType c) of
 
 changeLandCell :: GameState -> GameState
 changeLandCell game@GameState{..} = 
-        GameState (changeLandCellField gameField)  gameRandomGen  gameFigures gameResult coordTetr colorTetr False rotateTypeFigure
+        GameState (changeLandCellField gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr False rotateTypeFigure
 
         
        
@@ -179,13 +178,14 @@ funForSortBy (x1, y1) (x2, y2)  | (x1 < y1 || ((x1 == y1) && (x2 < y2))) = LT
 
 numberNextRotateModel :: Int -> Int
 numberNextRotateModel oldNum = case oldNum of
-        3 -> 0
-        7 -> 4
-        11 -> 8
-        15 -> 12
-        19 -> 16
-        23 -> 20
-        27 -> 24
+        0 -> 0
+        4 -> 1
+        8 -> 5
+        12 -> 9
+        16 -> 13
+        20 -> 17
+        24 -> 21
+        28 -> 25
         otherwise -> oldNum + 1
 
 createNewCoord :: Int -> CoordCell -> [CoordCell]
@@ -230,11 +230,13 @@ rotateFigure field  rt    | (checkCanRotate fieldDeletedOldCells newCoord) = set
 -- Handle events.
 handleEvent :: Event -> GameState -> GameState
 handleEvent (EventKey (SpecialKey KeyLeft) Down _ _) game@GameState{..} = 
-    GameState (moveLeft gameField)  gameRandomGen  gameFigures gameResult coordTetr colorTetr False rotateTypeFigure
+    GameState (moveLeft gameField)  gameRandomGen gameFigures gameResult coordTetr colorTetr False rotateTypeFigure
 handleEvent (EventKey (SpecialKey KeyRight) Down _ _) game@GameState{..} = 
-    GameState (moveRight gameField)  gameRandomGen  gameFigures gameResult coordTetr colorTetr False rotateTypeFigure
+    GameState (moveRight gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr False rotateTypeFigure
+handleEvent (EventKey (SpecialKey KeyEnter) Down _ _) game@GameState{..} = 
+        GameState (createField) gameRandomGen (createListFigures gameRandomGen) 0 (createCoordFigures) (createColorFigures) False 28  
 handleEvent (EventKey (SpecialKey KeyUp) Down _ _) game@GameState{..} = (trace (show rotateTypeFigure))
-    GameState (rotateFigure gameField rotateTypeFigure)  gameRandomGen  
+    GameState (rotateFigure gameField rotateTypeFigure) gameRandomGen
         gameFigures gameResult coordTetr colorTetr False q
         where q = (numberNextRotateModel rotateTypeFigure)
 handleEvent _ g = g

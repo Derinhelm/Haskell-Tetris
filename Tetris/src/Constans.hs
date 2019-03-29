@@ -1,20 +1,22 @@
 module Constans where
 import Graphics.Gloss
+import System.Random
+
 
 -- Random numbers range.
 range :: (Int, Int)
-range = (1, 7)
+range = (0, 6)
 
 fps :: Int
 fps = 4
 
 
 window :: Display
-window = InWindow "Tetris" (1000, 1000) (0, 0)
+window = InWindow "Tetris" (1100, 1000) (0, 0)
 
-createListFigures :: [Int]
-createListFigures = [0, 1,2,3,4,5,6,0,1,2,3,4,5,6,0]
---createListFigures = [2, 1, 5, 4, 6, 2, 3, 0, 2, 4, 3, 2, 1, 5, 4, 6, 2, 3, 0, 2, 4, 3]
+
+createListFigures :: StdGen -> [Int]
+createListFigures gen = randomRs (0, 6) gen
 
 colorBoard :: Color
 colorBoard = white
