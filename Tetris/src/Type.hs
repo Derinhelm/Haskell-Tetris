@@ -93,6 +93,7 @@ data GameState = GameState
     , colorTetr :: [Color]
     , endGame :: Bool
     , rotateTypeFigure :: Int -- тип вращения, число от 0 до 27
+    , numLoop :: Int -- количество прошедших игровых циклов
     } deriving Show
     
 

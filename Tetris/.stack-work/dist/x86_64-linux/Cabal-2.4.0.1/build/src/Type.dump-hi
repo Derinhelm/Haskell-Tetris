@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-29 22:29:29.899218898 UTC
+2019-03-30 10:05:39.944424696 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Type 8063
-  interface hash: 45188addfeac621e0b68dc74ea3ebf4f
-  ABI hash: 32003ef422a3df4aab3a73d87c3551ab
-  export-list hash: ce00df076bf5945b2ec222b3a5119386
+  interface hash: 040d10847191149477bb9dd87a40519a
+  ABI hash: 4be64289e30fb0c6ac242b21363dca34
+  export-list hash: 842f1aef9b69bafc2d18e10cc7c9cc54
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 7a242ffa3d761dff45aed995f1434522
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -44,7 +44,7 @@ exports:
   Type.CoordCell
   Type.CoordFigures
   Type.Field
-  Type.GameState{Type.GameState colorTetr coordTetr endGame gameField gameFigures gameRandomGen gameResult rotateTypeFigure}
+  Type.GameState{Type.GameState colorTetr coordTetr endGame gameField gameFigures gameRandomGen gameResult numLoop rotateTypeFigure}
   Type.Line
   Type.NumberFigure
   Type.Result
@@ -98,7 +98,7 @@ import  -/  ghc-prim-0.5.3:GHC.Classes e0d9c979f6368701f34fa421754d2cce
 import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
-import  -/  Constans e53826c67ba3db9db80506a34b2cfb0b
+import  -/  Constans cc02d9f671c5f56ad127b4911bf8c5fd
   exports: 9c3bf02aef4de5ad20ea7235691d8b63
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 ce69d132984f15c162cb28e115878ea4
@@ -163,7 +163,7 @@ ce69d132984f15c162cb28e115878ea4
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { Type.Cell ww3 ww4 ww5 ww6 ->
                  Type.$w$cshowsPrec ww1 ww3 ww4 ww5 ww6 } }) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   $fShowGameState :: GHC.Show.Show Type.GameState
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -172,42 +172,31 @@ ce69d132984f15c162cb28e115878ea4
                   Type.$fShowGameState_$cshowsPrec
                   Type.$fShowGameState_$cshow
                   Type.$fShowGameState_$cshowList -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   $fShowGameState1 :: Type.GameState -> GHC.Show.ShowS
   {- Arity: 2,
-     Strictness: <S,1*U(1*U,1*U(U,U),1*U,1*U(U),1*U,1*U,1*U,1*U(U))><L,U>,
-     Unfolding: (\ (w :: Type.GameState) (w1 :: GHC.Base.String) ->
-                 case w of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ww7 ww8 ->
-                 Type.$w$cshowsPrec1 0# ww1 ww2 ww3 ww4 ww5 ww6 ww7 ww8 w1 }) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+     Unfolding: (Type.$fShowGameState_$cshowsPrec Type.$fShowCell8) -}
+6259977f3c94283e5ea8292c918bcb53
   $fShowGameState_$cshow :: Type.GameState -> GHC.Base.String
   {- Arity: 1,
-     Strictness: <S,1*U(1*U,1*U(U,U),1*U,1*U(U),1*U,1*U,1*U,1*U(U))>,
+     Strictness: <S,1*U(1*U,1*U(U,U),1*U,1*U(U),1*U,1*U,1*U,1*U(U),1*U(U))>,
      Unfolding: InlineRule (1, True, False)
                 (\ (x :: Type.GameState) ->
                  Type.$fShowGameState_$cshowsPrec
                    Type.$fShowCell8
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   $fShowGameState_$cshowList :: [Type.GameState] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [Type.GameState]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ Type.GameState Type.$fShowGameState1 ls s) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   $fShowGameState_$cshowsPrec ::
     GHC.Types.Int -> Type.GameState -> GHC.Show.ShowS
   {- Arity: 3,
-     Strictness: <S(S),1*U(U)><S,1*U(1*U,1*U(U,U),1*U,1*U(U),1*U,1*U,1*U,1*U(U))><L,U>,
-     Inline: [2],
-     Unfolding: InlineRule (3, True, False)
-                (\ (w :: GHC.Types.Int)
-                   (w1 :: Type.GameState)
-                   (w2 :: GHC.Base.String) ->
-                 case w of ww { GHC.Types.I# ww1 ->
-                 case w1 of ww2 { Type.GameState ww3 ww4 ww5 ww6 ww7 ww8 ww9 ww10 ->
-                 Type.$w$cshowsPrec1 ww1 ww3 ww4 ww5 ww6 ww7 ww8 ww9 ww10 w2 } }) -}
+     Strictness: <S(S),1*U(U)><S,1*U(1*U,1*U(U,U),1*U,1*U(U),1*U,1*U,1*U,1*U(U),1*U(U))><L,U> -}
 b66278e7125e440179bcfe20c31d9e4b
   $tc'Cell :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -382,22 +371,6 @@ b37ccd362537d441e3fb680d1eeb2f5b
                         @ GHC.Types.Char
                         GHC.Show.$fShow(,)4
                         (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 x)) }) -}
-d0ca7644c51f3fac14055c8dea6aa384
-  $w$cshowsPrec1 ::
-    GHC.Prim.Int#
-    -> Type.Field
-    -> System.Random.StdGen
-    -> [Type.NumberFigure]
-    -> GHC.Types.Int
-    -> [Type.CoordFigures]
-    -> [Graphics.Gloss.Internals.Data.Color.Color]
-    -> GHC.Types.Bool
-    -> GHC.Types.Int
-    -> GHC.Base.String
-    -> GHC.Base.String
-  {- Arity: 10,
-     Strictness: <S,U><L,1*U><L,1*U(U,U)><L,1*U><L,1*U(U)><L,1*U><L,1*U><L,1*U><L,1*U(U)><L,U>,
-     Inline: [2] -}
 811467076616b5f331e5521b863f5c05
   $wchangeCellInField ::
     Type.Field
@@ -602,7 +575,7 @@ b3b9710d1bc9d5841b96879fe6ccdd74
   type CoordFigures = [Type.CoordCell]
 cff2286d27e6392df8d5af5cd3f4b99a
   type Field = [Type.Line]
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   data GameState
     = GameState {gameField :: Type.Field,
                  gameRandomGen :: System.Random.StdGen,
@@ -611,7 +584,8 @@ cff2286d27e6392df8d5af5cd3f4b99a
                  coordTetr :: [Type.CoordFigures],
                  colorTetr :: [Graphics.Gloss.Internals.Data.Color.Color],
                  endGame :: GHC.Types.Bool,
-                 rotateTypeFigure :: GHC.Types.Int}
+                 rotateTypeFigure :: GHC.Types.Int,
+                 numLoop :: GHC.Types.Int}
 bec16fc1c01d7327740e42f85f13dafe
   type Line = [Type.Cell]
 ee576e2d2b8f44f9596901e8945ba26f
@@ -666,24 +640,24 @@ ce69d132984f15c162cb28e115878ea4
                 (\ (w :: Type.Line) (w1 :: GHC.Types.Int) (w2 :: Type.Cell) ->
                  case w1 of ww { GHC.Types.I# ww1 ->
                  Type.$wchangeCellInLine w ww1 w2 }) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   colorTetr ::
     Type.GameState -> [Graphics.Gloss.Internals.Data.Color.Color]
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLLLLSLL),1*U(A,A,A,A,A,1*U,A,A)>,
+     Strictness: <S(LLLLLSLLL),1*U(A,A,A,A,A,1*U,A,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
                  ds6 }) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   coordTetr :: Type.GameState -> [Type.CoordFigures]
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLLLSLLL),1*U(A,A,A,A,1*U,A,A,A)>,
+     Strictness: <S(LLLLSLLLL),1*U(A,A,A,A,1*U,A,A,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
                  ds5 }) -}
 9a9effe73c0937dbbffff73fdc6b19e2
   createColorFigures :: [Graphics.Gloss.Internals.Data.Color.Color]
@@ -1768,14 +1742,14 @@ b37e5c187226287ab62904e624769509
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels95,
                   Type.createRotateModels32)) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   endGame :: Type.GameState -> GHC.Types.Bool
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLLLLLSL),1*U(A,A,A,A,A,A,1*U,A)>,
+     Strictness: <S(LLLLLLSLL),1*U(A,A,A,A,A,A,1*U,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
                  ds7 }) -}
 23c0104d27cbb4885b4db356b48a4902
   findCellCond ::
@@ -1941,41 +1915,41 @@ dea54d666d4e02685791bbf0723e0424
                                (Sym (Data.Semigroup.Internal.N:Any[0])) } }
                  } in
                  go str1) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   gameField :: Type.GameState -> Type.Field
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(SLLLLLLL),1*U(1*U,A,A,A,A,A,A,A)>,
+     Strictness: <S(SLLLLLLLL),1*U(1*U,A,A,A,A,A,A,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
                  ds1 }) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   gameFigures :: Type.GameState -> [Type.NumberFigure]
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLSLLLLL),1*U(A,A,1*U,A,A,A,A,A)>,
+     Strictness: <S(LLSLLLLLL),1*U(A,A,1*U,A,A,A,A,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
                  ds3 }) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   gameRandomGen :: Type.GameState -> System.Random.StdGen
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LSLLLLLL),1*U(A,1*U(U,U),A,A,A,A,A,A)>m,
+     Strictness: <S(LSLLLLLLL),1*U(A,1*U(U,U),A,A,A,A,A,A,A)>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
                  ds2 }) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   gameResult :: Type.GameState -> GHC.Types.Int
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLLSLLLL),1*U(A,A,A,1*U(U),A,A,A,A)>m,
+     Strictness: <S(LLLSLLLLL),1*U(A,A,A,1*U(U),A,A,A,A,A)>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
                  ds4 }) -}
 e0b0d74dc81858d2413e5fb147c7c3a8
   getCell ::
@@ -2065,6 +2039,15 @@ ce69d132984f15c162cb28e115878ea4
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.Cell) ->
                  case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds1 }) -}
+6259977f3c94283e5ea8292c918bcb53
+  numLoop :: Type.GameState -> GHC.Types.Int
+  RecSel Left Type.GameState
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLLLLLLLS),1*U(A,A,A,A,A,A,A,A,1*U(U))>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Type.GameState) ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
+                 ds9 }) -}
 98857b461e4106f2a1a231a4d2b3b4d0
   rightCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
   {- Arity: 2,
@@ -2075,14 +2058,14 @@ ce69d132984f15c162cb28e115878ea4
                  case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                  case ww2 of ww5 { GHC.Types.I# ww6 ->
                  Type.$wrightCell ww1 ww6 w1 } }) -}
-3c2a97b0bb2bff3c82c2e04143c99934
+6259977f3c94283e5ea8292c918bcb53
   rotateTypeFigure :: Type.GameState -> GHC.Types.Int
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLLLLLLS),1*U(A,A,A,A,A,A,A,1*U(U))>m,
+     Strictness: <S(LLLLLLLSL),1*U(A,A,A,A,A,A,A,1*U(U),A)>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
-                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ->
+                 case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
                  ds8 }) -}
 21e57c95a2c7b52276682d382c51505d
   typeCellFromField ::

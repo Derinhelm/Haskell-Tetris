@@ -8,7 +8,7 @@ range :: (Int, Int)
 range = (0, 6)
 
 fps :: Int
-fps = 4
+fps = 1
 
 
 window :: Display

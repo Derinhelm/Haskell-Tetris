@@ -31,7 +31,7 @@ pictureField (x : xs)  = {-trace (show x)-} ((drawLine x) ++ (pictureField xs ))
 drawCellForFigure :: [CoordCell] -> Color -> [Picture] ->  [Picture]
 drawCellForFigure [] col res = res
 drawCellForFigure ((x, y) : xs) col res = drawCellForFigure xs col ([newPic] ++ res)
-    where newPic = (translate (-400 + (realToFrac x) * 30) (250 + (realToFrac y) * 30) $ color col $ rectangleSolid 30 30)
+    where newPic = (translate (-600 + (realToFrac y) * 30) (400 + (realToFrac (-x)) * 30) $ color col $ rectangleSolid 30 30)
 
 drawFigure :: NumberFigure -> [Picture]
 drawFigure num = drawCellForFigure coords col []

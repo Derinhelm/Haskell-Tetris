@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-29 22:40:10.153336757 UTC
+2019-03-30 10:34:36.053674134 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Constans 8063
-  interface hash: eb43196e2cb62e94395e511fe2ef0a40
-  ABI hash: 43171644d89e16e0e000552e5a15f004
+  interface hash: 195b1548f8cad65262d7c888b338adb8
+  ABI hash: 1487ad15622542e95d86c5deddace10f
   export-list hash: 9c3bf02aef4de5ad20ea7235691d8b63
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: d59a86fc39dabe8754ebbfb830e37f1e
@@ -97,9 +97,9 @@ b0f2ada2af994bcf86bb18480b385de4
 a2f05e239d1b68430749af6fe65d723c
   createListFigures_go :: System.Random.StdGen -> [GHC.Types.Int]
   {- Arity: 1, Strictness: <L,U(U,U)>m2 -}
-7a6fbcd5a4d6e44f7277d4ee35a00b3b
+96a7c21ffbfe0aceb5ab46a6fda009ed
   fps :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4#) -}
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
 7bfd3a0888bd76859aa7fc8b47e506c7
   range :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
