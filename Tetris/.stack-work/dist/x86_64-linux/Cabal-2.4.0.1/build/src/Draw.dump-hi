@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-03-30 10:05:40.449147833 UTC
+2019-04-02 11:57:05.128880043 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Draw 8063
-  interface hash: 212e8e2c37802129c5de76963475a325
-  ABI hash: 92609ded0e30964a65da04bdaf7f6916
+  interface hash: 4cac3fa86b579bcd92cb1606e51dafd8
+  ABI hash: 4a69272644a6ae6c5141df5a6c8da12d
   export-list hash: a55f534379c28c5818bca346145d53b4
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 7a242ffa3d761dff45aed995f1434522
@@ -69,35 +69,37 @@ import  -/  base-4.12.0.0:GHC.Show 4e438f26d903388cc6c2c5d64ed01b98
 import  -/  base-4.12.0.0:Prelude 5c01365ec01f83bd405ac01cbb9a8d76
 import  -/  base-4.12.0.0:System.IO 88c2b1c4079c52d62ed362d4eb9a5302
 import  -/  ghc-prim-0.5.3:GHC.Classes e0d9c979f6368701f34fa421754d2cce
+import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Picture dfdd7bdaa58e50073d0e7acd8f32d783
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Picture 82e16028b6e02fb465dc928e7e9197a2
-import  -/  Constans cc02d9f671c5f56ad127b4911bf8c5fd
+import  -/  Constans 1487ad15622542e95d86c5deddace10f
   exports: 9c3bf02aef4de5ad20ea7235691d8b63
   colorBoard a46ee52867c7f2352348479a0f097919
-import  -/  Type 4be64289e30fb0c6ac242b21363dca34
-  exports: 842f1aef9b69bafc2d18e10cc7c9cc54
-  Cell a490fb91284b41c392b2e9ae69e56c0f
-  Cell ce69d132984f15c162cb28e115878ea4
+import  -/  Type ec9cd38361dbe07e3955333e00c55d51
+  exports: 4305aacaa18c9dc8978b28e0ec454830
+  Cell c8163c96363f67f87ceb586115b9036e
+  Cell 7b5eee64e5cfbdf155913fb8f6b52292
   CoordCell a84a815ac9d0a4e801bd442bfa023e94
-  Field cff2286d27e6392df8d5af5cd3f4b99a
-  GameState 3fa26fe2516dc355a97b89b2c0f6b3fd
-  GameState 6259977f3c94283e5ea8292c918bcb53
-  Line bec16fc1c01d7327740e42f85f13dafe
+  Field 51bd1e0ed49ff3348029661cfe5d0e90
+  GameState 914b648e60c50228a360afd0ada31c9c
+  GameState 8281b47d2a415f5b18dac47c7056459c
+  Line 2e70093aa927aca9064b822e8b9318cc
   NumberFigure ee576e2d2b8f44f9596901e8945ba26f
-  colorTetr 6259977f3c94283e5ea8292c918bcb53
-  coordTetr 6259977f3c94283e5ea8292c918bcb53
+  colorTetr 8281b47d2a415f5b18dac47c7056459c
+  coordTetr 8281b47d2a415f5b18dac47c7056459c
   createColorFigures 9a9effe73c0937dbbffff73fdc6b19e2
   createCoordFigures c6aeabd63007d112aff70ef8b7e46514
-  endGame 6259977f3c94283e5ea8292c918bcb53
-  gameField 6259977f3c94283e5ea8292c918bcb53
-  gameFigures 6259977f3c94283e5ea8292c918bcb53
-  gameRandomGen 6259977f3c94283e5ea8292c918bcb53
-  gameResult 6259977f3c94283e5ea8292c918bcb53
-  numLoop 6259977f3c94283e5ea8292c918bcb53
-  rotateTypeFigure 6259977f3c94283e5ea8292c918bcb53
+  endGame 8281b47d2a415f5b18dac47c7056459c
+  gameField 8281b47d2a415f5b18dac47c7056459c
+  gameFigures 8281b47d2a415f5b18dac47c7056459c
+  gameRandomGen 8281b47d2a415f5b18dac47c7056459c
+  gameResult 8281b47d2a415f5b18dac47c7056459c
+  numLoop 8281b47d2a415f5b18dac47c7056459c
+  rotateTypeFigure 8281b47d2a415f5b18dac47c7056459c
+  userName 8281b47d2a415f5b18dac47c7056459c
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 962909d598b21745e89c4acee9ed264d
   $trModule :: GHC.Types.Module
@@ -130,68 +132,75 @@ edf2f98f78d57a93a916742942c9dc6a
                       Type.createColorFigures
                       ww)
                    (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Picture.Picture)) -}
-393fe358b9d701ec4aa101441b89cc91
+40b92285f2d9868e3f80cbcb0f8eede5
   $wdrawGame ::
     Type.Field
     -> [Type.NumberFigure]
     -> GHC.Types.Int
-    -> GHC.Types.Bool
-    -> (# [Graphics.Gloss.Internals.Data.Picture.Picture] #)
-  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U(U)><L,1*U>,
+    -> GHC.Types.Int
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.Gloss.Internals.Data.Picture.Picture #)
+  {- Arity: 5, Strictness: <L,1*U><L,1*U><L,1*U(U)><L,1*U(1*U)><S,U>,
      Inline: [2],
      Unfolding: (\ (ww :: Type.Field)
                    (ww1 :: [Type.NumberFigure])
                    (ww2 :: GHC.Types.Int)
-                   (ww3 :: GHC.Types.Bool) ->
-                 (# GHC.Base.++
-                      @ Graphics.Gloss.Internals.Data.Picture.Picture
-                      (Draw.pictureField ww)
-                      (case ww1 of wild {
-                         []
-                         -> case GHC.List.badHead
-                            ret_ty [Graphics.Gloss.Internals.Data.Picture.Picture]
-                            of {}
-                         : x ds1
-                         -> case x of ww4 { GHC.Types.I# ww5 ->
-                            GHC.Base.++
-                              @ Graphics.Gloss.Internals.Data.Picture.Picture
-                              (Draw.$wdrawFigure ww5)
-                              (case ww3 of wild1 {
-                                 GHC.Types.False
-                                 -> GHC.Types.:
-                                      @ Graphics.Gloss.Internals.Data.Picture.Picture
-                                      (Graphics.Gloss.Internals.Data.Picture.Translate
-                                         Draw.drawGame49
-                                         Draw.drawGame48
-                                         (Graphics.Gloss.Internals.Data.Picture.Color
-                                            Graphics.Gloss.Data.Color.yellow
-                                            (Graphics.Gloss.Internals.Data.Picture.Text
-                                               (case ww2 of ww6 { GHC.Types.I# ww7 ->
-                                                case GHC.Show.$wshowSignedInt
-                                                       0#
-                                                       ww7
-                                                       (GHC.Types.[]
-                                                          @ GHC.Types.Char) of ww8 { (#,#) ww9 ww10 ->
-                                                GHC.Types.: @ GHC.Types.Char ww9 ww10 } }))))
-                                      (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Picture.Picture)
-                                 GHC.Types.True
-                                 -> GHC.Types.:
-                                      @ Graphics.Gloss.Internals.Data.Picture.Picture
-                                      (Graphics.Gloss.Internals.Data.Picture.Translate
-                                         Draw.drawGame49
-                                         Draw.drawGame48
-                                         (Graphics.Gloss.Internals.Data.Picture.Color
-                                            Graphics.Gloss.Data.Color.yellow
-                                            (Graphics.Gloss.Internals.Data.Picture.Text
-                                               (case ww2 of ww6 { GHC.Types.I# ww7 ->
-                                                case GHC.Show.$wshowSignedInt
-                                                       0#
-                                                       ww7
-                                                       (GHC.Types.[]
-                                                          @ GHC.Types.Char) of ww8 { (#,#) ww9 ww10 ->
-                                                GHC.Types.: @ GHC.Types.Char ww9 ww10 } }))))
-                                      Draw.drawGame1 }) } }) #)) -}
-a573c772515c519b4ef32ec36facba9a
+                   (ww3 :: GHC.Types.Int)
+                   (w :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 (# w,
+                    Graphics.Gloss.Internals.Data.Picture.Pictures
+                      (GHC.Base.++
+                         @ Graphics.Gloss.Internals.Data.Picture.Picture
+                         (Draw.pictureField ww)
+                         (case ww1 of wild {
+                            []
+                            -> case GHC.List.badHead
+                               ret_ty [Graphics.Gloss.Internals.Data.Picture.Picture]
+                               of {}
+                            : x ds1
+                            -> case x of ww4 { GHC.Types.I# ww5 ->
+                               GHC.Base.++
+                                 @ Graphics.Gloss.Internals.Data.Picture.Picture
+                                 (Draw.$wdrawFigure ww5)
+                                 (case ww3 of ww6 { GHC.Types.I# ww7 ->
+                                  case ww7 of wild1 {
+                                    DEFAULT
+                                    -> GHC.Types.:
+                                         @ Graphics.Gloss.Internals.Data.Picture.Picture
+                                         (Graphics.Gloss.Internals.Data.Picture.Translate
+                                            Draw.drawGame50
+                                            Draw.drawGame49
+                                            (Graphics.Gloss.Internals.Data.Picture.Color
+                                               Graphics.Gloss.Data.Color.yellow
+                                               (Graphics.Gloss.Internals.Data.Picture.Text
+                                                  (case ww2 of ww8 { GHC.Types.I# ww9 ->
+                                                   case GHC.Show.$wshowSignedInt
+                                                          0#
+                                                          ww9
+                                                          (GHC.Types.[]
+                                                             @ GHC.Types.Char) of ww10 { (#,#) ww11 ww12 ->
+                                                   GHC.Types.: @ GHC.Types.Char ww11 ww12 } }))))
+                                         Draw.drawGame2
+                                    0#
+                                    -> GHC.Types.:
+                                         @ Graphics.Gloss.Internals.Data.Picture.Picture
+                                         (Graphics.Gloss.Internals.Data.Picture.Translate
+                                            Draw.drawGame50
+                                            Draw.drawGame49
+                                            (Graphics.Gloss.Internals.Data.Picture.Color
+                                               Graphics.Gloss.Data.Color.yellow
+                                               (Graphics.Gloss.Internals.Data.Picture.Text
+                                                  (case ww2 of ww8 { GHC.Types.I# ww9 ->
+                                                   case GHC.Show.$wshowSignedInt
+                                                          0#
+                                                          ww9
+                                                          (GHC.Types.[]
+                                                             @ GHC.Types.Char) of ww10 { (#,#) ww11 ww12 ->
+                                                   GHC.Types.: @ GHC.Types.Char ww11 ww12 } }))))
+                                         (GHC.Types.[]
+                                            @ Graphics.Gloss.Internals.Data.Picture.Picture) } }) } })) #)) -}
+50a0d1a1e8f1ab1da69f69396ae677a8
   drawCell ::
     Type.Cell -> Graphics.Gloss.Internals.Data.Picture.Picture
   {- Arity: 1,
@@ -266,299 +275,316 @@ e216241ae1404d2d9485f50a6ee5445c
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: Type.NumberFigure) ->
                  case w of ww { GHC.Types.I# ww1 -> Draw.$wdrawFigure ww1 }) -}
-76b1924fa24da086661ec9c3b2fae11b
+411637cdc420c4e4d2de037722f75b81
   drawGame ::
-    Type.GameState -> Graphics.Gloss.Internals.Data.Picture.Picture
-  {- Arity: 1, Strictness: <S,1*U(1*U,A,1*U,1*U(U),A,A,1*U,A,A)>m15,
+    Type.GameState
+    -> GHC.Types.IO Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Arity: 2,
+     Strictness: <S,1*U(A,1*U,A,1*U,1*U(U),A,A,1*U(1*U),A,A)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Draw.drawGame1
+                  `cast`
+                (<Type.GameState>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Graphics.Gloss.Internals.Data.Picture.Picture>_R)) -}
+6b0572aa084dc9cdaa23fdc2d589a4c7
+  drawGame1 ::
+    Type.GameState
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.Gloss.Internals.Data.Picture.Picture #)
+  {- Arity: 2,
+     Strictness: <S,1*U(A,1*U,A,1*U,1*U(U),A,A,1*U(1*U),A,A)><S,U>,
      Inline: [2],
-     Unfolding: InlineRule (1, True, False)
-                (\ (w :: Type.GameState) ->
-                 case w of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ww7 ww8 ww9 ->
-                 case Draw.$wdrawGame ww1 ww3 ww4 ww7 of ww10 { Unit# ww11 ->
-                 Graphics.Gloss.Internals.Data.Picture.Pictures ww11 } }) -}
-81ad9265d15c3d24c8e14d327099e022
-  drawGame1 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
-  {- Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ Graphics.Gloss.Internals.Data.Picture.Picture
-                   Draw.drawGame42
-                   Draw.drawGame2) -}
-a335583ca8bdea6530e9d9680d190375
-  drawGame10 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame11) -}
-93990822c90049a2e78a5a1f9f7c3004
-  drawGame11 :: GHC.Prim.Addr#
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Type.GameState)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case w of ww { Type.GameState ww1 ww2 ww3 ww4 ww5 ww6 ww7 ww8 ww9 ww10 ->
+                 Draw.$wdrawGame ww2 ww4 ww5 ww8 w1 }) -}
+a159e0a9d874496c02d68e147fca79f3
+  drawGame10 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m8,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
+                   Draw.drawGame11) -}
+e652b51d80e4a0eb442d089dc7120065
+  drawGame11 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame12) -}
+eb27b6f4fc84628ea39197c94b0ede66
+  drawGame12 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("game"#) -}
-703f25c66344f51be92cdf428d3cce0e
-  drawGame12 :: GHC.Types.Float
+75ac948e7c04da43fb0185649e038c43
+  drawGame13 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.F# -300.0#) -}
-151a87cfd257675a0d4c2b3a202058b5
-  drawGame13 :: GHC.Types.Float
+47eca320ab65f01e6c39d69ec7151ac4
+  drawGame14 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 190.0#) -}
-5be43b77361f9a335568ecbdc8562abc
-  drawGame14 :: Graphics.Gloss.Internals.Data.Picture.Picture
+b62673c5e873ce547966cbee5a13963e
+  drawGame15 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m12,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Draw.drawGame21
                    Draw.drawGame20
-                   Draw.drawGame19
-                   Draw.drawGame15) -}
-b835116bd9bf7466043ac31c0d2992bb
-  drawGame15 :: Graphics.Gloss.Internals.Data.Picture.Picture
+                   Draw.drawGame16) -}
+ed9f2f40b43a658f8c812ada97e4918b
+  drawGame16 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m11,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
                    Graphics.Gloss.Data.Color.orange
-                   Draw.drawGame16) -}
-5bb79a7acb385f5b2b2f7bb8bada2e93
-  drawGame16 :: Graphics.Gloss.Internals.Data.Picture.Picture
+                   Draw.drawGame17) -}
+22b328b4f68d7912ab91d88348c996f9
+  drawGame17 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m8,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
-                   Draw.drawGame17) -}
-313f773d10fadb4963e20d5f795e998d
-  drawGame17 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame18) -}
-be4d6bed930a6523fe0729cc6bfc3780
-  drawGame18 :: GHC.Prim.Addr#
+                   Draw.drawGame18) -}
+56b7124a70d6d490a604e2b39e676d34
+  drawGame18 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame19) -}
+11a18b98c26892a2ffb01eedf3265e71
+  drawGame19 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("new"#) -}
-34ff78ac0104d28461b2c08152d641aa
-  drawGame19 :: GHC.Types.Float
-  {- HasNoCafRefs, Strictness: m,
-     Unfolding: (GHC.Types.F# -200.0#) -}
-02deab017d0986474c9a6be790f0230e
+72a15069a09b1cbdf843213104dd9452
   drawGame2 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
   {- Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Graphics.Gloss.Internals.Data.Picture.Picture
-                   Draw.drawGame35
+                   Draw.drawGame43
                    Draw.drawGame3) -}
-6f25f5a1c3d67481179a8bded05a37af
+39b2e59fa39b2d33cac889db07e8cb27
   drawGame20 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.F# -200.0#) -}
+50289c51d5630bfcc5d8684275813c29
+  drawGame21 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 250.0#) -}
-d856de20c425b73719f1bac704889e0e
-  drawGame21 :: Graphics.Gloss.Internals.Data.Picture.Picture
+45c76d60a36e56a78efaeb8ae8d42588
+  drawGame22 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m12,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Draw.drawGame28
                    Draw.drawGame27
-                   Draw.drawGame26
-                   Draw.drawGame22) -}
-fa80e9e24c437b3430ba1fdb0600ba07
-  drawGame22 :: Graphics.Gloss.Internals.Data.Picture.Picture
+                   Draw.drawGame23) -}
+bd455a8f68703319058f6837d6df7d78
+  drawGame23 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m11,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
                    Graphics.Gloss.Data.Color.orange
-                   Draw.drawGame23) -}
-f2f4d2c9ebb2e118c1aa7500c95cc639
-  drawGame23 :: Graphics.Gloss.Internals.Data.Picture.Picture
+                   Draw.drawGame24) -}
+5bba648514ae7e4d13e2b6065e007a22
+  drawGame24 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m8,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
-                   Draw.drawGame24) -}
-f23ddeb25da8613154d6d5b33910acfe
-  drawGame24 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame25) -}
-93dcbd0a4b24c7c4919cf58f4e34f2ad
-  drawGame25 :: GHC.Prim.Addr#
+                   Draw.drawGame25) -}
+2ec228f24507f0dfc82daa7552913e93
+  drawGame25 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame26) -}
+2ba44a400682e4beeed49ef780d1c2a1
+  drawGame26 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("="#) -}
-84db95e3fbf3c987ed68cc0244177d29
-  drawGame26 :: GHC.Types.Float
+58cadeadd5e6487e687981c0e680231f
+  drawGame27 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.F# -100.0#) -}
-4388b1e33fe339fd15e62c85c6533d8d
-  drawGame27 :: GHC.Types.Float
+80f26cb85bea70bf41e96aae174c0679
+  drawGame28 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 300.0#) -}
-0be7f78e781001fe2a2d6cfe48241f19
-  drawGame28 :: Graphics.Gloss.Internals.Data.Picture.Picture
+5638277dd0b9f55c9bfc31105458848c
+  drawGame29 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m12,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Draw.drawGame35
                    Draw.drawGame34
-                   Draw.drawGame33
-                   Draw.drawGame29) -}
-58e58e1f5bf1917027be429c34bb1a61
-  drawGame29 :: Graphics.Gloss.Internals.Data.Picture.Picture
-  {- Strictness: m11,
-     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
-                   Graphics.Gloss.Data.Color.orange
                    Draw.drawGame30) -}
-aac08fec762f99a0d80d203e4556398a
+e61f64648cb0f6d01cbce7d70c57ce66
   drawGame3 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
   {- Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Graphics.Gloss.Internals.Data.Picture.Picture
-                   Draw.drawGame28
+                   Draw.drawGame36
                    Draw.drawGame4) -}
-60f570b1602b7b7cc17ea28eb7e07d1e
+356add81934281a535c728ffb56a9c16
   drawGame30 :: Graphics.Gloss.Internals.Data.Picture.Picture
-  {- Strictness: m8,
-     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
-                   Draw.drawGame31) -}
-7f3a5c2ebe6876f53eb67638ff4a0a3d
-  drawGame31 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame32) -}
-4e36678221a583185d7e2d532d0be447
-  drawGame32 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("Enter"#) -}
-97a4ce6d858f8e1ed99ee449b475d50b
-  drawGame33 :: GHC.Types.Float
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 0.0#) -}
-ab58b11ad25b86211d2b2cd15f79d217
-  drawGame34 :: GHC.Types.Float
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 210.0#) -}
-6571f3142205ce04ba3ced7d7caea64c
-  drawGame35 :: Graphics.Gloss.Internals.Data.Picture.Picture
-  {- Strictness: m12,
-     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
-                   Draw.drawGame41
-                   Draw.drawGame40
-                   Draw.drawGame36) -}
-c7d833742913c44fe428bffb3e09e8ea
-  drawGame36 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m11,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
                    Graphics.Gloss.Data.Color.orange
-                   Draw.drawGame37) -}
-fc58c17be735f6b5a6aa89c0cfc6234a
-  drawGame37 :: Graphics.Gloss.Internals.Data.Picture.Picture
+                   Draw.drawGame31) -}
+d3488c3a7d7d3368277e50b5cf5d5f85
+  drawGame31 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m8,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
+                   Draw.drawGame32) -}
+e27ddc2923f1849658bbf22eb7ff6c72
+  drawGame32 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame33) -}
+f13514e4b512af93ec851729ba72c0ca
+  drawGame33 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Enter"#) -}
+2db3936d601066f98b1f269ce4d065ea
+  drawGame34 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 0.0#) -}
+677f22c948b6f32923ff89ff2d78c54c
+  drawGame35 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 210.0#) -}
+02d0fee6d4b92e93f5a74763be5a488d
+  drawGame36 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m12,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Draw.drawGame42
+                   Draw.drawGame41
+                   Draw.drawGame37) -}
+fb2ede06bc7d91bf0cc9fb9e21e8c67b
+  drawGame37 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m11,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
+                   Graphics.Gloss.Data.Color.orange
                    Draw.drawGame38) -}
-a4d7f4ec14023d64fa98c95b4aaecc86
-  drawGame38 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame39) -}
-7060e211e0e175b5ec1e55a2c5c9e7af
-  drawGame39 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("OVER"#) -}
-ce41dfffd34e5fe06eca5a3f2bbcc167
+000939e9dba0e4093320873f21e674b7
+  drawGame38 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m8,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
+                   Draw.drawGame39) -}
+cd8516145edf23ece203c7883db542d2
+  drawGame39 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame40) -}
+c96ab1dd1ac0b3bed5f998cfb0f3f7b4
   drawGame4 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
   {- Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Graphics.Gloss.Internals.Data.Picture.Picture
-                   Draw.drawGame21
+                   Draw.drawGame29
                    Draw.drawGame5) -}
-07ecbdaaedb927d00fcde29ca9fe0fd5
-  drawGame40 :: GHC.Types.Float
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 370.0#) -}
-4cfe0cfdab4ecbd157e4802c5336073e
+e96a68ab5dde1e1d8ea40c1aea82bf0b
+  drawGame40 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("OVER"#) -}
+c4ddb070a5b9806e6abae830896bcf22
   drawGame41 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 370.0#) -}
+4462f986a87c644e955fe8d81f5945fa
+  drawGame42 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 100.0#) -}
-6954c2376ec57ca6fe002657ede54533
-  drawGame42 :: Graphics.Gloss.Internals.Data.Picture.Picture
+446ac9e8a788365242e9ad38f857d6d0
+  drawGame43 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m12,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
-                   Draw.drawGame47
-                   Draw.drawGame40
-                   Draw.drawGame43) -}
-3fda0ce5d53f5085afcf322cc2045c60
-  drawGame43 :: Graphics.Gloss.Internals.Data.Picture.Picture
+                   Draw.drawGame48
+                   Draw.drawGame41
+                   Draw.drawGame44) -}
+c201b677a867cbf7955a8f15bb6434e1
+  drawGame44 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m11,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
                    Graphics.Gloss.Data.Color.orange
-                   Draw.drawGame44) -}
-d8ac01202b92c3010a300118666b6b98
-  drawGame44 :: Graphics.Gloss.Internals.Data.Picture.Picture
+                   Draw.drawGame45) -}
+efe520b48e8d21add251d1861cd68173
+  drawGame45 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m8,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
-                   Draw.drawGame45) -}
-6af2e533d559a4f584a8fbe0bb6685ee
-  drawGame45 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame46) -}
-3fbf266ca8edf1d0fcfaa2d379c69e80
-  drawGame46 :: GHC.Prim.Addr#
+                   Draw.drawGame46) -}
+43fe5d4724b3bc53c810cc1535ee8c54
+  drawGame46 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Draw.drawGame47) -}
+edb50bfdc7eac6224691cf3c56fb11e5
+  drawGame47 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("GAME"#) -}
-6b601a4c7a4a771b882c8e8ba4d9bb12
-  drawGame47 :: GHC.Types.Float
+b17ca8a54bb989b46d8b344fd04c8a55
+  drawGame48 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.F# -250.0#) -}
-13fc16d593a969720526894a2395fd9e
-  drawGame48 :: GHC.Types.Float
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 200.0#) -}
-b0d7374fec08b69c1e52493b3fa251a2
+3446fdb03e29561437a66011dd3ec970
   drawGame49 :: GHC.Types.Float
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 330.0#) -}
-07060fcd40c1a7bcf32a95b760bfe83b
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 200.0#) -}
+4241aff6bc45ea370947d858a6caa530
   drawGame5 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
   {- Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Graphics.Gloss.Internals.Data.Picture.Picture
-                   Draw.drawGame14
+                   Draw.drawGame22
                    Draw.drawGame6) -}
-5654a3a6bea0da3417408bd3e75debb0
+c652a838b26fa0f4089e2dd20c7ed2d4
+  drawGame50 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 330.0#) -}
+d9aa35d8c1169c350159017e5087418c
   drawGame6 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
   {- Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Graphics.Gloss.Internals.Data.Picture.Picture
-                   Draw.drawGame7
+                   Draw.drawGame15
+                   Draw.drawGame7) -}
+2540a51ec84662a30b9f7901257ba929
+  drawGame7 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Picture.Picture
+                   Draw.drawGame8
                    (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Picture.Picture)) -}
-98c898e1fbff77c32f0d66d2d11241d7
-  drawGame7 :: Graphics.Gloss.Internals.Data.Picture.Picture
+a4153aeaa426a61fee1f07db5126ab04
+  drawGame8 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m12,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Draw.drawGame14
                    Draw.drawGame13
-                   Draw.drawGame12
-                   Draw.drawGame8) -}
-e7f7b99af88e96d9da1b93f17ffa7045
-  drawGame8 :: Graphics.Gloss.Internals.Data.Picture.Picture
+                   Draw.drawGame9) -}
+3c12aa01394755e30bb714b829d9f0b6
+  drawGame9 :: Graphics.Gloss.Internals.Data.Picture.Picture
   {- Strictness: m11,
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
                    Graphics.Gloss.Data.Color.orange
-                   Draw.drawGame9) -}
-4f14fe0f3182f3ee351b19910f93d916
-  drawGame9 :: Graphics.Gloss.Internals.Data.Picture.Picture
-  {- Strictness: m8,
-     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
                    Draw.drawGame10) -}
-9d86b9cda04279498fcdf2ff294c47fe
+6a2a16dfb70c49feac0b0e67f37339cc
   drawLine ::
     Type.Line -> [Graphics.Gloss.Internals.Data.Picture.Picture]
   {- Arity: 1, Strictness: <S,1*U> -}
-6ff488100016cba011b606b24d3bb37c
+19fbeb5d20bfb468ecb66ba6f0c3c2cf
   drawResult ::
     GHC.Types.Int
-    -> GHC.Types.Bool
-    -> [Graphics.Gloss.Internals.Data.Picture.Picture]
-  {- Arity: 2, Strictness: <L,1*U(U)><S,1*U>m2, Inline: [2],
+    -> GHC.Types.Int -> [Graphics.Gloss.Internals.Data.Picture.Picture]
+  {- Arity: 2, Strictness: <L,1*U(U)><S(S),1*U(1*U)>m2, Inline: [2],
      Unfolding: InlineRule (2, True, False)
-                (\ (w :: GHC.Types.Int) (w1 :: GHC.Types.Bool) ->
-                 case w1 of wild {
-                   GHC.Types.False
+                (\ (w :: GHC.Types.Int) (w1 :: GHC.Types.Int) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 case ww1 of wild {
+                   DEFAULT
                    -> GHC.Types.:
                         @ Graphics.Gloss.Internals.Data.Picture.Picture
                         (Graphics.Gloss.Internals.Data.Picture.Translate
+                           Draw.drawGame50
                            Draw.drawGame49
-                           Draw.drawGame48
-                           (Graphics.Gloss.Internals.Data.Picture.Color
-                              Graphics.Gloss.Data.Color.yellow
-                              (Graphics.Gloss.Internals.Data.Picture.Text
-                                 (GHC.Show.$fShowInt_$cshow w))))
-                        (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Picture.Picture)
-                   GHC.Types.True
-                   -> GHC.Types.:
-                        @ Graphics.Gloss.Internals.Data.Picture.Picture
-                        (Graphics.Gloss.Internals.Data.Picture.Translate
-                           Draw.drawGame49
-                           Draw.drawGame48
                            (Graphics.Gloss.Internals.Data.Picture.Color
                               Graphics.Gloss.Data.Color.yellow
                               (Graphics.Gloss.Internals.Data.Picture.Text
                                  (GHC.Show.$fShowInt_$cshow w))))
                         (GHC.Types.:
                            @ Graphics.Gloss.Internals.Data.Picture.Picture
-                           Draw.drawGame42
+                           Draw.drawGame43
                            (GHC.Types.:
                               @ Graphics.Gloss.Internals.Data.Picture.Picture
-                              Draw.drawGame35
+                              Draw.drawGame36
                               (GHC.Types.:
                                  @ Graphics.Gloss.Internals.Data.Picture.Picture
-                                 Draw.drawGame28
+                                 Draw.drawGame29
                                  (GHC.Types.:
                                     @ Graphics.Gloss.Internals.Data.Picture.Picture
-                                    Draw.drawGame21
+                                    Draw.drawGame22
                                     (GHC.Types.:
                                        @ Graphics.Gloss.Internals.Data.Picture.Picture
-                                       Draw.drawGame14
+                                       Draw.drawGame15
                                        (GHC.Types.:
                                           @ Graphics.Gloss.Internals.Data.Picture.Picture
-                                          Draw.drawGame7
+                                          Draw.drawGame8
                                           (GHC.Types.[]
-                                             @ Graphics.Gloss.Internals.Data.Picture.Picture))))))) }) -}
+                                             @ Graphics.Gloss.Internals.Data.Picture.Picture)))))))
+                   0#
+                   -> GHC.Types.:
+                        @ Graphics.Gloss.Internals.Data.Picture.Picture
+                        (Graphics.Gloss.Internals.Data.Picture.Translate
+                           Draw.drawGame50
+                           Draw.drawGame49
+                           (Graphics.Gloss.Internals.Data.Picture.Color
+                              Graphics.Gloss.Data.Color.yellow
+                              (Graphics.Gloss.Internals.Data.Picture.Text
+                                 (GHC.Show.$fShowInt_$cshow w))))
+                        (GHC.Types.[]
+                           @ Graphics.Gloss.Internals.Data.Picture.Picture) } }) -}
 51fc62b62049f4ed4c57052f05a98ff7
   objects ::
     GHC.Types.Float
@@ -582,7 +608,7 @@ e7f7b99af88e96d9da1b93f17ffa7045
                    (Graphics.Gloss.Internals.Data.Picture.Color
                       col
                       Draw.drawCell1)) -}
-418b6309c74209854e2136f039300e56
+0cffb5fec61ed37c55edb5f02527898e
   pictureField ::
     Type.Field -> [Graphics.Gloss.Internals.Data.Picture.Picture]
   {- Arity: 1, Strictness: <S,1*U> -}

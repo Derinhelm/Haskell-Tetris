@@ -31,7 +31,7 @@ shiftFigureOnField field = mapField (\c -> (createCellShiftFigure field c)) fiel
 
 shiftFigure :: GameState -> GameState --сдвиг фигуры(на 1 вниз)
 shiftFigure GameState{..}  = 
-        (GameState (shiftFigureOnField gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr False rotateTypeFigure 
+        (GameState userName (shiftFigureOnField gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr 0 rotateTypeFigure 
                 (numLoop + 1)) 
 
 
@@ -48,10 +48,10 @@ newFigureOnField field ((x, y): xs) color = (newFigureOnField (changeCellInField
 newFigureOnGame :: GameState  -> GameState -- падение новой фигуры 
 newFigureOnGame GameState{..}
         | checkCanAddFigure gameField coordNextFigure = 
-                (GameState (newFigureOnField gameField  coordNextFigure colorNextFigure) gameRandomGen (tail gameFigures) 
-                        gameResult coordTetr colorTetr False rotType (numLoop + 1))
+                (GameState userName (newFigureOnField gameField  coordNextFigure colorNextFigure) gameRandomGen (tail gameFigures) 
+                        gameResult coordTetr colorTetr 0 rotType (numLoop + 1))
         | otherwise =
-                 trace "checkEnd" (GameState gameField gameRandomGen gameFigures gameResult coordTetr colorTetr True rotateTypeFigure
+                 {-trace "checkEnd"-} (GameState userName gameField gameRandomGen gameFigures gameResult coordTetr colorTetr 1 rotateTypeFigure
                         (numLoop + 1))
             where nextFigure = (head gameFigures)
                   rotType = if (nextFigure == 0) then 0  else nextFigure * 4 - 3
@@ -90,8 +90,8 @@ deleteLinesFromField field | (curCompLine == -1) = field
 deleteLines :: GameState -> GameState -- (делаем перед добавлением новой фигуры)
 --удаление линии со всеми заполненными  - пока не реализовано
 deleteLines game@GameState{..} = 
-        (GameState (deleteLinesFromField gameField) gameRandomGen gameFigures (gameResult + (countDeletedLines gameField 0))
-                coordTetr colorTetr False rotateTypeFigure numLoop)
+        (GameState userName (deleteLinesFromField gameField) gameRandomGen gameFigures (gameResult + (countDeletedLines gameField 0))
+                coordTetr colorTetr 0 rotateTypeFigure numLoop)
               
 
 checkFlyCell ::  Field -> Cell -> Bool
@@ -113,7 +113,7 @@ changeLandCellField field = mapField (\c@Cell{..} -> case (getCellType c) of
 
 changeLandCell :: GameState -> GameState
 changeLandCell game@GameState{..} = 
-        GameState (changeLandCellField gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr False 
+        GameState userName (changeLandCellField gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr 0 
                 rotateTypeFigure numLoop
 
         
@@ -231,44 +231,60 @@ rotateFigure field  rt    | (checkCanRotate fieldDeletedOldCells newCoord) = set
 
 
 -- Handle events.
-handleEvent :: Event -> GameState -> GameState
+handleEvent :: Event -> GameState -> IO GameState
 handleEvent (EventKey (SpecialKey KeyLeft) Down _ _) game@GameState{..} = 
-    GameState (moveLeft gameField)  gameRandomGen gameFigures gameResult coordTetr colorTetr False rotateTypeFigure numLoop
+        return (GameState userName (moveLeft gameField)  gameRandomGen 
+                gameFigures gameResult coordTetr colorTetr 0 rotateTypeFigure numLoop)
 handleEvent (EventKey (SpecialKey KeyRight) Down _ _) game@GameState{..} = 
-    GameState (moveRight gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr False rotateTypeFigure numLoop
+        return (GameState userName (moveRight gameField) gameRandomGen gameFigures 
+                gameResult coordTetr colorTetr 0 rotateTypeFigure numLoop)
 handleEvent (EventKey (SpecialKey KeyEnter) Down _ _) game@GameState{..} = 
-        GameState (createField) gameRandomGen (createListFigures gameRandomGen) 0 (createCoordFigures) (createColorFigures) 
-                False 28 numLoop 
+        return (GameState userName (createField) gameRandomGen (tail (tail gameFigures))  0 coordTetr
+                colorTetr 0 28 0)
+        
 handleEvent (EventKey (SpecialKey KeyUp) Down _ _) game@GameState{..} = 
-    GameState (rotateFigure gameField rotateTypeFigure) gameRandomGen 
-                gameFigures gameResult coordTetr colorTetr False q numLoop
-        where q = (numberNextRotateModel rotateTypeFigure)
-handleEvent _ g = g
+        return (GameState userName (rotateFigure gameField rotateTypeFigure) gameRandomGen 
+                gameFigures gameResult coordTetr colorTetr 0 q numLoop)
+        where   q = (numberNextRotateModel rotateTypeFigure)
+
+handleEvent _ g = return g
 
 
 
 
-
-createEnd ::GameState -> GameState
-createEnd x = x --поменять!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! должно быть без параметров 
+createEnd ::GameState -> IO GameState
+createEnd game@GameState{..} = do
+        if (endGame == 1)
+                then do
+                        appendFile "result" (((show userName) ++ " - ") ++  (show gameResult) ++ "\n")
+                        return (GameState userName gameField gameRandomGen 
+                                gameFigures gameResult coordTetr colorTetr 2 rotateTypeFigure numLoop)
+                else        return game
             
 
-gameLoop :: GameState -> GameState
-gameLoop game@GameState {..}  = 
-        if (endGame) 
+gameLoop :: IO GameState -> IO GameState
+gameLoop g = 
+        do        
+        game@GameState {..} <- g
+        if (endGame /= 0) 
                 then (createEnd game)
                 else if (haveFlyFigure gameField)
-                        then (shiftFigure game)
-                        else  (newFigureOnGame.deleteLines.changeLandCell $ game)       
+                        then (return (shiftFigure game))
+                        else  (return (newFigureOnGame.deleteLines.changeLandCell $ game))
 
-runGameLoop :: Int -> GameState -> GameState
-runGameLoop 0 game@GameState{..} = (trace (show 0)) game
-runGameLoop num game@GameState{..} = (trace ((show num) ++ "othw")) runGameLoop (num - 1) (gameLoop game) 
+runGameLoop :: Int -> IO GameState -> IO GameState
+runGameLoop num g = 
+        do
+                game@GameState{..} <- g
+                if (num == 0)
+                        then g
+                        else runGameLoop (num - 1) (gameLoop (return game)) 
+    
 
 
 
-update :: Float -> GameState -> GameState
-update _ game@GameState{..} = (trace (show numLoop)) runGameLoop (ceiling x) game
-                        where x = ((realToFrac numLoop) / 60) + 0.0001
+update :: Float -> GameState -> IO GameState
+update _ game@GameState{..} = {-(trace (show numLoop))-} runGameLoop (min x 3) (return game)
+                        where x = (ceiling  (((realToFrac numLoop) / 30) + 0.0001))
 
 --4 уже нереально

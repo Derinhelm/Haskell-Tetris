@@ -79,19 +79,20 @@ createRotateModels =    [([(0, 0), (0, 1), (1, 0), (1, 1)], (0, 0))
                         , ([(0, 0), (1, 0), (2, 0), (2, 1)], (2, 0))
                         , ([(0, 0), (0, 1), (0, 2), (1, 0)], (0, 0))
                         , ([(0, 0), (0, 1), (1, 1), (2, 1)], (0, 1))
-                        , ([(0, 0), (1, 0), (1, 1), (1, 2)], (1, 0))
+                        , ([(0, 2), (1, 0), (1, 1), (1, 2)], (1, 0))
                         ]
 
 
 
 data GameState = GameState
-    { gameField :: Field    -- поле
+    { userName :: String
+    , gameField :: Field    -- поле
     , gameRandomGen :: StdGen -- Random number generator.
     , gameFigures :: [NumberFigure] --бесконечный список из следующих фигур
     , gameResult :: Int -- текущий результат игры
     , coordTetr :: [CoordFigures] -- Tetr - тетрамино
     , colorTetr :: [Color]
-    , endGame :: Bool
+    , endGame :: Int
     , rotateTypeFigure :: Int -- тип вращения, число от 0 до 27
     , numLoop :: Int -- количество прошедших игровых циклов
     } deriving Show

@@ -38,8 +38,8 @@ drawFigure num = drawCellForFigure coords col []
     where   col = (!!) createColorFigures num
             coords = (!!) createCoordFigures num
 
-drawResult :: Int -> Bool -> [Picture]
-drawResult res isEnd | isEnd = [(translate 330 200 $ color yellow $ (Text ((show res)))),
+drawResult :: Int -> Int -> [Picture]
+drawResult res isEnd | (isEnd /= 0) = [(translate 330 200 $ color yellow $ (Text ((show res)))),
                                     (translate (-250) 370 $ color orange $ (Text "GAME")), 
                                     (translate (100) (370) $ color orange $ (Text "OVER")),
                                     (translate (210) (0) $ color orange $ (Text "Enter")),
@@ -50,9 +50,9 @@ drawResult res isEnd | isEnd = [(translate 330 200 $ color yellow $ (Text ((show
 drawResult res isEnd | otherwise = [translate 330 200 $ color yellow $ (Text ((show res)))]
 --drawResult res = [translate 330 200 $ color yellow $ (Text (show res)), translate 330 250 $ color yellow $ (Text (show "result"))]
 
-drawGame :: GameState -> Picture
+drawGame :: GameState -> IO Picture
 drawGame game@GameState{..} = 
-        pictures((pictureField gameField ) ++ (drawFigure (head gameFigures)) ++ (drawResult gameResult endGame))
+        return (pictures((pictureField gameField ) ++ (drawFigure (head gameFigures)) ++ (drawResult gameResult endGame)))
 
   
 
