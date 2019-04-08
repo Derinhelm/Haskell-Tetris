@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-04-02 12:31:57.262404695 UTC
+2019-04-02 13:59:03.10790252 UTC
 
 interface project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an:Type 8063
-  interface hash: eacde7ea21389a769aee8dd38482b07d
-  ABI hash: 69e542a025064bb32c4d37c465067844
-  export-list hash: 4305aacaa18c9dc8978b28e0ec454830
+  interface hash: 2add292dc3c0741afb178c4a053803f0
+  ABI hash: 474f023ed593e4ad46fcc65960cc9981
+  export-list hash: 7d4f048f3601777da3a5c061706431a6
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 7a242ffa3d761dff45aed995f1434522
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -43,11 +43,13 @@ exports:
   Type.Cell{Type.Cell cellColor cellType numCell numLine}
   Type.CoordCell
   Type.CoordFigures
+  Type.End{Type.FirstEnd Type.Game Type.OldEnd}
   Type.Field
   Type.GameState{Type.GameState colorTetr coordTetr endGame gameField gameFigures gameRandomGen gameResult numLoop rotateTypeFigure userName}
   Type.Line
   Type.NumberFigure
   Type.Result
+  Type.TypeCell{Type.Emp Type.Fly Type.Land}
 module dependencies: Constans
 package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.14
                       ObjectName-1.1.0.1 OpenGL-3.0.2.2 OpenGLRaw-3.3.2.0
@@ -98,10 +100,85 @@ import  -/  ghc-prim-0.5.3:GHC.Classes e0d9c979f6368701f34fa421754d2cce
 import  -/  gloss-1.13.0.1:Graphics.Gloss dc3d422d35cd32353ee5470deb98e8ac
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-rendering-1.13.0.2:Graphics.Gloss.Internals.Data.Color 2716426e7777628bb37f6a888abf7b9e
-import  -/  Constans 1487ad15622542e95d86c5deddace10f
+import  -/  Constans 60b535094e56c8784fc092e714ad0ab4
   exports: 9c3bf02aef4de5ad20ea7235691d8b63
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
-7b5eee64e5cfbdf155913fb8f6b52292
+b6f7599dbdfbf950450e3f9c2089281f
+  $fEqEnd :: GHC.Classes.Eq Type.End
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:. @ Type.End Type.$fEqEnd_$c== Type.$fEqEnd_$c/= -}
+b6f7599dbdfbf950450e3f9c2089281f
+  $fEqEnd_$c/= :: Type.End -> Type.End -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Inline: (sat-args=2),
+     Unfolding: InlineRule (2, False, False)
+                (\ (x :: Type.End) (y :: Type.End) ->
+                 case x of wild {
+                   Type.Game
+                   -> case y of wild1 {
+                        DEFAULT -> GHC.Types.True Type.Game -> GHC.Types.False }
+                   Type.FirstEnd
+                   -> case y of wild1 {
+                        DEFAULT -> GHC.Types.True Type.FirstEnd -> GHC.Types.False }
+                   Type.OldEnd
+                   -> case y of wild1 {
+                        DEFAULT -> GHC.Types.True Type.OldEnd -> GHC.Types.False } }) -}
+b6f7599dbdfbf950450e3f9c2089281f
+  $fEqEnd_$c== :: Type.End -> Type.End -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ds :: Type.End) (ds1 :: Type.End) ->
+                 case ds of wild {
+                   Type.Game
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Type.Game -> GHC.Types.True }
+                   Type.FirstEnd
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Type.FirstEnd -> GHC.Types.True }
+                   Type.OldEnd
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Type.OldEnd -> GHC.Types.True } }) -}
+afe6a0fb87e0fa0c55096f2ac640e6eb
+  $fEqTypeCell :: GHC.Classes.Eq Type.TypeCell
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ Type.TypeCell Type.$fEqTypeCell_$c== Type.$fEqTypeCell_$c/= -}
+afe6a0fb87e0fa0c55096f2ac640e6eb
+  $fEqTypeCell_$c/= ::
+    Type.TypeCell -> Type.TypeCell -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Inline: (sat-args=2),
+     Unfolding: InlineRule (2, False, False)
+                (\ (x :: Type.TypeCell) (y :: Type.TypeCell) ->
+                 case x of wild {
+                   Type.Land
+                   -> case y of wild1 {
+                        DEFAULT -> GHC.Types.True Type.Land -> GHC.Types.False }
+                   Type.Fly
+                   -> case y of wild1 {
+                        DEFAULT -> GHC.Types.True Type.Fly -> GHC.Types.False }
+                   Type.Emp
+                   -> case y of wild1 {
+                        DEFAULT -> GHC.Types.True Type.Emp -> GHC.Types.False } }) -}
+afe6a0fb87e0fa0c55096f2ac640e6eb
+  $fEqTypeCell_$c== ::
+    Type.TypeCell -> Type.TypeCell -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ds :: Type.TypeCell) (ds1 :: Type.TypeCell) ->
+                 case ds of wild {
+                   Type.Land
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Type.Land -> GHC.Types.True }
+                   Type.Fly
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Type.Fly -> GHC.Types.True }
+                   Type.Emp
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Type.Emp -> GHC.Types.True } }) -}
+e228461bbcff362ca52d6588cd0a3991
   $fShowCell :: GHC.Show.Show Type.Cell
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -110,60 +187,91 @@ import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
                   Type.$fShowCell_$cshowsPrec
                   Type.$fShowCell_$cshow
                   Type.$fShowCell_$cshowList -}
-7b5eee64e5cfbdf155913fb8f6b52292
+e228461bbcff362ca52d6588cd0a3991
   $fShowCell1 :: Type.Cell -> GHC.Show.ShowS
-  {- Arity: 1, Strictness: <S,1*U(U(U),U(U),U(U),1*U(U,U,U,U))>,
+  {- Arity: 1, Strictness: <S,1*U(U(U),U(U),U,1*U(U,U,U,U))>,
      Unfolding: (\ (w :: Type.Cell) ->
                  case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                  Type.$w$cshowsPrec 0# ww1 ww2 ww3 ww4 }) -}
-d8e6d5e0f8db6ef5ee9c6aeb73a3d5dc
-  $fShowCell2 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("}"#) -}
-8ad59cf5af88fd8f57a2ef5a695c862c
-  $fShowCell3 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("cellColor = "#) -}
-e49e0ccdf0a84b6ce8943a72a6af38a0
-  $fShowCell4 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("cellType = "#) -}
-eb5d715e84e24dad1d7c94909fa8802f
-  $fShowCell5 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("numCell = "#) -}
-daa0311992e9455953b54fab7f9acff1
-  $fShowCell6 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("numLine = "#) -}
-1917b37d06ebfc144ae979d926476a26
-  $fShowCell7 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("Cell {"#) -}
-bc81885b428232c86b7e31da3cfb4af4
-  $fShowCell8 :: GHC.Types.Int
+2e750520aedbea5328f1ef63c565530b
+  $fShowCell2 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
-7b5eee64e5cfbdf155913fb8f6b52292
+e228461bbcff362ca52d6588cd0a3991
   $fShowCell_$cshow :: Type.Cell -> GHC.Base.String
-  {- Arity: 1, Strictness: <S,1*U(U(U),U(U),U(U),1*U(U,U,U,U))>,
+  {- Arity: 1, Strictness: <S,1*U(U(U),U(U),U,1*U(U,U,U,U))>,
      Unfolding: InlineRule (1, True, False)
                 (\ (x :: Type.Cell) ->
                  Type.$fShowCell_$cshowsPrec
-                   Type.$fShowCell8
+                   Type.$fShowCell2
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-7b5eee64e5cfbdf155913fb8f6b52292
+e228461bbcff362ca52d6588cd0a3991
   $fShowCell_$cshowList :: [Type.Cell] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [Type.Cell]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ Type.Cell Type.$fShowCell1 ls s) -}
-7b5eee64e5cfbdf155913fb8f6b52292
+e228461bbcff362ca52d6588cd0a3991
   $fShowCell_$cshowsPrec ::
     GHC.Types.Int -> Type.Cell -> GHC.Show.ShowS
   {- Arity: 2,
-     Strictness: <S(S),1*U(U)><S,1*U(U(U),U(U),U(U),1*U(U,U,U,U))>,
+     Strictness: <S(S),1*U(U)><S,1*U(U(U),U(U),U,1*U(U,U,U,U))>,
      Inline: [2],
      Unfolding: InlineRule (2, True, False)
                 (\ (w :: GHC.Types.Int) (w1 :: Type.Cell) ->
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { Type.Cell ww3 ww4 ww5 ww6 ->
                  Type.$w$cshowsPrec ww1 ww3 ww4 ww5 ww6 } }) -}
-8281b47d2a415f5b18dac47c7056459c
+b6f7599dbdfbf950450e3f9c2089281f
+  $fShowEnd :: GHC.Show.Show Type.End
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ Type.End
+                  Type.$fShowEnd_$cshowsPrec
+                  Type.$fShowEnd_$cshow
+                  Type.$fShowEnd_$cshowList -}
+387e7d7172bc54bc4031f73df26c4850
+  $fShowEnd1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Type.$fShowEnd2) -}
+2a4a9360814494560d6a9dd58dc75584
+  $fShowEnd2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("OldEnd"#) -}
+8e8a86bcda2e34f443fc19ef4a61269a
+  $fShowEnd3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Type.$fShowEnd4) -}
+47ec610a869c0356cdeb6b8c2387df0c
+  $fShowEnd4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("FirstEnd"#) -}
+22447ed32756c3771c8110f81bbdee74
+  $fShowEnd5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Type.$fShowEnd6) -}
+4c44c9c3afc551ce70cd968b6d67e642
+  $fShowEnd6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Game"#) -}
+b6f7599dbdfbf950450e3f9c2089281f
+  $fShowEnd_$cshow :: Type.End -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Type.End) ->
+                 case x of wild {
+                   Type.Game -> Type.$fShowEnd5
+                   Type.FirstEnd -> Type.$fShowEnd3
+                   Type.OldEnd -> Type.$fShowEnd1 }) -}
+b6f7599dbdfbf950450e3f9c2089281f
+  $fShowEnd_$cshowList :: [Type.End] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ls :: [Type.End]) (s :: GHC.Base.String) ->
+                 GHC.Show.showList__ @ Type.End Type.$w$cshowsPrec1 ls s) -}
+b6f7599dbdfbf950450e3f9c2089281f
+  $fShowEnd_$cshowsPrec ::
+    GHC.Types.Int -> Type.End -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: [2],
+     Unfolding: InlineRule (3, True, True)
+                (\ (w :: GHC.Types.Int) (w1 :: Type.End) (w2 :: GHC.Base.String) ->
+                 Type.$w$cshowsPrec1 w1 w2) -}
+af8412db864a9629e18c4a0ad20c86a2
   $fShowGameState :: GHC.Show.Show Type.GameState
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -172,31 +280,82 @@ bc81885b428232c86b7e31da3cfb4af4
                   Type.$fShowGameState_$cshowsPrec
                   Type.$fShowGameState_$cshow
                   Type.$fShowGameState_$cshowList -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   $fShowGameState1 :: Type.GameState -> GHC.Show.ShowS
   {- Arity: 2,
-     Unfolding: (Type.$fShowGameState_$cshowsPrec Type.$fShowCell8) -}
-8281b47d2a415f5b18dac47c7056459c
+     Unfolding: (Type.$fShowGameState_$cshowsPrec Type.$fShowCell2) -}
+af8412db864a9629e18c4a0ad20c86a2
   $fShowGameState_$cshow :: Type.GameState -> GHC.Base.String
   {- Arity: 1,
-     Strictness: <S,1*U(1*U,1*U,1*U(U,U),1*U,1*U(U),1*U,1*U,1*U(U),1*U(U),1*U(U))>,
+     Strictness: <S,1*U(1*U,1*U,1*U(U,U),1*U,1*U(U),1*U,1*U,1*U,1*U(U),1*U(U))>,
      Unfolding: InlineRule (1, True, False)
                 (\ (x :: Type.GameState) ->
                  Type.$fShowGameState_$cshowsPrec
-                   Type.$fShowCell8
+                   Type.$fShowCell2
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   $fShowGameState_$cshowList :: [Type.GameState] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [Type.GameState]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ Type.GameState Type.$fShowGameState1 ls s) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   $fShowGameState_$cshowsPrec ::
     GHC.Types.Int -> Type.GameState -> GHC.Show.ShowS
   {- Arity: 3,
-     Strictness: <S(S),1*U(U)><S,1*U(1*U,1*U,1*U(U,U),1*U,1*U(U),1*U,1*U,1*U(U),1*U(U),1*U(U))><L,U> -}
+     Strictness: <S(S),1*U(U)><S,1*U(1*U,1*U,1*U(U,U),1*U,1*U(U),1*U,1*U,1*U,1*U(U),1*U(U))><L,U> -}
+afe6a0fb87e0fa0c55096f2ac640e6eb
+  $fShowTypeCell :: GHC.Show.Show Type.TypeCell
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ Type.TypeCell
+                  Type.$fShowTypeCell_$cshowsPrec
+                  Type.$fShowTypeCell_$cshow
+                  Type.$fShowTypeCell_$cshowList -}
+490ae45ab65338fd68ac31d5788f0b93
+  $fShowTypeCell1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Type.$fShowTypeCell2) -}
+2e2076f282a89eca5aeb5d99d684300a
+  $fShowTypeCell2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Emp"#) -}
+0b3b2260e054296496768a36d6d0d5e4
+  $fShowTypeCell3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Type.$fShowTypeCell4) -}
+a9a243b95978e24ac02ae65d5b288791
+  $fShowTypeCell4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Fly"#) -}
+f4c68dc8e1adef9a1b940fb37d4c3bd8
+  $fShowTypeCell5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Type.$fShowTypeCell6) -}
+fce457b311ec0aa82bed46d532428f14
+  $fShowTypeCell6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Land"#) -}
+afe6a0fb87e0fa0c55096f2ac640e6eb
+  $fShowTypeCell_$cshow :: Type.TypeCell -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Type.TypeCell) ->
+                 case x of wild {
+                   Type.Land -> Type.$fShowTypeCell5
+                   Type.Fly -> Type.$fShowTypeCell3
+                   Type.Emp -> Type.$fShowTypeCell1 }) -}
+afe6a0fb87e0fa0c55096f2ac640e6eb
+  $fShowTypeCell_$cshowList :: [Type.TypeCell] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ls :: [Type.TypeCell]) (s :: GHC.Base.String) ->
+                 GHC.Show.showList__ @ Type.TypeCell Type.$w$cshowsPrec2 ls s) -}
+afe6a0fb87e0fa0c55096f2ac640e6eb
+  $fShowTypeCell_$cshowsPrec ::
+    GHC.Types.Int -> Type.TypeCell -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: [2],
+     Unfolding: InlineRule (3, True, True)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: Type.TypeCell)
+                   (w2 :: GHC.Base.String) ->
+                 Type.$w$cshowsPrec2 w1 w2) -}
 b66278e7125e440179bcfe20c31d9e4b
   $tc'Cell :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -217,6 +376,80 @@ f5fb5b6e976428d456ee74f97a28ed66
 568d761bfdc1bb510f63d58688e7be8d
   $tc'Cell3 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("'Cell"#) -}
+82e2c88a60658b3493482a86984e1459
+  $tc'Emp :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   16843793682586637779##
+                   3666689126578052001##
+                   Type.$trModule
+                   Type.$tc'Emp2
+                   0#
+                   Type.$tc'Emp1) -}
+1eac5330da5ef740071e9bb5c1a4fc82
+  $tc'Emp1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m1, Inline: [~] -}
+cdd2c7b7494716f9ed7c8ba1a7bd7d4d
+  $tc'Emp2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tc'Emp3) -}
+4ed33d39737731dd8777361b03cbb61e
+  $tc'Emp3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Emp"#) -}
+8e08cd276f67f1901c03d1fa3c0b07d0
+  $tc'FirstEnd :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3534887418067989128##
+                   6533620645482951473##
+                   Type.$trModule
+                   Type.$tc'FirstEnd2
+                   0#
+                   Type.$tc'FirstEnd1) -}
+14e4ebbcdbda000d1bb27edd9ee3708d
+  $tc'FirstEnd1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m1, Inline: [~] -}
+c98fe7d1e9ed8b2bb839674670bc55c0
+  $tc'FirstEnd2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tc'FirstEnd3) -}
+958de3f1e68701d7b3780488e522e0c5
+  $tc'FirstEnd3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'FirstEnd"#) -}
+903f4ae866fa51205c5f6c43f5745db8
+  $tc'Fly :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   7222723444656226341##
+                   17383883453366632710##
+                   Type.$trModule
+                   Type.$tc'Fly1
+                   0#
+                   Type.$tc'Emp1) -}
+69cd62f2026e51d1529d521416b577f8
+  $tc'Fly1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tc'Fly2) -}
+075f5dbc23803bfd4e16ba325b22e815
+  $tc'Fly2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Fly"#) -}
+a2077a77006045807612bad5a7c7ff24
+  $tc'Game :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3332124537937376890##
+                   8816284586059304685##
+                   Type.$trModule
+                   Type.$tc'Game1
+                   0#
+                   Type.$tc'FirstEnd1) -}
+80947f9ebe5054c60467418fdd8e21f5
+  $tc'Game1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tc'Game2) -}
+d28d9f774ffb8ad7b6e56a373a521521
+  $tc'Game2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Game"#) -}
 5d05ad53d9a8ac681c2f50c3eec38ebc
   $tc'GameState :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -237,6 +470,40 @@ ac78d682b276088ab7445b253686add9
 0690df0421d192e46b417314398618b9
   $tc'GameState3 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("'GameState"#) -}
+d0f6e1b93db5a6b0ff03f1dd6941878e
+  $tc'Land :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   13096114788725195317##
+                   17395708346439557131##
+                   Type.$trModule
+                   Type.$tc'Land1
+                   0#
+                   Type.$tc'Emp1) -}
+abd6490eef3db4bf29ecaaeedcd2168d
+  $tc'Land1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tc'Land2) -}
+0de1bb3bb4d3883fc058aa36ceea846d
+  $tc'Land2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Land"#) -}
+43d30308cff21ddec2501f599ba74e50
+  $tc'OldEnd :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2060907802645329849##
+                   15578515076110330538##
+                   Type.$trModule
+                   Type.$tc'OldEnd1
+                   0#
+                   Type.$tc'FirstEnd1) -}
+424c4786dc07d7fe31c72f650ec1178b
+  $tc'OldEnd1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tc'OldEnd2) -}
+e081b742f28bc206f808524a61e9591c
+  $tc'OldEnd2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'OldEnd"#) -}
 60fc49af8eb34866731fe044f980853f
   $tcCell :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -254,6 +521,23 @@ a4ff2483b7b9ee6506d3daa8c5e1ca63
 8707212698cdb7ee998840e85686d133
   $tcCell2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Cell"#) -}
+ee616bff546a532234540d2306b4f3ca
+  $tcEnd :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   6821464173828419809##
+                   45690705818986987##
+                   Type.$trModule
+                   Type.$tcEnd1
+                   0#
+                   GHC.Types.krep$*) -}
+b7bceafdb3b940c01d3289fc07ce4213
+  $tcEnd1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tcEnd2) -}
+e00b16b7d3ddc0638e6101d7640b8f77
+  $tcEnd2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("End"#) -}
 cb472bbf602250c6caa9af558b1cb923
   $tcGameState :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -271,6 +555,23 @@ cb472bbf602250c6caa9af558b1cb923
 04682f0d06a53961aa666729403258d4
   $tcGameState2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("GameState"#) -}
+b719136159b78bedcaf2251192874f59
+  $tcTypeCell :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   5163136985343707038##
+                   12657961131453065017##
+                   Type.$trModule
+                   Type.$tcTypeCell1
+                   0#
+                   GHC.Types.krep$*) -}
+b3feec2e60f73d0c3a50cb11cecdaaa3
+  $tcTypeCell1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Type.$tcTypeCell2) -}
+e65e0cc76bd6dc6d234e9939f1d0f2e7
+  $tcTypeCell2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("TypeCell"#) -}
 38d9520e039218707b0546bd013919d4
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -290,89 +591,37 @@ b37ccd362537d441e3fb680d1eeb2f5b
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
      Unfolding: ("project-template-0.0.0.0-HkCShUnfJdZ4nPO3MEi7an"#) -}
-d1816d313393549dea85d57160f07706
+f8a81a83e8e1cce00eef235cafb899c8
   $w$cshowsPrec ::
     GHC.Prim.Int#
     -> GHC.Types.Int
     -> GHC.Types.Int
-    -> GHC.Types.Int
+    -> Type.TypeCell
     -> Graphics.Gloss.Internals.Data.Color.Color
     -> GHC.Show.ShowS
   {- Arity: 5,
-     Strictness: <S,U><L,U(U)><L,U(U)><L,U(U)><L,1*U(U,U,U,U)>,
-     Inline: [2],
-     Unfolding: (\ (ww :: GHC.Prim.Int#)
-                   (ww1 :: GHC.Types.Int)
-                   (ww2 :: GHC.Types.Int)
-                   (ww3 :: GHC.Types.Int)
-                   (ww4 :: Graphics.Gloss.Internals.Data.Color.Color) ->
-                 let {
-                   f2 :: GHC.Base.String -> GHC.Base.String
-                   = case ww4 of ww5 { Graphics.Gloss.Internals.Data.Color.RGBA ww6 ww7 ww8 ww9 ->
-                     Graphics.Gloss.Internals.Data.Color.$w$cshowsPrec
-                       0#
-                       ww6
-                       ww7
-                       ww8
-                       ww9 }
-                 } in
-                 let {
-                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,U> -}
-                   = \ (x :: GHC.Base.String) ->
-                     GHC.CString.unpackAppendCString#
-                       Type.$fShowCell7
-                       (GHC.CString.unpackAppendCString#
-                          Type.$fShowCell6
-                          (case ww1 of ww5 { GHC.Types.I# ww6 ->
-                           case GHC.Show.$wshowSignedInt
-                                  0#
-                                  ww6
-                                  (GHC.Base.++
-                                     @ GHC.Types.Char
-                                     GHC.Show.showCommaSpace1
-                                     (GHC.CString.unpackAppendCString#
-                                        Type.$fShowCell5
-                                        (case ww2 of ww7 { GHC.Types.I# ww8 ->
-                                         case GHC.Show.$wshowSignedInt
-                                                0#
-                                                ww8
-                                                (GHC.Base.++
-                                                   @ GHC.Types.Char
-                                                   GHC.Show.showCommaSpace1
-                                                   (GHC.CString.unpackAppendCString#
-                                                      Type.$fShowCell4
-                                                      (case ww3 of ww9 { GHC.Types.I# ww10 ->
-                                                       case GHC.Show.$wshowSignedInt
-                                                              0#
-                                                              ww10
-                                                              (GHC.Base.++
-                                                                 @ GHC.Types.Char
-                                                                 GHC.Show.showCommaSpace1
-                                                                 (GHC.CString.unpackAppendCString#
-                                                                    Type.$fShowCell3
-                                                                    (f2
-                                                                       (GHC.CString.unpackAppendCString#
-                                                                          Type.$fShowCell2
-                                                                          x)))) of ww11 { (#,#) ww12 ww13 ->
-                                                       GHC.Types.:
-                                                         @ GHC.Types.Char
-                                                         ww12
-                                                         ww13 } }))) of ww9 { (#,#) ww10 ww11 ->
-                                         GHC.Types.:
-                                           @ GHC.Types.Char
-                                           ww10
-                                           ww11 } }))) of ww7 { (#,#) ww8 ww9 ->
-                           GHC.Types.: @ GHC.Types.Char ww8 ww9 } }))
-                 } in
-                 case GHC.Prim.>=# ww 11# of lwild {
-                   DEFAULT -> p
-                   1#
-                   -> \ (x :: GHC.Base.String) ->
-                      GHC.Types.:
-                        @ GHC.Types.Char
-                        GHC.Show.$fShow(,)4
-                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 x)) }) -}
-34386613df7b49a9884d7cab1699a78c
+     Strictness: <S,U><L,U(U)><L,U(U)><L,U><L,1*U(U,U,U,U)>,
+     Inline: [2] -}
+b6f7599dbdfbf950450e3f9c2089281f
+  $w$cshowsPrec1 :: Type.End -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [2],
+     Unfolding: (\ (w :: Type.End) (w1 :: GHC.Base.String) ->
+                 case w of wild {
+                   Type.Game -> GHC.Base.++ @ GHC.Types.Char Type.$fShowEnd5 w1
+                   Type.FirstEnd -> GHC.Base.++ @ GHC.Types.Char Type.$fShowEnd3 w1
+                   Type.OldEnd
+                   -> GHC.Base.++ @ GHC.Types.Char Type.$fShowEnd1 w1 }) -}
+afe6a0fb87e0fa0c55096f2ac640e6eb
+  $w$cshowsPrec2 ::
+    Type.TypeCell -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [2],
+     Unfolding: (\ (w :: Type.TypeCell) (w1 :: GHC.Base.String) ->
+                 case w of wild {
+                   Type.Land -> GHC.Base.++ @ GHC.Types.Char Type.$fShowTypeCell5 w1
+                   Type.Fly -> GHC.Base.++ @ GHC.Types.Char Type.$fShowTypeCell3 w1
+                   Type.Emp
+                   -> GHC.Base.++ @ GHC.Types.Char Type.$fShowTypeCell1 w1 }) -}
+da01b48d9e1cb6b226c2f8ffc43be0b6
   $wchangeCellInField ::
     Type.Field
     -> GHC.Prim.Int# -> GHC.Types.Int -> Type.Cell -> [[Type.Cell]]
@@ -433,7 +682,7 @@ d1816d313393549dea85d57160f07706
                                   (GHC.Types.: @ Type.Line ipv (GHC.Types.[] @ Type.Line))
                                   ipv1 } }
                    1# -> $j (GHC.Types.[] @ Type.Line) w }) -}
-837ecb1f27203c575857eca10538d487
+096cdfe00c80e538e541794964f22930
   $wchangeCellInLine ::
     Type.Line -> GHC.Prim.Int# -> Type.Cell -> [Type.Cell]
   {- Arity: 3, HasNoCafRefs, Strictness: <L,1*U><S,U><L,U>,
@@ -489,10 +738,10 @@ d1816d313393549dea85d57160f07706
                            w1
                            (case w of wild {
                               [] -> GHC.Types.[] @ Type.Cell : ipv ipv1 -> ipv1 })) }) -}
-6a5a6d2f6584d73491b266b903a81a01
+d2ebb9ca624f07cee0a0a32bdfcbdbf3
   $wgo :: GHC.Prim.Int# -> (# Type.Line, [Type.Line] #)
   {- Arity: 1, HasNoCafRefs, Strictness: <L,U>, Inline: [2] -}
-ebf152bf8d9f48977e4dcce0a5189319
+4177cca74385f295e3b76fcb80856c57
   $whigherCell ::
     GHC.Prim.Int#
     -> GHC.Types.Int -> Type.Field -> GHC.Maybe.Maybe Type.Cell
@@ -510,7 +759,7 @@ ebf152bf8d9f48977e4dcce0a5189319
                            (GHC.List.$w!! @ Type.Line w (GHC.Prim.-# wild 1#))
                            ww3 })
                    0# -> GHC.Maybe.Nothing @ Type.Cell }) -}
-0f5a8087be04ace09f6dbec02abb54e5
+5a293c3d4ed4f5d580e3d3a3ff564f3f
   $wleftCell ::
     GHC.Types.Int
     -> GHC.Prim.Int# -> Type.Field -> GHC.Maybe.Maybe Type.Cell
@@ -528,7 +777,7 @@ ebf152bf8d9f48977e4dcce0a5189319
                            (GHC.List.$w!! @ Type.Line w ww3)
                            (GHC.Prim.-# wild 1#) })
                    0# -> GHC.Maybe.Nothing @ Type.Cell }) -}
-6d73e3d0594471a66c1fc90e603492b7
+37abbb434733f41b1b587b4db69fc88d
   $wlowerCell ::
     GHC.Prim.Int#
     -> GHC.Types.Int -> Type.Field -> GHC.Maybe.Maybe Type.Cell
@@ -546,7 +795,7 @@ ebf152bf8d9f48977e4dcce0a5189319
                            (GHC.List.$w!! @ Type.Line w (GHC.Prim.+# wild 1#))
                            ww3 })
                    14# -> GHC.Maybe.Nothing @ Type.Cell }) -}
-979985641adc915f5e1956adf6147296
+cd8f8816bc3bc35bfec3f1024c132671
   $wrightCell ::
     GHC.Types.Int
     -> GHC.Prim.Int# -> Type.Field -> GHC.Maybe.Maybe Type.Cell
@@ -564,19 +813,21 @@ ebf152bf8d9f48977e4dcce0a5189319
                            (GHC.List.$w!! @ Type.Line w ww3)
                            (GHC.Prim.+# wild 1#) })
                    9# -> GHC.Maybe.Nothing @ Type.Cell }) -}
-7b5eee64e5cfbdf155913fb8f6b52292
+e228461bbcff362ca52d6588cd0a3991
   data Cell
     = Cell {numLine :: GHC.Types.Int,
             numCell :: GHC.Types.Int,
-            cellType :: GHC.Types.Int,
+            cellType :: Type.TypeCell,
             cellColor :: Graphics.Gloss.Internals.Data.Color.Color}
 a84a815ac9d0a4e801bd442bfa023e94
   type CoordCell = (GHC.Types.Int, GHC.Types.Int)
 b3b9710d1bc9d5841b96879fe6ccdd74
   type CoordFigures = [Type.CoordCell]
-51bd1e0ed49ff3348029661cfe5d0e90
+b6f7599dbdfbf950450e3f9c2089281f
+  data End = Game | FirstEnd | OldEnd
+e435f101da1e2a00b8af045065ea29d8
   type Field = [Type.Line]
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   data GameState
     = GameState {userName :: GHC.Base.String,
                  gameField :: Type.Field,
@@ -585,16 +836,18 @@ b3b9710d1bc9d5841b96879fe6ccdd74
                  gameResult :: GHC.Types.Int,
                  coordTetr :: [Type.CoordFigures],
                  colorTetr :: [Graphics.Gloss.Internals.Data.Color.Color],
-                 endGame :: GHC.Types.Int,
+                 endGame :: Type.End,
                  rotateTypeFigure :: GHC.Types.Int,
                  numLoop :: GHC.Types.Int}
-2e70093aa927aca9064b822e8b9318cc
+5902b1243452c2df1880aebbf12007e4
   type Line = [Type.Cell]
 ee576e2d2b8f44f9596901e8945ba26f
   type NumberFigure = GHC.Types.Int
 e64fdd7b854cd30f2e9dca7436f9636f
   type Result = GHC.Types.Int
-7b5eee64e5cfbdf155913fb8f6b52292
+afe6a0fb87e0fa0c55096f2ac640e6eb
+  data TypeCell = Land | Fly | Emp
+e228461bbcff362ca52d6588cd0a3991
   cellColor :: Type.Cell -> Graphics.Gloss.Internals.Data.Color.Color
   RecSel Left Type.Cell
   {- Arity: 1, HasNoCafRefs,
@@ -602,15 +855,14 @@ e64fdd7b854cd30f2e9dca7436f9636f
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.Cell) ->
                  case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds4 }) -}
-7b5eee64e5cfbdf155913fb8f6b52292
-  cellType :: Type.Cell -> GHC.Types.Int
+e228461bbcff362ca52d6588cd0a3991
+  cellType :: Type.Cell -> Type.TypeCell
   RecSel Left Type.Cell
-  {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLSL),1*U(A,A,1*U(U),A)>m,
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.Cell) ->
                  case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds3 }) -}
-7cdc5e992f8724a6bcd36efc665a67a4
+400906687b77b0ac20e32ce973e804f5
   changeCell :: Type.Field -> Type.Cell -> Type.Cell -> Type.Field
   {- Arity: 3,
      Strictness: <L,U><S(S(S)LLL),1*U(1*U(U),1*U(U),A,A)><L,U>,
@@ -620,7 +872,7 @@ e64fdd7b854cd30f2e9dca7436f9636f
                    (newCell :: Type.Cell) ->
                  case oldCell of wild { Type.Cell ds ds1 ds2 ds3 ->
                  Type.changeCellInField field ds ds1 newCell }) -}
-52d5b36e05770e075285498a40e7590c
+7cda88d99de21201efa8ad18ca7a4964
   changeCellInField ::
     Type.Field
     -> GHC.Types.Int -> GHC.Types.Int -> Type.Cell -> Type.Field
@@ -633,7 +885,7 @@ e64fdd7b854cd30f2e9dca7436f9636f
                    (w3 :: Type.Cell) ->
                  case w1 of ww { GHC.Types.I# ww1 ->
                  Type.$wchangeCellInField w ww1 w2 w3 }) -}
-7c14219a0517b93ebd577b56679a2783
+955bf88da22044d7936c3a3eb23d670a
   changeCellInLine ::
     Type.Line -> GHC.Types.Int -> Type.Cell -> Type.Line
   {- Arity: 3, HasNoCafRefs, Strictness: <L,1*U><S(S),1*U(U)><L,U>,
@@ -642,7 +894,7 @@ e64fdd7b854cd30f2e9dca7436f9636f
                 (\ (w :: Type.Line) (w1 :: GHC.Types.Int) (w2 :: Type.Cell) ->
                  case w1 of ww { GHC.Types.I# ww1 ->
                  Type.$wchangeCellInLine w ww1 w2 }) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   colorTetr ::
     Type.GameState -> [Graphics.Gloss.Internals.Data.Color.Color]
   RecSel Left Type.GameState
@@ -652,7 +904,7 @@ e64fdd7b854cd30f2e9dca7436f9636f
                 (\ (ds :: Type.GameState) ->
                  case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
                  ds7 }) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   coordTetr :: Type.GameState -> [Type.CoordFigures]
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
@@ -731,14 +983,14 @@ b6a17f0dfddae004e4ecb9302f5b7a37
                         (GHC.Prim.plusFloat# ww8 0.2#)
                         ww9 of ww1 { (#,,,#) ww2 ww3 ww4 ww11 ->
                  Graphics.Gloss.Internals.Data.Color.RGBA ww2 ww3 ww4 ww11 } }) -}
-c6aeabd63007d112aff70ef8b7e46514
+a2851bccbf8d35256fcc3e6d09a8401d
   createCoordFigures :: [Type.CoordFigures]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordFigures
                    Type.createCoordFigures43
                    Type.createCoordFigures1) -}
-17dc64d1f5a90d62f8ff9d23b0372fe7
+cc858c8568b9e488a6c90447c99b07e0
   createCoordFigures1 :: [Type.CoordFigures]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -779,18 +1031,18 @@ cb61f12027d7f38cb662b6535cd8d422
 9629b9441f16288ff122895f7803dde2
   createCoordFigures17 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
-e39d166cc248a158dd62ebdfbdc34696
+48376e0b87b0b7b7c0ad934b9ec21c86
   createCoordFigures18 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.$fShowCell8, Type.createCoordFigures15)) -}
-980d7276ad88736ccea6fb3a9441f2da
+     Unfolding: ((Type.$fShowCell2, Type.createCoordFigures15)) -}
+4707386f468ece81e4e7f1936307fc0f
   createCoordFigures19 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createCoordFigures22
                    Type.createCoordFigures20) -}
-c811f90968c4f8217130513043775b38
+6fed0bccf719185405e0a735b7dbbdf2
   createCoordFigures2 :: [Type.CoordFigures]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -809,11 +1061,11 @@ adf964cb4f22cc227e834e7741e3ed15
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createCoordFigures17,
                   Type.createCoordFigures12)) -}
-0d8c4e0350b476efc4ec951395603294
+57c389e78a79820beabbb523d8abe76c
   createCoordFigures22 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.$fShowCell8, Type.createCoordFigures12)) -}
-a2905757f56129ff84eb86f63303d6c8
+     Unfolding: ((Type.$fShowCell2, Type.createCoordFigures12)) -}
+08db794ebc15381fb6f422282c6b6067
   createCoordFigures23 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -849,28 +1101,28 @@ fbe67d088a014fe0c76755c9db050577
 553a953385025b5b7c1a1094becd93f7
   createCoordFigures28 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3#) -}
-5bb5a4f493fa138978839bb9e52feb75
+0c42134d54616417cd9d13f388a45c9a
   createCoordFigures29 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createCoordFigures18
                    Type.createCoordFigures30) -}
-e40c226509029b6dd1cdc13be66fbe33
+eacb5c022fd70b864015b2aba6d18aa3
   createCoordFigures3 :: [Type.CoordFigures]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordFigures
                    Type.createCoordFigures29
                    Type.createCoordFigures4) -}
-977f0f12de6640bae4d71d76784f0641
+5fb97a4f52f353e0e86088f21fe29848
   createCoordFigures30 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createCoordFigures22
                    Type.createCoordFigures31) -}
-6151372bc6dd4aa88fa1e2b2c021d531
+b1f87e1c172401ef6ce6701373827365
   createCoordFigures31 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -884,21 +1136,21 @@ e40c226509029b6dd1cdc13be66fbe33
                    @ Type.CoordCell
                    Type.createCoordFigures21
                    (GHC.Types.[] @ Type.CoordCell)) -}
-ec65d613bb12a0fd5bb498765c2f0188
+50f0963ccc41814ed9a395ee34c6ece8
   createCoordFigures33 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.$fShowCell8, Type.createCoordFigures34)) -}
+     Unfolding: ((Type.$fShowCell2, Type.createCoordFigures34)) -}
 e09281eceb7c7ae55772e0f4085e819a
   createCoordFigures34 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 6#) -}
-0552b3e2b2446fe127db414411e2fdc7
+2b23bb34ed24d01d32de95be43cdfe6f
   createCoordFigures35 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createCoordFigures22
                    Type.createCoordFigures36) -}
-fb74204248c37489d3266741a0a4d817
+e67d975c8dd6b53e59557a4a62b5d258
   createCoordFigures36 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -912,21 +1164,21 @@ a253b99335a825e94b7d1671faeb1bea
                    @ Type.CoordCell
                    Type.createCoordFigures16
                    Type.createCoordFigures32) -}
-8df58521a42eefa453bdcdb0b9a5a470
+41d1c99b3388d6e7e9508f0c49fcd39d
   createCoordFigures38 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createCoordFigures18
                    Type.createCoordFigures39) -}
-7794044744f5fcd261056a650e6a83c3
+bd07ee9d93340a811a3d6181d7a35d28
   createCoordFigures39 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createCoordFigures22
                    Type.createCoordFigures40) -}
-fb2872b35e2a1ede9600fcc575ca27e4
+83f7f5ae521699a34b12956ce0c3ca0b
   createCoordFigures4 :: [Type.CoordFigures]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -952,35 +1204,35 @@ fb2872b35e2a1ede9600fcc575ca27e4
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createCoordFigures17,
                   Type.createCoordFigures34)) -}
-9974717871a5f14f94856f5e1b7c018d
+5c1debdf0dc1db2f0e3070bc103da14a
   createCoordFigures43 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createCoordFigures18
                    Type.createCoordFigures44) -}
-e8712226b128ad79dde17eeb6f65dc83
+d64fc0d823e3cb84b63d9400c5a33c0f
   createCoordFigures44 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createCoordFigures22
                    Type.createCoordFigures37) -}
-3594ead13a9abe52484f58e9af3783fd
+9c967615eadc4a29f4001f01e360ad0f
   createCoordFigures5 :: [Type.CoordFigures]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordFigures
                    Type.createCoordFigures19
                    Type.createCoordFigures6) -}
-9732b74a2a05b1674e2fe71893386563
+b1b4cd85b008f7da1710b583710cbc22
   createCoordFigures6 :: [Type.CoordFigures]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordFigures
                    Type.createCoordFigures7
                    (GHC.Types.[] @ Type.CoordFigures)) -}
-8fe90f9e0cf75bc8c265ca506ff36a08
+5888f719516bcee10f10d53ee70ea2a0
   createCoordFigures7 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1001,11 +1253,11 @@ d498ecc244f79ec77e0331d8655d3b0c
                    @ Type.CoordCell
                    Type.createCoordFigures14
                    Type.createCoordFigures10) -}
-c92582258034c2f73ff81b27d5d36ca6
+40bbd413d1fe3a899500b5646daf4743
   createField :: Type.Field
   {- Unfolding: (case Type.$wgo 0# of ww { (#,#) ww1 ww2 ->
                  GHC.Types.: @ Type.Line ww1 ww2 }) -}
-9f81b86ca2d452c5f7c4c785d3b9df95
+a1da3a2720fe4a184a80621e5bf24189
   createLine :: GHC.Types.Int -> Type.Line
   {- Arity: 1, HasNoCafRefs, Strictness: <L,U>,
      Unfolding: (\ (x :: GHC.Types.Int) ->
@@ -1018,234 +1270,234 @@ c92582258034c2f73ff81b27d5d36ca6
                        (Type.Cell
                           x
                           (GHC.Types.I# x1)
-                          Type.createCoordFigures13
+                          Type.Emp
                           Graphics.Gloss.Data.Color.white)
                        (case x1 of wild {
                           DEFAULT -> go (GHC.Prim.+# wild 1#)
                           9# -> GHC.Types.[] @ Type.Cell })
                  } in
                  go 0#) -}
-af3d313dfe42e047578fe9c9778d31f1
+9e4960b9494fd54f1e1384f9d433e95f
   createRotateModels :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels109
                    Type.createRotateModels1) -}
-50bc2f0f8eaad0a325c5001b6384a365
+a0d530b1f95ce83de152127d4ff63f17
   createRotateModels1 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels108
                    Type.createRotateModels2) -}
-266826882a63bd659af3bf5393dbdd0c
+f28411f2999242ddfdbf83d6d975fdfa
   createRotateModels10 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels86
                    Type.createRotateModels11) -}
-8fbd9adf365158117457fe24ad30a2d2
+b191d77fad5782bde69b8e62a6723611
   createRotateModels100 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels95,
                   Type.createRotateModels26)) -}
-e43a57263156977b467d52016d41e2a3
+f06150f7762082b4854a996bf92f9e58
   createRotateModels101 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels97,
                   Type.createRotateModels32)) -}
-1ca1631f7dc6a540f47008d3e9d00c73
+239636ed153ec69a3b956bb73e584d91
   createRotateModels102 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels103,
                   Type.createRotateModels26)) -}
-bd3f9fd4ba72ecfd65a7b0171dfa78d5
+77593edbcb379bad366aaa0c7c0f4bca
   createRotateModels103 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels82) -}
-de9ec9c7f94d56b9e50574ba95f890e4
+e587163f8bd42c76f8c704d058009213
   createRotateModels104 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels105,
                   Type.createRotateModels32)) -}
-c386fcae5f0288f8eac5b7469cd46d9d
+eab07f624734ffb457d42e401056c7e2
   createRotateModels105 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels106) -}
-4c09f821c68b346c9068ca8a5a3e07c3
+add9ec5afc06b4efa5f34c5ebf335a90
   createRotateModels106 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels29) -}
-0f6ad3009504598d698d364fb7b1e886
+5aa56d28b661453db7c20af621a91f36
   createRotateModels107 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels103,
                   Type.createRotateModels32)) -}
-316f195ae5856ef32a4eeba9b0f3f542
+3b8017577d94e99f8710dfd3fca4feb3
   createRotateModels108 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels105,
                   Type.createRotateModels35)) -}
-1dd5a7f701b2d8c37f1df35042a3bbe2
+3e1b23cf634dc6d39a89400afe9c0ac0
   createRotateModels109 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels110,
                   Type.createRotateModels41)) -}
-6a3a84c69fbcc4115c5864bebf5ed8a9
+ad6da8281f07534c46cccbf65d3efd61
   createRotateModels11 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels84
                    Type.createRotateModels12) -}
-7bc434407a075eb08025e69818ce8d77
+91a2b11dbc71454e0321bec7d9024a18
   createRotateModels110 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels111) -}
-5b33b4baffaa9871860353646999d6ff
+02d7ab5cd0d30816a2c1bf83b829f43d
   createRotateModels111 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels99) -}
-771ec29d2e225145866ccdd302e040c6
+24f926aa50724349144c65964601450d
   createRotateModels12 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels80
                    Type.createRotateModels13) -}
-b87664688ac23516460fe056e0452629
+d4db98715ca1dae1dec2aa4c7d89f893
   createRotateModels13 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels79
                    Type.createRotateModels14) -}
-6790fafde77fe19d1a17d7a341483735
+564fd71fad776668e7c5841cd231e48e
   createRotateModels14 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels78
                    Type.createRotateModels15) -}
-0332ceef5f86332ddc07598b045f8c03
+711eba46c7bc05e9ef5d00b73de5d8ab
   createRotateModels15 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels72
                    Type.createRotateModels16) -}
-22e3d9870beeb4044959e052261cb015
+465541bb043868c2b649238abf69c358
   createRotateModels16 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels66
                    Type.createRotateModels17) -}
-2e93fdc358892c9684eb69ff69f1ae87
+87bdb4e4d72bfd2928a4df941263b12e
   createRotateModels17 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels63
                    Type.createRotateModels18) -}
-3bdc492f0f2208d0b03e4554c303955d
+f5a25adaaa5caa09f81ab44d57d68398
   createRotateModels18 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels61
                    Type.createRotateModels19) -}
-73c78719d5686b2f4a64d44417080337
+b30d52965ef12c8b424b3b790afbcd75
   createRotateModels19 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels56
                    Type.createRotateModels20) -}
-f38ac4a1edb8254a084d844bfac9ded0
+375532dffaed4256715d4ebc4d3d73e5
   createRotateModels2 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels107
                    Type.createRotateModels3) -}
-e6395bae570286883f2f91e4683df647
+2fb23d8d9680e926b8fb1c14060e67af
   createRotateModels20 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels52
                    Type.createRotateModels21) -}
-6ee88940f7b082deb7f8f2dd65f943ee
+10c7a4e80d0fa455c59d1e20d8bc7d32
   createRotateModels21 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels47
                    Type.createRotateModels22) -}
-004555c046ccecbb3d059ad594d5d4f8
+c38dc780fc0ff5a11473267cf0cb0da1
   createRotateModels22 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels42
                    Type.createRotateModels23) -}
-8a90ece619c7bca88d746b1a301030a2
+347d2b646d3b6154aa6b0b7d04e9d703
   createRotateModels23 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels34
                    Type.createRotateModels24) -}
-d6a3b159d9582afd2e101332ad72fc4b
+ec82a948ebedb8e756fc656218f49909
   createRotateModels24 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels25
                    (GHC.Types.[] @ (Type.CoordFigures, Type.CoordCell))) -}
-ab28fd7c92f8572e317159939f093438
+043ad5c515683b42f102591bb1ecbfbc
   createRotateModels25 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels27,
                   Type.createRotateModels26)) -}
-231d80eb34b0669c03936511635285e9
+e77b6ab62eeb88c9b5704a5d13e1591c
   createRotateModels26 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.createCoordFigures17, Type.$fShowCell8)) -}
-71d60229ea6c8b47e5cb36ed8a522c54
+     Unfolding: ((Type.createCoordFigures17, Type.$fShowCell2)) -}
+e6be5227664b5d935c6bc630cecc41bd
   createRotateModels27 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels33
                    Type.createRotateModels28) -}
-a3ed0e07c4cdf2f46f110e7f1f17c7f9
+c3af300c3777aeefba80105e39c506ae
   createRotateModels28 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1259,7 +1511,7 @@ dca3069d0924a5ec6de3bfdd87aad8ee
                    @ Type.CoordCell
                    Type.createRotateModels32
                    Type.createRotateModels30) -}
-075a00650e9d0366ac5042859ae6d231
+45aaffcc8ea085a2e5b8290cfeef27e0
   createRotateModels3 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1283,28 +1535,28 @@ fcdd975823938026efe1e4a3677d557e
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createCoordFigures17,
                   Type.createCoordFigures17)) -}
-94b44e61e91e2ca78f6317335c59d447
+3001fad684063fbf7737c40043ae7e48
   createRotateModels33 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.$fShowCell8, Type.createCoordFigures13)) -}
-aeea793b80cf419c357892835aff9715
+     Unfolding: ((Type.$fShowCell2, Type.createCoordFigures13)) -}
+00327ff066c50158c5cef7ef882f720f
   createRotateModels34 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels36,
                   Type.createRotateModels35)) -}
-74b235e56ab43e5747c4815976e29744
+8809f43a5a88422061e7f63825afd10e
   createRotateModels35 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.$fShowCell8, Type.createCoordFigures17)) -}
-a111229913e1826264eac7a225951d35
+     Unfolding: ((Type.$fShowCell2, Type.createCoordFigures17)) -}
+0183319bb6c5d445d7df10c5fe22aeed
   createRotateModels36 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels37) -}
-539d470cf4f196d193661cb5ec365f05
+762ac43993955c181088333ab4d97747
   createRotateModels37 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1325,7 +1577,7 @@ d7dd4e3b709342261467b4e114c05e88
                    @ Type.CoordCell
                    Type.createRotateModels40
                    (GHC.Types.[] @ Type.CoordCell)) -}
-22372e63c81eada07a3f1c32398a18ba
+3eb951e136d65722c33e5a33bc058370
   createRotateModels4 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1337,373 +1589,373 @@ bb578786a2c21a4ace9c07ff11703b82
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createCoordFigures13,
                   Type.createCoordFigures17)) -}
-5a6c6acd7191d957c9a2b8ef6b5b9c2f
+461405ee7a38cea6f7911e9797a524a2
   createRotateModels41 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.$fShowCell8, Type.$fShowCell8)) -}
-037bc65d6b56154dd9ca369d6f8e0876
+     Unfolding: ((Type.$fShowCell2, Type.$fShowCell2)) -}
+c90bb238a7bf77c77c1b4dc66f682bd0
   createRotateModels42 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels43,
                   Type.createRotateModels41)) -}
-37bb0e6d0fc176134ed741989d7dbdd2
+0e32525f529e851f38d1a118f3c97cb5
   createRotateModels43 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels44) -}
-fd6a0a5adfce69eaa420ccce799f0522
+8bf606c34b199dfbc5e871219effa99e
   createRotateModels44 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels45) -}
-de849b6e76b9e36ffa4ad762c1435684
+852edf15cbcf483b8ea7f6c2c2cdc65a
   createRotateModels45 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels33
                    Type.createRotateModels46) -}
-a96a27373efb56833937e2c88c0af5cf
+af9aa6cd5574272dd8d761fb60ccc765
   createRotateModels46 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels26
                    (GHC.Types.[] @ Type.CoordCell)) -}
-60af949eace2cdd13893e4e27310bad1
+e3eba4635ea26ea9ebef21efd8b48a2f
   createRotateModels47 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels49,
                   Type.createRotateModels48)) -}
-b83179632e35b83b040dad2818f7dde4
+bab344d46f431d68495dd42c7fdfc8c4
   createRotateModels48 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.createCoordFigures13, Type.$fShowCell8)) -}
-05b1a137bfb3eaa96daba2d3e6484b4c
+     Unfolding: ((Type.createCoordFigures13, Type.$fShowCell2)) -}
+8b829efce9dcafb1e824526c00735f76
   createRotateModels49 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels50) -}
-cfd4b1e64b65dd6e434fc808c898e50c
+f374945890d325e8778cad03aa73e2b4
   createRotateModels5 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels101
                    Type.createRotateModels6) -}
-0d4bc9777cbe1e0cecdcf4fe4542625e
+4138fea989c81e90291e588734e2d965
   createRotateModels50 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels26
                    Type.createRotateModels51) -}
-a2a24cf2b51d037b8a0ce64a0c578cab
+856f2aabb3ce675369d0e14d7b7ec680
   createRotateModels51 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels48
                    Type.createRotateModels39) -}
-8c72b32f210570ee0d3c8d0483bcc0d7
+f299855c6f00ae5e5b3742d8d9d75242
   createRotateModels52 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels53,
                   Type.createRotateModels33)) -}
-4848fcd74c4caf0d5ca0830949bcd53f
+fde424d15c4215d2c6a9829d10ccb956
   createRotateModels53 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels54) -}
-98c5122eb567cadb8b3d1b9b1760a6d5
+a4a763ff35a2a0fda0025082253adf3e
   createRotateModels54 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels55) -}
-a42139a39dea57bdccca5f364f62048a
+a99a0ef2386d7ef87014ae0b41441af3
   createRotateModels55 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels33
                    Type.createRotateModels30) -}
-43b2708936d79d77f4ee429ee2274574
+40767a6d7b7dd44c76c1ffbc9af39763
   createRotateModels56 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels57,
                   Type.createRotateModels41)) -}
-1a5cabf15b1f80b13b63481deb6bcbcb
+914908d2cae61d04528b7378000f7776
   createRotateModels57 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels58) -}
-92af2f117e306340a4a84d77d00c6cb7
+f912f1cf16ea2dec6a48449bf147771a
   createRotateModels58 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels59) -}
-7e01bf1e5c6596f0309c47b7f2721683
+3d508577666d3fe9089ec2868e3bf99e
   createRotateModels59 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels26
                    Type.createRotateModels60) -}
-ad914e8fb09783d72cc94480f99e2fe3
+2c0f769c6286fde43b9ee44f733023e6
   createRotateModels6 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels100
                    Type.createRotateModels7) -}
-4167589651fbe080526b2b0693dd29ca
+3d642f229c98a93c36e268954c6f2610
   createRotateModels60 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels48
                    (GHC.Types.[] @ Type.CoordCell)) -}
-872101fe068de1e009e65469cc341871
+da50411d672deb4e34abcfedb4962a0b
   createRotateModels61 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels62,
                   Type.createRotateModels26)) -}
-7e59a4f1786f4fe152c06166796d460d
+ef0ed8fa1ad7ab612f545f459e3e0316
   createRotateModels62 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels28) -}
-fdbce102b8abf5032f8051122ca21a46
+73a92692a4383959251857c372990510
   createRotateModels63 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels64,
                   Type.createRotateModels40)) -}
-e262597b94dc6d4c62df2d331b07aeb0
+3d67771d16eaf975c3f8dc2923dd5199
   createRotateModels64 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels65) -}
-1d14fe290204477388604dfdc3d9438f
+9500304ddf2898ca42b18f3bb95d7644
   createRotateModels65 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels32
                    Type.createRotateModels51) -}
-39e5bb97052702d71ce6c483d55cbce5
+560ae129f1a70b7d99c9236b8e36312e
   createRotateModels66 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels67,
                   Type.createRotateModels33)) -}
-a36400fd7bb7998e51c9a7e3e15e2528
+39c755a9d79e5d96b2f3b2824a767f4b
   createRotateModels67 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels68) -}
-fa358f3e0fb743afaea75cc5a99276e3
+28c076d7e61849ab2fe5dab302476db8
   createRotateModels68 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels69) -}
-bf0817f02bd78a26cbc3832c7881bb1c
+d8e7fe5da7fb1dc24c464731e27a5edd
   createRotateModels69 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels33
                    Type.createRotateModels70) -}
-8827533c67d7a1e179e3cd9a19124b9e
+817f1cc4189cb33bcd944e27ba63a7e0
   createRotateModels7 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels96
                    Type.createRotateModels8) -}
-7d2158a7bdc5ece93c04dda401fe17f6
+e8e870a637d3ecac4d48571f1c563a47
   createRotateModels70 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels71
                    (GHC.Types.[] @ Type.CoordCell)) -}
-3de186a75c2c6ca0d0f6d7a89559fc3a
+a25632a4c41949e0fe18e9e54cdf89dd
   createRotateModels71 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.$fShowCell8, Type.createCoordFigures28)) -}
-4efa9409245e47d20d0fe4241dcdb6c3
+     Unfolding: ((Type.$fShowCell2, Type.createCoordFigures28)) -}
+f582db380179e833019817c12e3c9733
   createRotateModels72 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels73,
                   Type.createRotateModels26)) -}
-64ece696f3686329a4341efe75b60ad8
+c792578e737c17279ceae2dfdb578822
   createRotateModels73 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels74) -}
-14d9d443aa21253658a83da221dfc4a5
+fb92b51343c4e456a70b9b9c53c5f0e9
   createRotateModels74 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels26
                    Type.createRotateModels75) -}
-7a0b520d21677593476277467389282c
+9bbab9a13d402ce7eb4d787e38395205
   createRotateModels75 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels48
                    Type.createRotateModels76) -}
-f9afeede9476c57784e20b77fd1c8625
+cdc2f11a38aa232034b25f66b7412e3b
   createRotateModels76 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels77
                    (GHC.Types.[] @ Type.CoordCell)) -}
-05c0907e3d386e6f4875dd834ae14e1c
+7d3155f4a2fa0211c6132acc9b3b9636
   createRotateModels77 :: (GHC.Types.Int, GHC.Types.Int)
   {- HasNoCafRefs, Strictness: m,
-     Unfolding: ((Type.createCoordFigures28, Type.$fShowCell8)) -}
-f0d273df096272c2037bdc14332d70d6
+     Unfolding: ((Type.createCoordFigures28, Type.$fShowCell2)) -}
+ee25a54fe4c76f5e507fd6a08d74ecc2
   createRotateModels78 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels67,
                   Type.createRotateModels35)) -}
-c3f9329304451fe6f03881654bc38adf
+0e71c9f8d3b38f3e3b0abb00d760dc41
   createRotateModels79 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels73,
                   Type.createRotateModels48)) -}
-6d55d1db0318c2f7029ed7037b472513
+b34493fe6115dac15fe9a7ac0b9a1d16
   createRotateModels8 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels94
                    Type.createRotateModels9) -}
-80ff2a504b6420ed396595c3449507e3
+46a50048c06d5bea519780c53d2a6b14
   createRotateModels80 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels81,
                   Type.createRotateModels26)) -}
-feaa895ddeb7695d859a4667fb897675
+731233a96b7c355f37200c2f330a93a8
   createRotateModels81 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels82) -}
-55716906edbb40a6956888bc0acd23f4
+8eb20def5c62812379160aba20fecd73
   createRotateModels82 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels26
                    Type.createRotateModels83) -}
-bab8e82b69981b45a3439e915f9f5e34
+2285e1481eaa0af21e57b5a833e72b67
   createRotateModels83 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels32
                    Type.createRotateModels60) -}
-169a550df86ec5dc03eafebbfa19dbf1
+e5c5e73bc04b8b9a9150ddb9acc77a11
   createRotateModels84 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels85,
                   Type.createRotateModels32)) -}
-41efa9ca8796e7b72ec17158513f5898
+65c19ae7c3ed53834670631782412fb9
   createRotateModels85 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels28) -}
-4a95c35ad91b3da0bd75672effe7ceda
+72ee9989bceaa16ac1e30462bba95b6e
   createRotateModels86 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels87,
                   Type.createRotateModels32)) -}
-2be28c48013c38215371dadb9f3b4323
+6d84ccc9e5fab24bdaf1e4861bbe9467
   createRotateModels87 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels88) -}
-ea45cb139ffd00dbeb86adc0fab0ebb9
+ed8256e89a7dd99bbd334f0fb021cbdd
   createRotateModels88 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels26
                    Type.createRotateModels38) -}
-fa1e5c61855b9922cbf7d4f11e3c36e6
+faacaaaebd273328725efb6b95ee49b6
   createRotateModels89 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels90,
                   Type.createRotateModels35)) -}
-b610c78a1248707e3e2729ad4a9a5f0e
+072b234beee44f4f519b3bb2c19ee303
   createRotateModels9 :: [(Type.CoordFigures, Type.CoordCell)]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ (Type.CoordFigures, Type.CoordCell)
                    Type.createRotateModels89
                    Type.createRotateModels10) -}
-b9e4eba87e0597d506cb825692e31e0f
+e64c18b22a1cdcfdf95428c76fbbf23f
   createRotateModels90 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels91) -}
-d02cd18ed754a471b29fe3aa8882d1ca
+7bd7026db562cebe12e91ee8092d6343
   createRotateModels91 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels92) -}
-e09002585c9b193d6e80d4228489b01b
+d26bddfa08074e5dc1a19e6d8cc63064
   createRotateModels92 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
@@ -1717,66 +1969,66 @@ e09002585c9b193d6e80d4228489b01b
                    @ Type.CoordCell
                    Type.createRotateModels32
                    (GHC.Types.[] @ Type.CoordCell)) -}
-8bac9ca014485305d61a87b3d34961a6
+21a751a44b877c17918ce465fd1bb55e
   createRotateModels94 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels95,
                   Type.createRotateModels32)) -}
-9ba0354b789dc774ea707cc59d4ac3dc
+f947693263782b0030b2fdbc3a78770e
   createRotateModels95 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels41
                    Type.createRotateModels88) -}
-16449c41be35a2f873accfe3e726f541
+fbf0dbc10d12b5346a8ef44ff69ab630
   createRotateModels96 ::
     ([Type.CoordCell], (GHC.Types.Int, GHC.Types.Int))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: ((Type.createRotateModels97,
                   Type.createRotateModels35)) -}
-708826bbc1b24f4f591ff26f13a4ecb2
+bae3f4d562761c84d4d75bf03f4868f6
   createRotateModels97 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels35
                    Type.createRotateModels98) -}
-5e7195f246deaf34a192cb123f67e3af
+bd90ebd8dc677a12e3861c588b2f44f6
   createRotateModels98 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels33
                    Type.createRotateModels99) -}
-d7a8cc0d82841d9614d5b07fe75fdd2a
+04c474d70971e87ef6cdff524500a172
   createRotateModels99 :: [Type.CoordCell]
   {- HasNoCafRefs, Strictness: m2,
      Unfolding: (GHC.Types.:
                    @ Type.CoordCell
                    Type.createRotateModels26
                    Type.createRotateModels93) -}
-8281b47d2a415f5b18dac47c7056459c
-  endGame :: Type.GameState -> GHC.Types.Int
+af8412db864a9629e18c4a0ad20c86a2
+  endGame :: Type.GameState -> Type.End
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLLLLLLSLL),1*U(A,A,A,A,A,A,A,1*U(U),A,A)>m,
+     Strictness: <S(LLLLLLLSLL),1*U(A,A,A,A,A,A,A,1*U,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.GameState) ->
                  case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
                  ds8 }) -}
-9272842dffe03e78d8b0eaa08c533c45
+5fed188e502ac81c904d678614e798b2
   findCellCond ::
     Type.Field
     -> (Type.Cell -> GHC.Types.Bool) -> [Type.Cell] -> [Type.Cell]
   {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><L,C(U)><S,1*U> -}
-bb414f25dfc931e1366ef294d6cf651f
+f33f511cef4568a2f2fe481bef86bd95
   findCellCondLine ::
     Type.Line
     -> (Type.Cell -> GHC.Types.Bool) -> [Type.Cell] -> [Type.Cell]
   {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><L,C(U)><S,1*U> -}
-fdc4ba453f90205fc5bffd9ebe49f735
+444ef147b659e336964d8643bd8950fa
   funFieldAll ::
     (Type.Cell -> GHC.Types.Bool) -> Type.Field -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
@@ -1786,7 +2038,7 @@ fdc4ba453f90205fc5bffd9ebe49f735
                 (<Type.Cell -> GHC.Types.Bool>_R
                  ->_R <Type.Field>_R
                  ->_R Data.Semigroup.Internal.N:All[0]) -}
-15d99c903a7556538159431d3a05e9bb
+a8cf27acd4150e734dc5f038d18e351c
   funFieldAll1 ::
     (Type.Cell -> GHC.Types.Bool)
     -> Type.Field -> Data.Semigroup.Internal.All
@@ -1821,7 +2073,7 @@ fdc4ba453f90205fc5bffd9ebe49f735
                           go1 y }
                  } in
                  go field) -}
-0ee659ee0c80fc62b9ebc53c40cd61d4
+14ac2ab090fc403cf2c8a5edf331203c
   funFieldAny ::
     (Type.Cell -> GHC.Types.Bool) -> Type.Field -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
@@ -1831,7 +2083,7 @@ fdc4ba453f90205fc5bffd9ebe49f735
                 (<Type.Cell -> GHC.Types.Bool>_R
                  ->_R <Type.Field>_R
                  ->_R Data.Semigroup.Internal.N:Any[0]) -}
-f282bd1df157b295a9cdb16a9348f239
+8d6b01c016c682412dc22f3f174741ae
   funFieldAny1 ::
     (Type.Cell -> GHC.Types.Bool)
     -> Type.Field -> Data.Semigroup.Internal.Any
@@ -1866,7 +2118,7 @@ f282bd1df157b295a9cdb16a9348f239
                           go1 y }
                  } in
                  go field) -}
-6138127fde49a91fc9d79f4dfe23b96e
+768693d9edc4bc0edd9dd21d08cccba5
   funLineAll ::
     (Type.Cell -> GHC.Types.Bool) -> Type.Line -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
@@ -1876,7 +2128,7 @@ f282bd1df157b295a9cdb16a9348f239
                 (<Type.Cell -> GHC.Types.Bool>_R
                  ->_R <Type.Line>_R
                  ->_R Data.Semigroup.Internal.N:All[0]) -}
-b523bde61c8908287a07c890bb262abb
+727ad9878d3f762a700a2f659ffbf8a7
   funLineAll1 ::
     (Type.Cell -> GHC.Types.Bool)
     -> Type.Line -> Data.Semigroup.Internal.All
@@ -1897,7 +2149,7 @@ b523bde61c8908287a07c890bb262abb
                             GHC.Types.True -> go ys } }
                  } in
                  go str1) -}
-f45eff1102a3d7506c9f9746e5390e48
+e1c7bd13239056612dbbdfeb3687b0bf
   funLineAny ::
     (Type.Cell -> GHC.Types.Bool) -> Type.Line -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
@@ -1907,7 +2159,7 @@ f45eff1102a3d7506c9f9746e5390e48
                 (<Type.Cell -> GHC.Types.Bool>_R
                  ->_R <Type.Line>_R
                  ->_R Data.Semigroup.Internal.N:Any[0]) -}
-d1ff782d20e0b9c3bb937d96f7dd9cf7
+157ce7f8f2dbd8e651e0957a0b11c62b
   funLineAny1 ::
     (Type.Cell -> GHC.Types.Bool)
     -> Type.Line -> Data.Semigroup.Internal.Any
@@ -1930,7 +2182,7 @@ d1ff782d20e0b9c3bb937d96f7dd9cf7
                                (Sym (Data.Semigroup.Internal.N:Any[0])) } }
                  } in
                  go str1) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   gameField :: Type.GameState -> Type.Field
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
@@ -1939,7 +2191,7 @@ d1ff782d20e0b9c3bb937d96f7dd9cf7
                 (\ (ds :: Type.GameState) ->
                  case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
                  ds2 }) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   gameFigures :: Type.GameState -> [Type.NumberFigure]
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
@@ -1948,7 +2200,7 @@ d1ff782d20e0b9c3bb937d96f7dd9cf7
                 (\ (ds :: Type.GameState) ->
                  case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
                  ds4 }) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   gameRandomGen :: Type.GameState -> System.Random.StdGen
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
@@ -1957,7 +2209,7 @@ d1ff782d20e0b9c3bb937d96f7dd9cf7
                 (\ (ds :: Type.GameState) ->
                  case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
                  ds3 }) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   gameResult :: Type.GameState -> GHC.Types.Int
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
@@ -1966,7 +2218,7 @@ d1ff782d20e0b9c3bb937d96f7dd9cf7
                 (\ (ds :: Type.GameState) ->
                  case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
                  ds5 }) -}
-57cf999e48f69907f6f48e204fc28336
+888cebdf6d14d2cb61fba13ade7ce773
   getCell ::
     Type.Field -> GHC.Types.Int -> GHC.Types.Int -> Type.Cell
   {- Arity: 3, Strictness: <S,1*U><S(S),1*U(U)><S(S),1*U(U)>,
@@ -1980,7 +2232,7 @@ d1ff782d20e0b9c3bb937d96f7dd9cf7
                    @ Type.Cell
                    (GHC.List.$w!! @ Type.Line field ww3)
                    ww1 } }) -}
-5be55909eb742937d7b0fd5d40ef1f23
+4853f46cc57fca24829c05f0daff7004
   getCellColor ::
     Type.Cell -> Graphics.Gloss.Internals.Data.Color.Color
   {- Arity: 1, HasNoCafRefs,
@@ -1988,21 +2240,20 @@ d1ff782d20e0b9c3bb937d96f7dd9cf7
      Unfolding: InlineRule (1, True, False)
                 (\ (c :: Type.Cell) ->
                  case c of wild { Type.Cell ds ds1 ds2 ds3 -> ds3 }) -}
-e1894231b9d7467e069e417f84ccd8d5
+3b081293298cf4b9d5e70d9dd7424cc0
   getCellLine :: Type.Cell -> GHC.Types.Int
   {- Arity: 1, HasNoCafRefs,
      Strictness: <S(SLLL),1*U(1*U(U),A,A,A)>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (c :: Type.Cell) ->
                  case c of wild { Type.Cell ds ds1 ds2 ds3 -> ds }) -}
-af277a1c1243b9128d1aa7d46943ead9
-  getCellType :: Type.Cell -> GHC.Types.Int
-  {- Arity: 1, HasNoCafRefs,
-     Strictness: <S(LLSL),1*U(A,A,1*U(U),A)>m,
+513bb217d37caf67403906f25c15cafa
+  getCellType :: Type.Cell -> Type.TypeCell
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
      Unfolding: InlineRule (1, True, False)
-                (\ (ds :: Type.Cell) ->
-                 case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds3 }) -}
-e2aa2201d8d99bcc9ae51c2a5011c9c6
+                (\ (cell :: Type.Cell) ->
+                 case cell of wild { Type.Cell ds ds1 ds2 ds3 -> ds2 }) -}
+19a081c76e8b709a9826e11bb3e8c423
   higherCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
   {- Arity: 2,
      Strictness: <S(S(S)LLL),1*U(1*U(1*U),1*U(U),A,A)><L,1*U>,
@@ -2012,7 +2263,7 @@ e2aa2201d8d99bcc9ae51c2a5011c9c6
                  case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                  case ww1 of ww5 { GHC.Types.I# ww6 ->
                  Type.$whigherCell ww6 ww2 w1 } }) -}
-c99968c45e58a5e2b97b8f9ec817dc49
+4625d9e60390b3987f08569091ebd455
   leftCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
   {- Arity: 2,
      Strictness: <S(LS(S)LL),1*U(1*U(U),1*U(1*U),A,A)><L,1*U>,
@@ -2022,7 +2273,7 @@ c99968c45e58a5e2b97b8f9ec817dc49
                  case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                  case ww2 of ww5 { GHC.Types.I# ww6 ->
                  Type.$wleftCell ww1 ww6 w1 } }) -}
-aa57665d8bd16abfda09769e2dd16c74
+8b33e6207a6178edaeb62c2c3785e04d
   lowerCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
   {- Arity: 2,
      Strictness: <S(S(S)LLL),1*U(1*U(1*U),1*U(U),A,A)><L,1*U>,
@@ -2032,13 +2283,13 @@ aa57665d8bd16abfda09769e2dd16c74
                  case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                  case ww1 of ww5 { GHC.Types.I# ww6 ->
                  Type.$wlowerCell ww6 ww2 w1 } }) -}
-693a957935306442d057f0c8a080bc19
+b0beb14a7d6891908f91f661d29b07f3
   mapField :: (Type.Cell -> Type.Cell) -> Type.Field -> Type.Field
   {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U> -}
-db0442796b59a89043cb38ae78e9fe0a
+6fc1cd9e250891f57230e97358100ba6
   mapLine :: (Type.Cell -> Type.Cell) -> Type.Line -> Type.Line
   {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U> -}
-7b5eee64e5cfbdf155913fb8f6b52292
+e228461bbcff362ca52d6588cd0a3991
   numCell :: Type.Cell -> GHC.Types.Int
   RecSel Left Type.Cell
   {- Arity: 1, HasNoCafRefs,
@@ -2046,7 +2297,7 @@ db0442796b59a89043cb38ae78e9fe0a
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.Cell) ->
                  case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds2 }) -}
-7b5eee64e5cfbdf155913fb8f6b52292
+e228461bbcff362ca52d6588cd0a3991
   numLine :: Type.Cell -> GHC.Types.Int
   RecSel Left Type.Cell
   {- Arity: 1, HasNoCafRefs,
@@ -2054,7 +2305,7 @@ db0442796b59a89043cb38ae78e9fe0a
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Type.Cell) ->
                  case ds of wild { Type.Cell ds1 ds2 ds3 ds4 -> ds1 }) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   numLoop :: Type.GameState -> GHC.Types.Int
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
@@ -2063,7 +2314,7 @@ db0442796b59a89043cb38ae78e9fe0a
                 (\ (ds :: Type.GameState) ->
                  case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
                  ds10 }) -}
-0da0f3c453f0bbab689dfd89dfe295d8
+f0be21e80f07b1031e5aaa1b7e2a33ac
   rightCell :: Type.Cell -> Type.Field -> GHC.Maybe.Maybe Type.Cell
   {- Arity: 2,
      Strictness: <S(LS(S)LL),1*U(1*U(U),1*U(1*U),A,A)><L,1*U>,
@@ -2073,7 +2324,7 @@ db0442796b59a89043cb38ae78e9fe0a
                  case w of ww { Type.Cell ww1 ww2 ww3 ww4 ->
                  case ww2 of ww5 { GHC.Types.I# ww6 ->
                  Type.$wrightCell ww1 ww6 w1 } }) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   rotateTypeFigure :: Type.GameState -> GHC.Types.Int
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
@@ -2082,9 +2333,9 @@ db0442796b59a89043cb38ae78e9fe0a
                 (\ (ds :: Type.GameState) ->
                  case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
                  ds9 }) -}
-f7a6c7bc3b1b2066a5a167437cb20c59
+5547fa9b1fe6ed5969a9c8c31b7d437a
   typeCellFromField ::
-    Type.Field -> GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int
+    Type.Field -> GHC.Types.Int -> GHC.Types.Int -> Type.TypeCell
   {- Arity: 3, Strictness: <S,1*U><S(S),1*U(U)><S(S),1*U(U)>,
      Unfolding: InlineRule (3, True, False)
                 (\ (field :: Type.Field)
@@ -2097,7 +2348,7 @@ f7a6c7bc3b1b2066a5a167437cb20c59
                         (GHC.List.$w!! @ Type.Line field ww3)
                         ww1 of wild { Type.Cell ds ds1 ds2 ds3 ->
                  ds2 } } }) -}
-8281b47d2a415f5b18dac47c7056459c
+af8412db864a9629e18c4a0ad20c86a2
   userName :: Type.GameState -> GHC.Base.String
   RecSel Left Type.GameState
   {- Arity: 1, HasNoCafRefs,
@@ -2106,8 +2357,12 @@ f7a6c7bc3b1b2066a5a167437cb20c59
                 (\ (ds :: Type.GameState) ->
                  case ds of wild { Type.GameState ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
                  ds1 }) -}
+instance GHC.Classes.Eq [Type.End] = Type.$fEqEnd
+instance GHC.Classes.Eq [Type.TypeCell] = Type.$fEqTypeCell
 instance GHC.Show.Show [Type.Cell] = Type.$fShowCell
+instance GHC.Show.Show [Type.End] = Type.$fShowEnd
 instance GHC.Show.Show [Type.GameState] = Type.$fShowGameState
+instance GHC.Show.Show [Type.TypeCell] = Type.$fShowTypeCell
 trusted: none
 require own pkg trusted: False
 module header:

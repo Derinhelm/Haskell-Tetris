@@ -15,51 +15,49 @@ import Data.List
 
 createCellShiftFigure :: Field -> Cell -> Cell
 createCellShiftFigure field c@Cell{..}  = case hc of 
-        Nothing -> (Cell numLine numCell 2 colorBoard)
+        Nothing -> (Cell numLine numCell Emp colorBoard)
         Just hc1 ->  case (getCellType hc1) of
-                        2 -> case (getCellType c) of
-                                1 ->  (Cell numLine numCell 2 colorBoard)
-                                0 -> c
-                                2 -> c
-                        0 -> c
-                        1 -> (Cell numLine numCell 1 (getCellColor hc1))
+                        Emp -> case (getCellType c) of
+                                Fly ->  (Cell numLine numCell Emp colorBoard)
+                                Land -> c
+                                Emp -> c
+                        Land -> c
+                        Fly -> (Cell numLine numCell Fly (getCellColor hc1))
         where hc = (higherCell c field)
 
 shiftFigureOnField :: Field -> Field
---shiftFigureOnField _ = createField
 shiftFigureOnField field = mapField (\c -> (createCellShiftFigure field c)) field
 
 shiftFigure :: GameState -> GameState --сдвиг фигуры(на 1 вниз)
 shiftFigure GameState{..}  = 
-        (GameState userName (shiftFigureOnField gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr 0 rotateTypeFigure 
+        (GameState userName (shiftFigureOnField gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr Game rotateTypeFigure 
                 (numLoop + 1)) 
 
 
 checkCanAddFigure :: Field -> CoordFigures -> Bool
 checkCanAddFigure field [] = True
-checkCanAddFigure field ((x, y) : xs) = ((typeCellFromField field x y ) == 2) && (checkCanAddFigure field xs)
+checkCanAddFigure field ((x, y) : xs) = ((typeCellFromField field x y ) == Emp) && (checkCanAddFigure field xs)
 
 newFigureOnField :: Field -> CoordFigures -> Color -> Field
 newFigureOnField field [] color = field
-newFigureOnField field ((x, y): xs) color = (newFigureOnField (changeCellInField field x y (Cell x y 1 color)) xs color)
---map (\(x, y) -> (changeCellInField field x y (Cell x y 1 color))) coords
---addFigureOnField field numb = map markFigure 
+newFigureOnField field ((x, y): xs) color = (newFigureOnField (changeCellInField field x y (Cell x y Fly color)) xs color)
+
 
 newFigureOnGame :: GameState  -> GameState -- падение новой фигуры 
 newFigureOnGame GameState{..}
         | checkCanAddFigure gameField coordNextFigure = 
                 (GameState userName (newFigureOnField gameField  coordNextFigure colorNextFigure) gameRandomGen (tail gameFigures) 
-                        gameResult coordTetr colorTetr 0 rotType (numLoop + 1))
+                        gameResult coordTetr colorTetr Game rotType (numLoop + 1))
         | otherwise =
-                 {-trace "checkEnd"-} (GameState userName gameField gameRandomGen gameFigures gameResult coordTetr colorTetr 1 rotateTypeFigure
+                 (GameState userName gameField gameRandomGen gameFigures gameResult coordTetr colorTetr FirstEnd rotateTypeFigure
                         (numLoop + 1))
-            where nextFigure = (head gameFigures)
-                  rotType = if (nextFigure == 0) then 0  else nextFigure * 4 - 3
-                  coordNextFigure = ((!!) coordTetr (nextFigure))
-                  colorNextFigure = ((!!) colorTetr (nextFigure))
+            where       nextFigure = (head gameFigures)
+                        rotType = if (nextFigure == 0) then 0  else nextFigure * 4 - 3
+                        coordNextFigure = ((!!) coordTetr (nextFigure))
+                        colorNextFigure = ((!!) colorTetr (nextFigure))
 
 checkCompletedLine :: Line -> Bool
-checkCompletedLine line = funLineAll (\c -> ((getCellType c) == 0)) line
+checkCompletedLine line = funLineAll (\c -> ((getCellType c) == Land)) line
 
 countDeletedLines :: Field -> Int -> Int
 countDeletedLines [] res = res
@@ -76,7 +74,7 @@ deleteLineWithNumber field numDeletedLine = mapField (\c@Cell{..} ->
         if (numLine > numDeletedLine) 
                 then c
                 else case (higherCell c field) of
-                        Nothing -> (Cell numLine numCell 2 colorBoard) --верхний ряд
+                        Nothing -> (Cell numLine numCell Emp colorBoard) --верхний ряд
                         Just hc ->  (Cell numLine numCell (getCellType hc) (getCellColor hc))
         ) field
 
@@ -86,51 +84,51 @@ deleteLinesFromField field | (curCompLine == -1) = field
                            | otherwise = (deleteLinesFromField (deleteLineWithNumber field curCompLine))
                 where curCompLine = (numCompLine field 0)
 
---Сейчас считает(каждый проход отдельно) полные линии, не умеет их удалять
+
 deleteLines :: GameState -> GameState -- (делаем перед добавлением новой фигуры)
---удаление линии со всеми заполненными  - пока не реализовано
+--удаление линии со всеми заполненными 
 deleteLines game@GameState{..} = 
         (GameState userName (deleteLinesFromField gameField) gameRandomGen gameFigures (gameResult + (countDeletedLines gameField 0))
-                coordTetr colorTetr 0 rotateTypeFigure numLoop)
+                coordTetr colorTetr Game rotateTypeFigure numLoop)
               
 
 checkFlyCell ::  Field -> Cell -> Bool
 checkFlyCell field c = case lc of
-        Nothing -> ((getCellType c) /= 1)
-        Just lc1 -> ((getCellType c) /= 1) || ((getCellType c == 1) && (getCellType lc1 /= 0)) 
+        Nothing -> ((getCellType c) /= Fly)
+        Just lc1 -> ((getCellType c) /= Fly) || ((getCellType c == Fly) && (getCellType lc1 /= Land)) 
         where lc = lowerCell c field
 
-haveFlyFigure :: Field -> Bool -- поменять!!!!!!!
-haveFlyFigure field = (funFieldAll (checkFlyCell field) field) && (funFieldAny (\c -> ((getCellType c) == 1)) field)
+haveFlyFigure :: Field -> Bool
+haveFlyFigure field = (funFieldAll (checkFlyCell field) field) && (funFieldAny (\c -> ((getCellType c) == Fly)) field)
 --проверка -    1.что клетка - или не летящая, или летящая, но под ней свободно
 --              2.что на поле есть летящие клетки
       
 changeLandCellField :: Field -> Field
 changeLandCellField field = mapField (\c@Cell{..} -> case (getCellType c) of
-                                        1 -> (Cell numLine numCell 0 cellColor)
+                                        Fly -> (Cell numLine numCell Land cellColor)
                                         otherwise -> c) field
 
 
 changeLandCell :: GameState -> GameState
 changeLandCell game@GameState{..} = 
-        GameState userName (changeLandCellField gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr 0 
+        GameState userName (changeLandCellField gameField) gameRandomGen gameFigures gameResult coordTetr colorTetr endGame
                 rotateTypeFigure numLoop
 
         
        
 checkCanMoveLeft:: Field -> Bool
-checkCanMoveLeft field = funFieldAll (\c -> (((getCellType c) /= 1) ||
-         ((isJust (leftCell c field)) && ((getCellType (fromJust (leftCell c field))) /= 0)))) field
+checkCanMoveLeft field = funFieldAll (\c -> (((getCellType c) /= Fly) ||
+         ((isJust (leftCell c field)) && ((getCellType (fromJust (leftCell c field))) /= Land)))) field
 
 createCellForMoveLeft :: Field -> Cell -> Cell
 createCellForMoveLeft field c@Cell{..} = case (getCellType c) of 
-        0 -> c
+        Land -> c
         otherwise ->  case (rightCell c field) of 
-                Nothing -> (Cell numLine numCell 2 colorBoard)--просто клетка фона
+                Nothing -> (Cell numLine numCell Emp colorBoard)--просто клетка фона
                 Just r -> case (getCellType r) of
-                        2 -> (Cell numLine numCell 2 colorBoard) -- клетка фона 
-                        1 -> (Cell numLine numCell 1 (getCellColor r))
-                        0 -> (Cell numLine numCell 2 colorBoard) -- клетка фона 
+                        Emp -> (Cell numLine numCell Emp colorBoard) -- клетка фона 
+                        Fly -> (Cell numLine numCell Fly (getCellColor r))
+                        Land -> (Cell numLine numCell Emp colorBoard) -- клетка фона 
 
 moveLeft :: Field -> Field
 moveLeft field  | checkCanMoveLeft field = mapField (createCellForMoveLeft field) field
@@ -138,18 +136,18 @@ moveLeft field  | checkCanMoveLeft field = mapField (createCellForMoveLeft field
 
         
 checkCanMoveRight:: Field -> Bool
-checkCanMoveRight field = funFieldAll (\c -> (((getCellType c) /= 1) ||
-         ((isJust (rightCell c field)) && ((getCellType (fromJust (rightCell c field))) /= 0)))) field
+checkCanMoveRight field = funFieldAll (\c -> (((getCellType c) /= Fly) ||
+         ((isJust (rightCell c field)) && ((getCellType (fromJust (rightCell c field))) /= Land)))) field
                 
 createCellForMoveRight :: Field -> Cell -> Cell
 createCellForMoveRight field c@Cell{..} = case (getCellType c) of 
-        0 -> c
+        Land -> c
         otherwise ->  case (leftCell c field) of 
-                Nothing -> (Cell numLine numCell 2 colorBoard)--просто клетка фона
+                Nothing -> (Cell numLine numCell Emp colorBoard)--просто клетка фона
                 Just l -> case (getCellType l) of
-                        2 -> (Cell numLine numCell 2 colorBoard) -- клетка фона 
-                        1 -> (Cell numLine numCell 1 (getCellColor l))
-                        0 -> (Cell numLine numCell 2 colorBoard) -- клетка фона 
+                        Emp -> (Cell numLine numCell Emp colorBoard) -- клетка фона 
+                        Fly -> (Cell numLine numCell Fly (getCellColor l))
+                        Land -> (Cell numLine numCell Emp colorBoard) -- клетка фона 
 
 moveRight :: Field -> Field
 moveRight field  | checkCanMoveRight field = mapField (createCellForMoveRight field) field
@@ -163,7 +161,7 @@ getCoordsFromCells (c@Cell{..}:cs) coords = getCoordsFromCells cs (coords ++ [(n
 
 findCoordFigure :: Field -> CoordFigures
 findCoordFigure field = (getCoordsFromCells goodCells [])
-        where goodCells = (findCellCond field (\ c -> ((getCellType c) == 1)) [])
+        where goodCells = (findCellCond field (\ c -> ((getCellType c) == Fly)) [])
 
 
 compareFigure :: CoordFigures -> Int -> [(CoordFigures, CoordCell)] -> (Int, CoordCell)
@@ -202,19 +200,19 @@ createNewCoord numOldModel (x, y) = itogCoord
 
 checkCanRotate :: Field -> CoordFigures -> Bool
 checkCanRotate field [] = True
-checkCanRotate field ((x, y) : xs) = (x >= 0) && (y >= 0) && (x < 15) && (y < 10) && ((typeCellFromField field x y) == 2) && (checkCanRotate field xs)
+checkCanRotate field ((x, y) : xs) = (x >= 0) && (y >= 0) && (x < 15) && (y < 10) && ((typeCellFromField field x y) == Emp) && (checkCanRotate field xs)
 
 setNewCellsdForRotate :: [CoordCell] -> Color -> Field -> Field --ставим новые клетки 
 setNewCellsdForRotate [] color field = field
-setNewCellsdForRotate ((x, y): xs) color field = setNewCellsdForRotate xs color (changeCellInField field x y (Cell x y 1 color))
+setNewCellsdForRotate ((x, y): xs) color field = setNewCellsdForRotate xs color (changeCellInField field x y (Cell x y Fly color))
 
 deleteOldCellsForRotate :: [CoordCell] -> Color -> Field -> Field -- удаляем старые клетки
 deleteOldCellsForRotate [] color field = field
-deleteOldCellsForRotate ((x, y): xs) color field = deleteOldCellsForRotate xs color (changeCellInField field x y (Cell x y 2 colorBoard))
+deleteOldCellsForRotate ((x, y): xs) color field = deleteOldCellsForRotate xs color (changeCellInField field x y (Cell x y Emp colorBoard))
 
 
 rotateFigure :: Field -> Int-> Field
-rotateFigure field  rt    | (checkCanRotate fieldDeletedOldCells newCoord) = setNewCellsdForRotate newCoord color fieldDeletedOldCells
+rotateFigure field  rt  | (checkCanRotate fieldDeletedOldCells newCoord) = setNewCellsdForRotate newCoord color fieldDeletedOldCells
                         | otherwise = field
                         where   oldCoord = (findCoordFigure field)
                                 offsetX = minimum (map fst oldCoord)
@@ -232,19 +230,25 @@ rotateFigure field  rt    | (checkCanRotate fieldDeletedOldCells newCoord) = set
 
 -- Handle events.
 handleEvent :: Event -> GameState -> IO GameState
-handleEvent (EventKey (SpecialKey KeyLeft) Down _ _) game@GameState{..} = 
-        return (GameState userName (moveLeft gameField)  gameRandomGen 
-                gameFigures gameResult coordTetr colorTetr 0 rotateTypeFigure numLoop)
+handleEvent (EventKey (SpecialKey KeyLeft) Down _ _) game@GameState{..} =
+        if (endGame == Game) 
+                then return (GameState userName (moveLeft gameField)  gameRandomGen 
+                        gameFigures gameResult coordTetr colorTetr endGame rotateTypeFigure numLoop)
+                else return game
 handleEvent (EventKey (SpecialKey KeyRight) Down _ _) game@GameState{..} = 
-        return (GameState userName (moveRight gameField) gameRandomGen gameFigures 
-                gameResult coordTetr colorTetr 0 rotateTypeFigure numLoop)
+        if (endGame == Game) 
+                then    return (GameState userName (moveRight gameField) gameRandomGen gameFigures 
+                        gameResult coordTetr colorTetr endGame rotateTypeFigure numLoop)
+                else    return game
 handleEvent (EventKey (SpecialKey KeyEnter) Down _ _) game@GameState{..} = 
         return (GameState userName (createField) gameRandomGen (tail (tail gameFigures))  0 coordTetr
-                colorTetr 0 28 0)
+                colorTetr Game 28 0)
         
-handleEvent (EventKey (SpecialKey KeyUp) Down _ _) game@GameState{..} = 
-        return (GameState userName (rotateFigure gameField rotateTypeFigure) gameRandomGen 
-                gameFigures gameResult coordTetr colorTetr 0 q numLoop)
+handleEvent (EventKey (SpecialKey KeyUp) Down _ _) game@GameState{..} =
+        if (endGame == Game) 
+                then    return (GameState userName (rotateFigure gameField rotateTypeFigure) gameRandomGen 
+                        gameFigures gameResult coordTetr colorTetr endGame q numLoop)
+                else    return game
         where   q = (numberNextRotateModel rotateTypeFigure)
 
 handleEvent _ g = return g
@@ -254,19 +258,19 @@ handleEvent _ g = return g
 
 createEnd ::GameState -> IO GameState
 createEnd game@GameState{..} = do
-        if (endGame == 1)
+        if (endGame == FirstEnd)
                 then do
-                        appendFile "result" (((show userName) ++ " - ") ++  (show gameResult) ++ "\n")
+                        (trace ("append" ++ (show numLoop))) appendFile "result" (((show userName) ++ " - ") ++  (show gameResult) ++ "\n")
                         return (GameState userName gameField gameRandomGen 
-                                gameFigures gameResult coordTetr colorTetr 2 rotateTypeFigure numLoop)
-                else        return game
+                                gameFigures gameResult coordTetr colorTetr OldEnd rotateTypeFigure numLoop)
+                else    return game
             
 
 gameLoop :: IO GameState -> IO GameState
 gameLoop g = 
         do        
         game@GameState {..} <- g
-        if (endGame /= 0) 
+        if (endGame /= Game) 
                 then (createEnd game)
                 else if (haveFlyFigure gameField)
                         then (return (shiftFigure game))
@@ -284,7 +288,7 @@ runGameLoop num g =
 
 
 update :: Float -> GameState -> IO GameState
-update _ game@GameState{..} = {-(trace (show numLoop))-} runGameLoop (min x 3) (return game)
+update _ game@GameState{..} = runGameLoop (min x 3) (return game)
                         where x = (ceiling  (((realToFrac numLoop) / 30) + 0.0001))
 
---4 уже нереально
+--проблема - если результат 0, и было хоть одно нажатие влево/вправо, то два раза пишется

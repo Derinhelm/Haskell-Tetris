@@ -13,6 +13,6 @@ main = do
     putStrLn "Enter your name: "
     name <- getLine
     gen <- newStdGen
-    let createGame = GameState name (createField) gen (createListFigures gen) 0 (createCoordFigures) (createColorFigures) 0 28 0
+    let createGame = GameState name (createField) gen (createListFigures gen) 0 (createCoordFigures) (createColorFigures) Game 28 0
 
     playIO window black fps createGame drawGame handleEvent update

@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-04-02 12:31:59.060176462 UTC
+2019-04-02 15:09:12.696140575 UTC
 
 interface main:Main 8063
-  interface hash: f2ac28b3ca0c78388b49bff721cf94a8
-  ABI hash: 189c7ecca3b9c830c56594784d43d709
+  interface hash: 6d2e563d7401228b47b88b50af6081b8
+  ABI hash: 686652df61520b8db44dab149a458970
   export-list hash: 20c68f547accb97c62ee138a2f3d3bd6
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 41157dda25afcb8501e0e59ceee8ebaa
@@ -58,10 +58,10 @@ import  -/  base-4.12.0.0:System.IO 88c2b1c4079c52d62ed362d4eb9a5302
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 63b215a24677775cb457045312664a10
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.IO.Game e364cc81678e318c506c2166775eac31
-import  -/  project-template-0.0.0.0:Constans 1487ad15622542e95d86c5deddace10f
-import  -/  project-template-0.0.0.0:Draw 4a69272644a6ae6c5141df5a6c8da12d
-import  -/  project-template-0.0.0.0:MyProj fe553cfa3dbaee19eba89a912a65eeb1
-import  -/  project-template-0.0.0.0:Type 69e542a025064bb32c4d37c465067844
+import  -/  project-template-0.0.0.0:Constans dc4d2a30b96178abbafea9e5df6809fb
+import  -/  project-template-0.0.0.0:Draw b199c52ebe6b9372c4564609004d2075
+import  -/  project-template-0.0.0.0:MyProj eab7ccd2c1ce16773c6bfa3e8eedeffe
+import  -/  project-template-0.0.0.0:Type 474f023ed593e4ad46fcc65960cc9981
 import  -/  random-1.1:System.Random 8c06dce30a9b8b4f2b7c15fb3f418e08
 be86c9d078d3acbf19ba91fe74a24273
   $trModule :: GHC.Types.Module
@@ -81,12 +81,12 @@ e5875966b74dad2d29772660b8a75e33
 d026be77cb9ced20e35a61514e0458aa
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-278b85b7f30905eb8d90c9df49b08236
+cb0dde05ea49f650684d312f05284804
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-f2f7fbd1ee503cbf9767cb6ea6a776d5
+c29a2a4a9cf79dcd994035b2e9d3766f
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -136,7 +136,7 @@ f2f7fbd1ee503cbf9767cb6ea6a776d5
                       Main.main3
                       Type.createCoordFigures
                       Type.createColorFigures
-                      Main.main3
+                      Type.Game
                       Main.main2
                       Main.main3)
                    Draw.drawGame1
@@ -164,7 +164,7 @@ aafa00965856e5aec048c50d2ebce87e
 1f09c4011f56b156a0877c9a96800a93
   main5 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Enter your name: "#) -}
-aecbc48598557f4b2f7350918405ba67
+f7b570bf48527bc99beaa29382d8505c
   main6 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

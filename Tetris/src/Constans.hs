@@ -12,7 +12,7 @@ fps = 1
 
 
 window :: Display
-window = InWindow "Tetris" (1100, 1000) (0, 0)
+window = {-FullScreen -} InWindow "Tetris" (1100, 1000) (0, 0)
 
 
 createListFigures :: StdGen -> [Int]

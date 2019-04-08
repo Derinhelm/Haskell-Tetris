@@ -15,8 +15,8 @@ objects :: Float -> Float -> Color-> Picture
 objects x y col = translate (50 * (y - 6)) (50 * (- x + 6)) $ color col$ rectangleSolid 50 50
 
 drawCell :: Cell -> Picture
-drawCell (Cell( numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color))
-    |(cellType == 2) = (objects (realToFrac numLine) (realToFrac numCell) colorBoard)
+drawCell c@Cell{..}
+    |(cellType == Emp) = (objects (realToFrac numLine) (realToFrac numCell) colorBoard)
     | otherwise = (objects (realToFrac numLine) (realToFrac numCell) cellColor)
 
 drawLine :: Line -> [Picture]
@@ -25,7 +25,7 @@ drawLine (x : xs) = (drawCell x : drawLine xs)
 
 pictureField :: Field -> [Picture]
 pictureField [] = []
-pictureField (x : xs)  = {-trace (show x)-} ((drawLine x) ++ (pictureField xs ))
+pictureField (x : xs)  = ((drawLine x) ++ (pictureField xs ))
 
 
 drawCellForFigure :: [CoordCell] -> Color -> [Picture] ->  [Picture]
@@ -38,8 +38,8 @@ drawFigure num = drawCellForFigure coords col []
     where   col = (!!) createColorFigures num
             coords = (!!) createCoordFigures num
 
-drawResult :: Int -> Int -> [Picture]
-drawResult res isEnd | (isEnd /= 0) = [(translate 330 200 $ color yellow $ (Text ((show res)))),
+drawResult :: Int -> End -> [Picture]
+drawResult res isEnd | (isEnd /= Game) = [(translate 330 200 $ color yellow $ (Text ((show res)))),
                                     (translate (-250) 370 $ color orange $ (Text "GAME")), 
                                     (translate (100) (370) $ color orange $ (Text "OVER")),
                                     (translate (210) (0) $ color orange $ (Text "Enter")),
@@ -48,7 +48,7 @@ drawResult res isEnd | (isEnd /= 0) = [(translate 330 200 $ color yellow $ (Text
                                     (translate (190) (-300) $ color orange $ (Text "game"))
                                     ]
 drawResult res isEnd | otherwise = [translate 330 200 $ color yellow $ (Text ((show res)))]
---drawResult res = [translate 330 200 $ color yellow $ (Text (show res)), translate 330 250 $ color yellow $ (Text (show "result"))]
+
 
 drawGame :: GameState -> IO Picture
 drawGame game@GameState{..} = 

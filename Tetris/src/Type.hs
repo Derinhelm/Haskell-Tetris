@@ -10,11 +10,11 @@ import System.Random
 import Data.Maybe
 import Debug.Trace
 
+data TypeCell = Land | Fly | Emp deriving (Show, Eq)
 
 data Cell = Cell {       numLine :: Int
                          , numCell :: Int --номер клетки в столбце
-                         , cellType :: Int -- тип клетки 0 - занята(нижние клетки), 1 - занята(летящая клетка), 2 - свободна
-                         --3 ошибка при построении(если уже некуда лететь)
+                         , cellType :: TypeCell -- тип клетки 0 - занята(нижние клетки), 1 - занята(летящая клетка), 2 - свободна
                          , cellColor :: Color
                          } deriving Show
 type Line = [Cell]
@@ -23,7 +23,7 @@ type Field = [Line]
 
 
 createLine :: Int -> Line
-createLine x = [Cell x y 2 white | y <- [0..9]]
+createLine x = [Cell x y Emp white | y <- [0..9]]
 
 createField :: Field
 createField = [createLine x| x <- [0.. 14]]
@@ -82,6 +82,9 @@ createRotateModels =    [([(0, 0), (0, 1), (1, 0), (1, 1)], (0, 0))
                         , ([(0, 2), (1, 0), (1, 1), (1, 2)], (1, 0))
                         ]
 
+data End = Game | FirstEnd | OldEnd deriving (Show, Eq)
+ --Game - игра еще идет, FirstEnd - игра только закончилась(надо писать в файл)
+--OldEnd - игра давно закончилась
 
 
 data GameState = GameState
@@ -92,7 +95,7 @@ data GameState = GameState
     , gameResult :: Int -- текущий результат игры
     , coordTetr :: [CoordFigures] -- Tetr - тетрамино
     , colorTetr :: [Color]
-    , endGame :: Int
+    , endGame :: End
     , rotateTypeFigure :: Int -- тип вращения, число от 0 до 27
     , numLoop :: Int -- количество прошедших игровых циклов
     } deriving Show
@@ -109,10 +112,10 @@ getCellColor c@Cell{..} = cellColor
 getCell :: Field -> Int -> Int -> Cell -- получение клетки из поля
 getCell field x y = (!!) ((!!) field  x)  y 
 
-getCellType :: Cell -> Int --получение типа клетки 
-getCellType (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) = cellType
+getCellType :: Cell -> TypeCell --получение типа клетки 
+getCellType cell@Cell{..} = cellType
 
-typeCellFromField :: Field -> Int -> Int -> Int --получение типа клетки по координате клетки
+typeCellFromField :: Field -> Int -> Int -> TypeCell --получение типа клетки по координате клетки
 typeCellFromField field x y = getCellType (getCell field x y)
 
 
@@ -150,38 +153,35 @@ findCellCond (x : xs) f goodCells = findCellCond xs f (goodCells ++ (findCellCon
 higherCell :: Cell -> Field -> Maybe Cell --клетка на 1 выше данной 
 higherCell c@Cell{..} field 
     | (numLine == 0) = Nothing
-    | otherwise = {-trace ((show c) ++ " " ++ (show (Just (getCell field (numLine - 1) numCell))))-} 
-            (Just (getCell field (numLine - 1) numCell))
+    | otherwise = (Just (getCell field (numLine - 1) numCell))
 
 lowerCell :: Cell -> Field -> Maybe Cell --клетка на 1 ниже данной 
-lowerCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) field 
+lowerCell c@Cell{..} field 
     | (numLine == 14) = Nothing
     | otherwise = Just (getCell field (numLine + 1) numCell)
 
 
 leftCell :: Cell -> Field -> Maybe Cell --клетка на 1 левее данной 
-leftCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) field 
+leftCell c@Cell{..} field 
     | (numCell == 0) = Nothing
     | otherwise = Just (getCell field (numLine) (numCell - 1))
 
 
 rightCell :: Cell -> Field -> Maybe Cell --клетка на 1 правее данной 
-rightCell (Cell(numLine :: Int) (numCell :: Int) (cellType :: Int) (cellColor :: Color)) field 
+rightCell c@Cell{..} field 
     | (numCell == 9) = Nothing
     | otherwise = Just (getCell field numLine (numCell + 1))
 
 
 
 changeCellInLine :: Line -> Int -> Cell -> Line 
-changeCellInLine line y new = --(trace ((show beg) ++ (show end)))
-                                 beg ++ [new] ++ end
+changeCellInLine line y new = beg ++ [new] ++ end
     where (beg, end1) = (splitAt y line )
           (beg2, end) = (splitAt 1 end1)
 
 
 changeCellInField :: Field -> Int -> Int -> Cell -> Field
-changeCellInField field x y new = --(trace (show result)) 
-                                    result
+changeCellInField field x y new = result
     where (beg, end1) = splitAt x field 
           (beg2, end) = splitAt 1 end1
           result = beg ++ [(changeCellInLine (head beg2) y new)] ++ end
